@@ -1,3 +1,5 @@
 zenml[server]
 pdfplumber==0.10.3
 unstructured==0.14.9
+psycopg2-binary==2.9.9
+sqlalchemy==2.0.41
