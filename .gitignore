@@ -13,3 +13,8 @@ venv/
 data/
 models/
 .ipynb_checkpoints/
+
+# Package build files
+*.egg-info/
+build/
+dist/

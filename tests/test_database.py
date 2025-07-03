@@ -1,11 +1,20 @@
 """Test database connection and operations."""
 
 import os
-from src.database import db_manager
+import sys
+from pathlib import Path
+
+# Add parent directory to Python path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from utils.database import DatabaseManager
 
 def main():
     """Test database connectivity and basic operations."""
     print("Testing Clinical RAG Database Connection...")
+    
+    # Initialize database manager
+    db_manager = DatabaseManager()
     
     # Test connection
     result = db_manager.test_connection()

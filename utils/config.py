@@ -5,7 +5,8 @@ from pathlib import Path
 
 # Project paths
 PROJECT_ROOT = Path(__file__).parent.parent
-DATA_DIR = Path(__file__).parent / "data"  # PDFs are in src/data/
+DATA_DIR = PROJECT_ROOT / "data" / "raw"  # PDFs are in data/raw/
+PROCESSED_DATA_DIR = PROJECT_ROOT / "data" / "processed"  # Processed files
 MODELS_DIR = PROJECT_ROOT / "models"
 
 # Database settings

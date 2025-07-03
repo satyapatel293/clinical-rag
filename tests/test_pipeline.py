@@ -1,9 +1,14 @@
 """Test script to run the PDF extraction pipeline."""
 
 import os
+import sys
 from pathlib import Path
-from src.pipeline import pdf_processing_pipeline
-from src.config import DATA_DIR
+
+# Add parent directory to Python path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from pipelines.clinical_rag_pipeline import pdf_processing_pipeline
+from utils.config import DATA_DIR
 
 def main():
     """Test the PDF extraction pipeline with sample documents."""

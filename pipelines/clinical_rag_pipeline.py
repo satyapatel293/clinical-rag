@@ -1,11 +1,20 @@
-"""Main pipeline for Clinical RAG system."""
+"""Main Clinical RAG pipeline for processing PDFs into searchable embeddings."""
 
 from zenml import pipeline
-from .steps import extract_text_from_pdf, preprocess_text, chunk_text, generate_embeddings, store_embeddings_in_database
+from steps.extract_text_from_pdf import extract_text_from_pdf
+from steps.preprocess_text import preprocess_text
+from steps.chunk_text import chunk_text
+from steps.generate_embeddings import generate_embeddings
+from steps.store_embeddings import store_embeddings_in_database
 
 
 @pipeline
-def pdf_processing_pipeline(pdf_path: str, chunk_size: int = 1000, overlap: int = 200, model_name: str = "all-MiniLM-L6-v2"):
+def pdf_processing_pipeline(
+    pdf_path: str, 
+    chunk_size: int = 1000, 
+    overlap: int = 200, 
+    model_name: str = "all-MiniLM-L6-v2"
+):
     """
     Pipeline to extract, preprocess, chunk, embed, and store text from PDF.
     

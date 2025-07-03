@@ -3,7 +3,13 @@
 Test script for Clinical RAG search functionality.
 """
 
-from src.search import ClinicalRAGSearcher
+import sys
+from pathlib import Path
+
+# Add parent directory to Python path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from utils.search import ClinicalRAGSearcher
 
 def main():
     # Initialize searcher

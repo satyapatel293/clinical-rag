@@ -26,7 +26,7 @@ zenml init
 psql -d clinical_rag -f schema.sql
 
 # Check database status
-python check_db_status.py
+python utils/check_db_status.py
 ```
 
 ### Running Pipelines
@@ -34,14 +34,19 @@ python check_db_status.py
 # Set required environment variable for macOS
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
-# Run the main PDF processing pipeline
-python test_pipeline.py
+# Process a PDF document
+python run.py ingest data/raw/Achilles_Pain.pdf
 
-# Run search functionality tests  
-python test_search.py
+# Search for clinical information
+python run.py search "What exercises help with pain?"
 
-# Test database connectivity
-python test_database.py
+# Check database status
+python run.py status
+
+# Run tests
+python tests/test_pipeline.py
+python tests/test_search.py
+python tests/test_database.py
 ```
 
 ### ZenML Server Management
@@ -66,10 +71,11 @@ The system follows a linear ZenML pipeline: **PDF → Extract → Preprocess →
 
 ### Key Components
 
-- **DatabaseManager** (`src/database.py`): Handles all PostgreSQL operations with connection pooling
-- **ClinicalRAGSearcher** (`src/search.py`): Provides semantic search with cosine similarity using pgvector `<=>` operator
-- **Pipeline Definition** (`src/pipeline.py`): Single ZenML pipeline orchestrating all steps
-- **Steps** (`src/steps.py`): All ZenML pipeline steps in one file (currently monolithic)
+- **DatabaseManager** (`utils/database.py`): Handles all PostgreSQL operations with connection pooling
+- **ClinicalRAGSearcher** (`utils/search.py`): Provides semantic search with cosine similarity using pgvector `<=>` operator
+- **Pipeline Definition** (`pipelines/clinical_rag_pipeline.py`): ZenML pipeline orchestrating all steps
+- **Individual Steps** (`steps/`): Modular ZenML pipeline steps (extract, preprocess, chunk, embed, store)
+- **Main CLI** (`run.py`): Command-line interface for ingesting PDFs and searching
 
 ### Database Schema
 - **documents**: PDF metadata and processing status
@@ -90,17 +96,35 @@ The system follows a linear ZenML pipeline: **PDF → Extract → Preprocess →
 
 ## Data Flow
 
-1. **Input**: Clinical PDFs in `src/data/` (Achilles_Pain.pdf, Concussion.pdf)
-2. **Processing**: Temporary outputs stored in `temp/` directory
+1. **Input**: Clinical PDFs in `data/raw/` (Achilles_Pain.pdf, Concussion.pdf)
+2. **Processing**: Temporary outputs stored in `data/processed/` directory
 3. **Storage**: Final embeddings and chunks in PostgreSQL
-4. **Search**: ClinicalRAGSearcher queries the vector database
+4. **Search**: ClinicalRAGSearcher queries the vector database via CLI (`python run.py search`)
+
+## Project Structure
+
+```
+clinical-rag/
+├── pipelines/           # ZenML pipeline definitions
+├── steps/              # Individual ZenML pipeline steps
+├── utils/              # Database, search, and utility functions
+├── tests/              # Test files
+├── configs/            # Configuration files (dev.yaml, production.yaml)
+├── data/
+│   ├── raw/           # Original PDF files
+│   └── processed/     # Extracted and processed text files
+├── run.py             # Main CLI entry point
+├── setup.py           # Package configuration
+├── schema.sql         # Database schema
+└── requirements.txt   # Python dependencies
+```
 
 ## Testing Structure
 
-- `test_search.py`: Comprehensive search functionality testing with clinical queries
-- `test_database.py`: Database connectivity and operations testing
-- `test_pipeline.py`: End-to-end pipeline execution testing
-- `check_db_status.py`: Database content inspection utility
+- `tests/test_search.py`: Comprehensive search functionality testing with clinical queries
+- `tests/test_database.py`: Database connectivity and operations testing
+- `tests/test_pipeline.py`: End-to-end pipeline execution testing
+- `utils/check_db_status.py`: Database content inspection utility
 
 ## ZenML Integration
 
@@ -109,12 +133,16 @@ The system follows a linear ZenML pipeline: **PDF → Extract → Preprocess →
 - Steps return structured dictionaries with success/error handling
 - Pipeline runs tracked in ZenML dashboard (localhost:8237)
 
-## Current Limitations
+## Current Status
 
-- All pipeline steps in single monolithic file (`src/steps.py`)
-- No configuration management system
-- Test files scattered in root directory
-- No proper Python package structure for imports
-- Missing materializers for custom data types
+✅ **Completed Features:**
+- Proper Python package structure with modular design
+- Individual ZenML pipeline steps in separate files
+- Configuration management system (`configs/`, `utils/config.py`)
+- Organized test structure (`tests/` directory)
+- Command-line interface (`run.py`) for all operations
+- High-quality semantic search (0.7+ similarity scores)
 
-This system successfully processes clinical documents and provides high-quality semantic search (0.7+ similarity scores) for clinical decision support queries.
+## Phase 1 Foundation Complete
+
+This system successfully processes clinical documents and provides high-quality semantic search for clinical decision support queries. The foundation is ready for Phase 2 adaptive intelligence features.

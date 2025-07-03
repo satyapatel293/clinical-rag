@@ -1,0 +1,41 @@
+# Development configuration for Clinical RAG system
+
+# Pipeline settings
+enable_cache: false
+
+# Model settings
+embedding_model: "all-MiniLM-L6-v2"
+chunk_size: 1000
+chunk_overlap: 200
+
+# Database settings
+database:
+  url: "postgresql://postgres:password@localhost:5432/clinical_rag"
+  max_connections: 5
+  
+# Processing settings
+processing:
+  batch_size: 32
+  save_temp_files: true
+  temp_directory: "temp"
+
+# Search settings
+search:
+  default_similarity_threshold: 0.3
+  default_top_k: 5
+  enable_query_enhancement: true
+
+# ZenML settings
+settings:
+  docker:
+    requirements:
+      - sentence-transformers==3.3.1
+      - pdfplumber==0.10.3
+      - psycopg2-binary==2.9.9
+  steps:
+    extract_text_from_pdf:
+      parameters:
+        save_temp: true
+    generate_embeddings:
+      parameters:
+        model_name: "all-MiniLM-L6-v2"

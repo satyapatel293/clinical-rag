@@ -5,7 +5,7 @@ Vector similarity search functionality for Clinical RAG system.
 from typing import List, Dict, Any, Optional
 from sentence_transformers import SentenceTransformer
 import numpy as np
-from src.database import DatabaseManager
+from utils.database import DatabaseManager
 
 
 class ClinicalRAGSearcher:
