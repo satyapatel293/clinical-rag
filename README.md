@@ -253,17 +253,22 @@ export TOKENIZERS_PARALLELISM=false
 ```
 clinical-rag/
 ├── pipelines/           # ZenML pipeline definitions
-│   └── clinical_rag_pipeline.py
+│   ├── clinical_rag_pipeline.py        # PDF ingestion pipeline
+│   └── clinical_generation_pipeline.py # RAG generation pipeline
 ├── steps/              # Individual modular pipeline steps
-│   ├── extract_text_from_pdf.py
-│   ├── preprocess_text.py
-│   ├── chunk_text.py
-│   ├── generate_embeddings.py
-│   └── store_embeddings.py
+│   ├── extract_text_from_pdf.py        # PDF text extraction
+│   ├── preprocess_text.py              # Text preprocessing
+│   ├── chunk_text.py                   # Text chunking
+│   ├── generate_embeddings.py          # Embedding generation
+│   ├── store_embeddings.py             # Database storage
+│   ├── format_retrieval_context.py     # Context formatting for LLM
+│   ├── build_clinical_prompt.py        # Clinical prompt construction
+│   ├── generate_with_ollama.py         # LLM generation with Ollama
+│   ├── parse_and_validate_response.py  # Response validation
+│   └── extract_metadata_and_citations.py # Citation extraction
 ├── utils/              # Core utilities
 │   ├── database.py     # PostgreSQL + pgvector manager
 │   ├── search.py       # Clinical semantic search
-│   ├── generation.py   # Ollama LLM integration for RAG
 │   └── config.py       # Configuration management
 ├── tests/              # Comprehensive test suite
 ├── configs/            # Environment configurations

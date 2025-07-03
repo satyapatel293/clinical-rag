@@ -12,8 +12,8 @@ from pathlib import Path
 os.environ['OBJC_DISABLE_INITIALIZE_FORK_SAFETY'] = 'YES'
 
 from pipelines.clinical_rag_pipeline import pdf_processing_pipeline
+from pipelines.clinical_generation_pipeline import clinical_generation_pipeline, simple_clinical_generation_pipeline
 from utils.search import ClinicalRAGSearcher
-from utils.generation import ClinicalResponseGenerator
 from utils.database import DatabaseManager
 from utils.config import DATA_DIR
 
@@ -112,54 +112,66 @@ def cmd_ask(args):
         
         if not results:
             print("No relevant clinical information found.")
+            print("🤖 Generating simple response without context...\n")
+            
+            try:
+                # Use simple generation pipeline without context
+                pipeline_run = simple_clinical_generation_pipeline(
+                    query=args.query,
+                    model_name=args.model,
+                    temperature=args.temperature,
+                    output_format="detailed"
+                )
+                
+                # Get the output from the last step
+                pipeline_result = pipeline_run.steps["format_final_cli_output"].output.load()
+                
+                if pipeline_result['success']:
+                    print(pipeline_result['cli_output'])
+                else:
+                    print(f"❌ Generation failed: {pipeline_result['error']}")
+                    
+            except Exception as e:
+                print(f"❌ Simple generation error: {e}")
             return
             
         print(f"✅ Found {len(results)} relevant chunks")
-        print("🤖 Generating clinical response...\n")
+        print("🤖 Running generation pipeline...\n")
         
         try:
-            generator = ClinicalResponseGenerator()
-            
-            # Convert search results to format expected by generator
+            # Convert search results to format expected by pipeline
             chunks_for_generation = []
             for result in results:
                 chunks_for_generation.append({
-                    'content': result['text'],
+                    'text': result['text'],
                     'similarity': result['similarity'],
                     'section_type': result['section_type'],
-                    'document_name': result['filename']
+                    'filename': result['filename']
                 })
             
-            # Generate RAG response
-            generation_result = generator.generate_response(args.query, chunks_for_generation)
+            # Run the clinical generation pipeline
+            pipeline_run = clinical_generation_pipeline(
+                query=args.query,
+                retrieved_chunks=chunks_for_generation,
+                model_name=args.model,
+                temperature=args.temperature,
+                output_format="detailed",
+                include_full_metadata=True
+            )
             
-            if generation_result['success']:
-                print("📋 CLINICAL RESPONSE:")
-                print("=" * 60)
-                print(generation_result['response'])
-                print("=" * 60)
-                
-                # Show metadata
-                metadata = generation_result['metadata']
-                print(f"\n📊 Generation Details:")
-                print(f"   Model: {metadata['model']}")
-                print(f"   Chunks used: {metadata['chunks_used']}")
-                print(f"   Temperature: {metadata['temperature']}")
-                if 'total_tokens' in metadata:
-                    print(f"   Tokens: {metadata['total_tokens']}")
-                
-                # Show sources
-                print(f"\n📚 Evidence Sources:")
-                for i, source in enumerate(metadata['chunk_sources'], 1):
-                    print(f"   {i}. {source['document']} ({source['section']}) - Relevance: {source['similarity']:.3f}")
-                    
+            # Get the output from the last step
+            pipeline_result = pipeline_run.steps["format_final_cli_output"].output.load()
+            
+            if pipeline_result['success']:
+                # Pipeline handles all formatting, just print the result
+                print(pipeline_result['cli_output'])
             else:
-                print(f"❌ Generation failed: {generation_result['error']}")
+                print(f"❌ Generation pipeline failed: {pipeline_result['error']}")
                 print("\n📄 Retrieved information (fallback):")
                 _show_chunks(results)
                 
         except Exception as e:
-            print(f"❌ Generation error: {e}")
+            print(f"❌ Pipeline execution error: {e}")
             print("\n📄 Retrieved information (fallback):")
             _show_chunks(results)
             
@@ -262,6 +274,8 @@ Examples:
     ask_parser.add_argument('--threshold', type=float, default=0.3, help='Minimum similarity threshold (default: 0.3)')
     ask_parser.add_argument('--section', help='Filter by section type (treatment, diagnosis, etc.)')
     ask_parser.add_argument('--no-enhance', action='store_true', help='Disable query enhancement')
+    ask_parser.add_argument('--model', default='llama3.2:3b', help='Ollama model for generation (default: llama3.2:3b)')
+    ask_parser.add_argument('--temperature', type=float, default=0.1, help='Generation temperature 0.0-1.0 (default: 0.1)')
     ask_parser.set_defaults(func=cmd_ask)
     
     # Status command
