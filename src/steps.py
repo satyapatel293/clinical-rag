@@ -4,10 +4,13 @@ from typing import Dict, Any, List
 from pathlib import Path
 import re
 import json
+import os
 
 from zenml import step
 import pdfplumber
 from unstructured.cleaners.core import clean_extra_whitespace, clean_non_ascii_chars
+import numpy as np
+from .database import DatabaseManager
 
 
 @step
@@ -278,3 +281,235 @@ def _identify_section_type(text: str) -> str:
         return 'references'
     else:
         return 'general'
+
+
+@step
+def generate_embeddings(
+    chunking_result: Dict[str, Any],
+    model_name: str = "all-MiniLM-L6-v2",
+    save_temp: bool = True
+) -> Dict[str, Any]:
+    """
+    Generate embeddings for text chunks using sentence transformers.
+    
+    Args:
+        chunking_result: Output from chunk_text step
+        model_name: Sentence transformer model to use
+        save_temp: Whether to save embeddings to temp directory
+        
+    Returns:
+        Dictionary containing embeddings and metadata
+    """
+    if not chunking_result['success']:
+        return {
+            'embeddings': [],
+            'metadata': chunking_result['metadata'],
+            'success': False,
+            'error': f"Cannot generate embeddings - chunking failed: {chunking_result['error']}"
+        }
+    
+    try:
+        # Import here to avoid loading model unnecessarily
+        from sentence_transformers import SentenceTransformer
+        
+        chunks = chunking_result['chunks']
+        metadata = chunking_result['metadata']
+        
+        print(f"Loading sentence transformer model: {model_name}")
+        model = SentenceTransformer(model_name)
+        
+        # Extract texts for embedding
+        texts = [chunk['text'] for chunk in chunks]
+        
+        print(f"Generating embeddings for {len(texts)} chunks...")
+        # Generate embeddings in batches for efficiency
+        embeddings_array = model.encode(
+            texts,
+            batch_size=32,
+            show_progress_bar=True,
+            convert_to_numpy=True
+        )
+        
+        # Combine embeddings with chunk metadata
+        chunk_embeddings = []
+        for i, (chunk, embedding) in enumerate(zip(chunks, embeddings_array)):
+            chunk_embeddings.append({
+                'chunk_id': chunk['chunk_id'],
+                'text': chunk['text'],
+                'section_type': chunk['section_type'],
+                'embedding': embedding,
+                'embedding_dim': len(embedding),
+                'source_file': chunk['source_file']
+            })
+        
+        # Save embeddings to temp directory if requested
+        if save_temp:
+            temp_dir = Path("temp")
+            temp_dir.mkdir(exist_ok=True)
+            
+            embeddings_file = temp_dir / f"{Path(metadata['file_path']).stem}_embeddings.npz"
+            
+            # Save as compressed numpy arrays for efficiency
+            embeddings_dict = {
+                f"embedding_{i}": emb['embedding'] 
+                for i, emb in enumerate(chunk_embeddings)
+            }
+            np.savez_compressed(embeddings_file, **embeddings_dict)
+            
+            metadata['embeddings_temp_file'] = str(embeddings_file)
+        
+        return {
+            'embeddings': chunk_embeddings,
+            'metadata': {
+                **metadata,
+                'embedding_model': model_name,
+                'embedding_dim': len(embeddings_array[0]),
+                'total_embeddings': len(chunk_embeddings)
+            },
+            'success': True,
+            'error': None
+        }
+        
+    except Exception as e:
+        return {
+            'embeddings': [],
+            'metadata': chunking_result['metadata'],
+            'success': False,
+            'error': f"Embedding generation failed: {str(e)}"
+        }
+
+
+@step
+def store_embeddings_in_database(
+    embedding_result: Dict[str, Any],
+    database_url: str = "postgresql://postgres:password@localhost:5432/clinical_rag"
+) -> Dict[str, Any]:
+    """
+    Store embeddings and chunks in PostgreSQL database.
+    
+    Args:
+        embedding_result: Output from generate_embeddings step
+        database_url: Database connection URL (if None, uses environment variable)
+        
+    Returns:
+        Dictionary containing storage results and metadata
+    """
+    if not embedding_result['success']:
+        return {
+            'stored_count': 0,
+            'metadata': embedding_result['metadata'],
+            'success': False,
+            'error': f"Cannot store embeddings - generation failed: {embedding_result['error']}"
+        }
+    
+    try:
+        # Initialize database manager
+        db_url = database_url or os.getenv('DATABASE_URL', 'postgresql://postgres:password@localhost:5432/clinical_rag')
+        db_manager = DatabaseManager(db_url)
+        
+        embeddings = embedding_result['embeddings']
+        metadata = embedding_result['metadata']
+        
+        print(f"Connecting to database and storing {len(embeddings)} embeddings...")
+        
+        # First, create or get document record
+        document_data = {
+            'filename': metadata['filename'],
+            'file_path': metadata['file_path'],
+            'title': metadata.get('title', ''),
+            'author': metadata.get('author', ''),
+            'subject': metadata.get('subject', ''),
+            'num_pages': metadata.get('num_pages', 0),
+            'file_size_bytes': 0,  # We could add this if needed
+            'original_text_length': metadata.get('original_length', 0),
+            'processed_text_length': metadata.get('cleaned_length', 0),
+            'total_chunks': metadata.get('total_chunks', 0),
+            'processing_status': 'completed'
+        }
+        
+        document_id = db_manager.insert_document(document_data)
+        print(f"Created/retrieved document record with ID: {document_id}")
+        
+        # Insert chunks and embeddings one by one to track IDs properly
+        stored_count = 0
+        chunk_embedding_pairs = []
+        
+        print(f"Inserting {len(embeddings)} chunks and embeddings...")
+        
+        with db_manager.get_connection() as conn:
+            with conn.cursor() as cur:
+                for embedding_data in embeddings:
+                    try:
+                        # Insert chunk first
+                        chunk_insert_sql = """
+                            INSERT INTO chunks (document_id, chunk_id, text, section_type, 
+                                              sentence_start, sentence_end, char_length)
+                            VALUES (%s, %s, %s, %s, %s, %s, %s)
+                            RETURNING id;
+                        """
+                        chunk_values = (
+                            document_id,
+                            embedding_data['chunk_id'], 
+                            embedding_data['text'],
+                            embedding_data['section_type'],
+                            0,  # sentence_start
+                            0,  # sentence_end  
+                            len(embedding_data['text'])
+                        )
+                        cur.execute(chunk_insert_sql, chunk_values)
+                        db_chunk_id = cur.fetchone()[0]
+                        
+                        # Insert embedding with the returned chunk ID
+                        embedding_insert_sql = """
+                            INSERT INTO embeddings (chunk_id, embedding, model_name, model_version)
+                            VALUES (%s, %s, %s, %s);
+                        """
+                        embedding_values = (
+                            db_chunk_id,
+                            embedding_data['embedding'].tolist(),
+                            metadata['embedding_model'],
+                            '1.0'
+                        )
+                        cur.execute(embedding_insert_sql, embedding_values)
+                        
+                        stored_count += 1
+                        
+                        if stored_count % 50 == 0:
+                            print(f"Stored {stored_count}/{len(embeddings)} embeddings...")
+                            
+                    except Exception as e:
+                        print(f"Error storing chunk {embedding_data['chunk_id']}: {e}")
+                        continue
+                
+                conn.commit()
+        
+        print(f"Successfully stored {stored_count} chunks and embeddings")
+        
+        # Get final statistics
+        stats = db_manager.get_statistics()
+        
+        print(f"Successfully stored {stored_count} embeddings to database")
+        print(f"Database now contains {stats['documents']['total_docs']} documents, {stats['chunks']['total_chunks']} chunks")
+        total_embeddings = sum(e['total_embeddings'] for e in stats['embeddings']) if stats['embeddings'] else 0
+        print(f"Total embeddings: {total_embeddings}")
+        
+        return {
+            'stored_count': stored_count,
+            'document_id': document_id,
+            'database_stats': stats,
+            'metadata': {
+                **metadata,
+                'database_url': db_url,
+                'storage_success': True
+            },
+            'success': True,
+            'error': None
+        }
+        
+    except Exception as e:
+        return {
+            'stored_count': 0,
+            'metadata': embedding_result['metadata'],
+            'success': False,
+            'error': f"Database storage failed: {str(e)}"
+        }

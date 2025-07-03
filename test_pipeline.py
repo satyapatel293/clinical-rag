@@ -22,16 +22,16 @@ def main():
     for pdf_file in pdf_files:
         print(f"  - {pdf_file.name}")
     
-    # Process the first PDF as a test
-    test_pdf = pdf_files[0]
+    # Process the Achilles PDF (smaller document)
+    test_pdf = [pdf for pdf in pdf_files if 'Achilles' in pdf.name][0] if any('Achilles' in pdf.name for pdf in pdf_files) else pdf_files[0]
     print(f"\nTesting with: {test_pdf.name}")
     
     try:
         # Run the pipeline with chunking
         pipeline_run = pdf_processing_pipeline(str(test_pdf), chunk_size=800, overlap=150)
         
-        # Get the result from the chunking step
-        step_output = pipeline_run.steps["chunk_text"].output.load()
+        # Get the result from the embeddings step
+        step_output = pipeline_run.steps["generate_embeddings"].output.load()
         
         # Display results
         if step_output['success']:
@@ -47,9 +47,15 @@ def main():
                 clean_len = step_output['metadata'].get('cleaned_length', 0)
                 print(f"🧹 Text cleaning: {orig_len:,} → {clean_len:,} chars ({((orig_len-clean_len)/orig_len*100):.1f}% reduction)")
             
+            # Show embedding info
+            if step_output['metadata'].get('embedding_model'):
+                print(f"🤖 Embedding model: {step_output['metadata']['embedding_model']}")
+                print(f"📊 Embedding dimension: {step_output['metadata']['embedding_dim']}")
+                print(f"🔢 Total embeddings: {step_output['metadata']['total_embeddings']}")
+            
             # Show temp file locations
             temp_files = []
-            for key in ['temp_file', 'processed_temp_file', 'chunks_temp_file']:
+            for key in ['temp_file', 'processed_temp_file', 'chunks_temp_file', 'embeddings_temp_file']:
                 if key in step_output['metadata']:
                     temp_files.append(step_output['metadata'][key])
             
@@ -58,15 +64,17 @@ def main():
                 for file_path in temp_files:
                     print(f"   - {file_path}")
             
-            # Show first few chunks
-            chunks = step_output['chunks'][:3]  # First 3 chunks
-            print(f"\n📖 First {len(chunks)} chunks:")
+            # Show first few embeddings
+            embeddings = step_output['embeddings'][:3]  # First 3 embeddings
+            print(f"\n📖 First {len(embeddings)} embeddings:")
             print("=" * 60)
             
-            for i, chunk in enumerate(chunks):
-                print(f"\n📝 Chunk {i+1} ({chunk['section_type']}):")
-                print(f"   Text: {chunk['text'][:200]}..." if len(chunk['text']) > 200 else chunk['text'])
-                print(f"   Length: {len(chunk['text'])} chars")
+            for i, embedding in enumerate(embeddings):
+                print(f"\n📝 Embedding {i+1} ({embedding['section_type']}):")
+                print(f"   Text: {embedding['text'][:200]}..." if len(embedding['text']) > 200 else embedding['text'])
+                print(f"   Text length: {len(embedding['text'])} chars")
+                print(f"   Embedding shape: {embedding['embedding'].shape}")
+                print(f"   Embedding preview: [{embedding['embedding'][:3]}, ..., {embedding['embedding'][-3:]}]")
                 print("-" * 40)
                 
         else:
