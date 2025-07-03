@@ -33,6 +33,24 @@ class ClinicalRAGSearcher:
             print(f"Loading sentence transformer model: {self.model_name}")
             self.model = SentenceTransformer(self.model_name)
     
+    def _enhance_clinical_query(self, query: str) -> str:
+        """Enhance query with general clinical context for better matching."""
+        query_lower = query.lower()
+        
+        # Add general clinical context based on query intent
+        if any(word in query_lower for word in ['exercise', 'workout', 'training']):
+            query += " rehabilitation therapy intervention treatment"
+        elif any(word in query_lower for word in ['diagnose', 'diagnosis', 'assess']):
+            query += " clinical assessment evaluation examination"
+        elif any(word in query_lower for word in ['treatment', 'therapy', 'cure']):
+            query += " intervention management clinical care"
+        elif any(word in query_lower for word in ['pain', 'symptom']):
+            query += " symptom management relief"
+        elif any(word in query_lower for word in ['prevent', 'prevention']):
+            query += " prevention risk factors management"
+            
+        return query
+    
     def embed_query(self, query: str) -> np.ndarray:
         """
         Generate embedding for a search query.
@@ -50,9 +68,10 @@ class ClinicalRAGSearcher:
         self, 
         query: str, 
         top_k: int = 5,
-        similarity_threshold: float = 0.0,
+        similarity_threshold: float = 0.3,  # Increased default threshold
         section_filter: Optional[str] = None,
-        document_filter: Optional[str] = None
+        document_filter: Optional[str] = None,
+        enhance_query: bool = True
     ) -> List[Dict[str, Any]]:
         """
         Search for chunks similar to the query.
@@ -67,6 +86,10 @@ class ClinicalRAGSearcher:
         Returns:
             List of similar chunks with metadata and similarity scores
         """
+        # Enhance query with clinical context if requested
+        if enhance_query:
+            query = self._enhance_clinical_query(query)
+            
         # Generate query embedding
         query_embedding = self.embed_query(query)
         

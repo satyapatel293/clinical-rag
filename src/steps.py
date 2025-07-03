@@ -96,37 +96,13 @@ def preprocess_text(extraction_result: Dict[str, Any], save_temp: bool = True) -
         text = extraction_result['text']
         metadata = extraction_result['metadata']
         
+        # Very basic cleaning - keep almost everything
         # Remove page markers (our own format)
         text = re.sub(r'=== Page \d+ ===\s*', '', text)
         
-        # Use unstructured cleaners
-        text = clean_extra_whitespace(text)
-        text = clean_non_ascii_chars(text)
-        
-        # Additional clinical document cleaning
-        # Remove common header/footer patterns
-        lines = text.split('\n')
-        cleaned_lines = []
-        
-        for line in lines:
-            line = line.strip()
-            # Skip empty lines, page numbers, copyright notices
-            if (not line or 
-                re.match(r'^\d+$', line) or 
-                'copyright' in line.lower() or
-                '©' in line or
-                len(line) < 3):
-                continue
-            cleaned_lines.append(line)
-        
-        # Rejoin and final cleanup
-        text = '\n'.join(cleaned_lines)
-        
-        # Fix sentence spacing
-        text = re.sub(r'([.!?])\s*\n\s*([A-Z])', r'\1 \2', text)
-        
-        # Remove excessive whitespace
-        text = re.sub(r'\n{3,}', '\n\n', text)
+        # Basic whitespace cleanup
+        text = re.sub(r'\s+', ' ', text)  # Multiple spaces to single space
+        text = re.sub(r'\n\s*\n', '\n\n', text)  # Multiple newlines to double newline
         text = text.strip()
         
         # Save to temp directory if requested
@@ -192,7 +168,7 @@ def chunk_text(
         text = processed_result['text']
         metadata = processed_result['metadata']
         
-        # Simple sentence-based chunking with overlap
+        # Improved sentence-based chunking with quality filtering
         sentences = re.split(r'(?<=[.!?])\s+', text)
         
         chunks = []
@@ -200,28 +176,38 @@ def chunk_text(
         chunk_start = 0
         
         for i, sentence in enumerate(sentences):
+            # Skip sentences that are mostly references or citations
+            if _is_reference_sentence(sentence):
+                continue
+                
+            # Only add meaningful sentences
+            if not _is_meaningful_sentence(sentence):
+                continue
+            
             # Add sentence if it fits
             if len(current_chunk + sentence) <= chunk_size:
                 current_chunk += sentence + " "
             else:
-                # Save current chunk if it has content
-                if current_chunk.strip():
+                # Save current chunk if it has substantial content
+                if len(current_chunk.strip()) > 150:  # Minimum chunk size
+                    chunk_text = current_chunk.strip()
                     chunks.append({
-                        'text': current_chunk.strip(),
+                        'text': chunk_text,
                         'chunk_id': len(chunks),
                         'sentence_start': chunk_start,
                         'sentence_end': i - 1,
-                        'section_type': _identify_section_type(current_chunk),
+                        'section_type': _identify_section_type(chunk_text),
                         'source_file': metadata['filename']
                     })
                 
                 # Start new chunk with overlap
-                overlap_sentences = sentences[max(0, i - 2):i]  # Previous 2 sentences
-                current_chunk = " ".join(overlap_sentences) + " " + sentence + " "
+                overlap_sentences = sentences[max(0, i - 2):i]  # Previous 2 sentences  
+                meaningful_overlap = [s for s in overlap_sentences if _is_meaningful_sentence(s) and not _is_reference_sentence(s)]
+                current_chunk = " ".join(meaningful_overlap) + " " + sentence + " "
                 chunk_start = max(0, i - 2)
         
         # Add final chunk
-        if current_chunk.strip():
+        if len(current_chunk.strip()) > 150:
             chunks.append({
                 'text': current_chunk.strip(),
                 'chunk_id': len(chunks),
@@ -261,6 +247,51 @@ def chunk_text(
             'success': False,
             'error': str(e)
         }
+
+
+def _is_reference_sentence(sentence: str) -> bool:
+    """Check if a sentence is primarily a reference or citation."""
+    sentence = sentence.strip()
+    
+    # Only filter obvious references
+    obvious_references = [
+        r'doi:',    # Contains DOI
+        r'https?://',  # Contains URL
+        r'^\d+\.\s*[A-Z][a-z]+.*\d{4}',  # Numbered reference with year
+    ]
+    
+    for pattern in obvious_references:
+        if re.search(pattern, sentence, re.IGNORECASE):
+            return True
+    
+    # Check if sentence is mostly just a URL or DOI
+    if len(sentence) < 50 and ('doi' in sentence.lower() or 'http' in sentence.lower()):
+        return True
+    
+    return False
+
+
+def _is_meaningful_sentence(sentence: str) -> bool:
+    """Check if a sentence contains meaningful content."""
+    sentence = sentence.strip()
+    
+    if len(sentence) < 15:  # Too short
+        return False
+    
+    # Skip if it's mostly references
+    if _is_reference_sentence(sentence):
+        return False
+    
+    # Check if sentence has enough alphabetic content
+    words = sentence.split()
+    alphabetic_words = [w for w in words if w.isalpha() and len(w) > 2]
+    
+    # Sentence should have enough real words
+    if len(words) < 3 or len(alphabetic_words) < 2:
+        return False
+        
+    # Very basic meaningfulness check - not too strict
+    return True
 
 
 def _identify_section_type(text: str) -> str:
