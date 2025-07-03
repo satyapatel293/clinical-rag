@@ -13,6 +13,7 @@ os.environ['OBJC_DISABLE_INITIALIZE_FORK_SAFETY'] = 'YES'
 
 from pipelines.clinical_rag_pipeline import pdf_processing_pipeline
 from utils.search import ClinicalRAGSearcher
+from utils.generation import ClinicalResponseGenerator
 from utils.database import DatabaseManager
 from utils.config import DATA_DIR
 
@@ -92,6 +93,96 @@ def cmd_search(args):
         sys.exit(1)
 
 
+def cmd_ask(args):
+    """Ask a clinical question using RAG (Retrieval + Generation)."""
+    try:
+        searcher = ClinicalRAGSearcher()
+        
+        print(f"🔍 Searching for: {args.query}")
+        print(f"Top {args.top_k} results (similarity ≥ {args.threshold})")
+        
+        # Retrieve relevant chunks
+        results = searcher.search_similar_chunks(
+            query=args.query,
+            top_k=args.top_k,
+            similarity_threshold=args.threshold,
+            section_filter=args.section,
+            enhance_query=not args.no_enhance
+        )
+        
+        if not results:
+            print("No relevant clinical information found.")
+            return
+            
+        print(f"✅ Found {len(results)} relevant chunks")
+        print("🤖 Generating clinical response...\n")
+        
+        try:
+            generator = ClinicalResponseGenerator()
+            
+            # Convert search results to format expected by generator
+            chunks_for_generation = []
+            for result in results:
+                chunks_for_generation.append({
+                    'content': result['text'],
+                    'similarity': result['similarity'],
+                    'section_type': result['section_type'],
+                    'document_name': result['filename']
+                })
+            
+            # Generate RAG response
+            generation_result = generator.generate_response(args.query, chunks_for_generation)
+            
+            if generation_result['success']:
+                print("📋 CLINICAL RESPONSE:")
+                print("=" * 60)
+                print(generation_result['response'])
+                print("=" * 60)
+                
+                # Show metadata
+                metadata = generation_result['metadata']
+                print(f"\n📊 Generation Details:")
+                print(f"   Model: {metadata['model']}")
+                print(f"   Chunks used: {metadata['chunks_used']}")
+                print(f"   Temperature: {metadata['temperature']}")
+                if 'total_tokens' in metadata:
+                    print(f"   Tokens: {metadata['total_tokens']}")
+                
+                # Show sources
+                print(f"\n📚 Evidence Sources:")
+                for i, source in enumerate(metadata['chunk_sources'], 1):
+                    print(f"   {i}. {source['document']} ({source['section']}) - Relevance: {source['similarity']:.3f}")
+                    
+            else:
+                print(f"❌ Generation failed: {generation_result['error']}")
+                print("\n📄 Retrieved information (fallback):")
+                _show_chunks(results)
+                
+        except Exception as e:
+            print(f"❌ Generation error: {e}")
+            print("\n📄 Retrieved information (fallback):")
+            _show_chunks(results)
+            
+    except Exception as e:
+        print(f"❌ Query error: {e}")
+        sys.exit(1)
+
+
+def _show_chunks(results):
+    """Helper function to display retrieved chunks."""
+    for i, result in enumerate(results, 1):
+        print(f"Result {i} (Similarity: {result['similarity']:.3f})")
+        print(f"Document: {result['filename']}")
+        print(f"Section: {result['section_type']}")
+        
+        text = result['text']
+        if len(text) > 300:
+            text = text[:300] + "..."
+        
+        print(f"Content: {text}")
+        print("-" * 80)
+
+
 def cmd_status(args):
     """Check database status."""
     try:
@@ -134,8 +225,11 @@ Examples:
   # Process a PDF
   python run.py ingest data/raw/Achilles_Pain.pdf
   
-  # Search for information
+  # Search for raw chunks (retrieval only)
   python run.py search "What exercises help with pain?"
+  
+  # Ask clinical question with AI response (full RAG)
+  python run.py ask "What exercises help with Achilles tendon pain?"
   
   # Check database status
   python run.py status
@@ -152,14 +246,23 @@ Examples:
     ingest_parser.add_argument('--model', default='all-MiniLM-L6-v2', help='Sentence transformer model (default: all-MiniLM-L6-v2)')
     ingest_parser.set_defaults(func=cmd_ingest)
     
-    # Search command
-    search_parser = subparsers.add_parser('search', help='Search for information')
+    # Search command (retrieval only)
+    search_parser = subparsers.add_parser('search', help='Search for information (retrieval only)')
     search_parser.add_argument('query', help='Search query')
     search_parser.add_argument('--top-k', type=int, default=5, help='Number of results to return (default: 5)')
     search_parser.add_argument('--threshold', type=float, default=0.3, help='Minimum similarity threshold (default: 0.3)')
     search_parser.add_argument('--section', help='Filter by section type (treatment, diagnosis, etc.)')
     search_parser.add_argument('--no-enhance', action='store_true', help='Disable query enhancement')
     search_parser.set_defaults(func=cmd_search)
+    
+    # Ask command (full RAG)
+    ask_parser = subparsers.add_parser('ask', help='Ask clinical question with AI response (RAG)')
+    ask_parser.add_argument('query', help='Clinical question')
+    ask_parser.add_argument('--top-k', type=int, default=5, help='Number of chunks to retrieve (default: 5)')
+    ask_parser.add_argument('--threshold', type=float, default=0.3, help='Minimum similarity threshold (default: 0.3)')
+    ask_parser.add_argument('--section', help='Filter by section type (treatment, diagnosis, etc.)')
+    ask_parser.add_argument('--no-enhance', action='store_true', help='Disable query enhancement')
+    ask_parser.set_defaults(func=cmd_ask)
     
     # Status command
     status_parser = subparsers.add_parser('status', help='Check database status')
