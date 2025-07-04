@@ -11,8 +11,8 @@ from pathlib import Path
 # Set environment variable for ZenML on macOS
 os.environ['OBJC_DISABLE_INITIALIZE_FORK_SAFETY'] = 'YES'
 
-from pipelines.clinical_rag_pipeline import pdf_processing_pipeline
-from pipelines.clinical_generation_pipeline import clinical_generation_pipeline, simple_clinical_generation_pipeline
+from pipelines.document_ingestion_pipeline import pdf_processing_pipeline
+from pipelines.response_generation_pipeline import clinical_generation_pipeline, simple_clinical_generation_pipeline
 from utils.search import ClinicalRAGSearcher
 from utils.database import DatabaseManager
 from utils.config import DATA_DIR

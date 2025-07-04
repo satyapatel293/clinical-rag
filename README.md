@@ -253,8 +253,8 @@ export TOKENIZERS_PARALLELISM=false
 ```
 clinical-rag/
 ├── pipelines/           # ZenML pipeline definitions
-│   ├── clinical_rag_pipeline.py        # PDF ingestion pipeline
-│   └── clinical_generation_pipeline.py # RAG generation pipeline
+│   ├── document_ingestion_pipeline.py  # PDF ingestion pipeline
+│   └── response_generation_pipeline.py # RAG generation pipeline
 ├── steps/              # Individual modular pipeline steps
 │   ├── extract_text_from_pdf.py        # PDF text extraction
 │   ├── preprocess_text.py              # Text preprocessing
