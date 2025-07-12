@@ -8,7 +8,7 @@ from steps.generate_embeddings import generate_embeddings
 from steps.store_embeddings import store_embeddings_in_database
 
 
-@pipeline
+# @pipeline(enable_cache=False)
 def pdf_processing_pipeline(
     pdf_path: str, 
     chunk_size: int = 1000, 

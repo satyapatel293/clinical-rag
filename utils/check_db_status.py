@@ -4,7 +4,7 @@ Database status checker for Clinical RAG system.
 Run this script to see the current contents and statistics of your database.
 """
 
-from src.database import DatabaseManager
+from utils.database import DatabaseManager
 import json
 
 def main():

@@ -7,7 +7,7 @@ from pathlib import Path
 # Add parent directory to Python path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from pipelines.clinical_rag_pipeline import pdf_processing_pipeline
+from pipelines.document_ingestion_pipeline import pdf_processing_pipeline
 from utils.config import DATA_DIR
 
 def main():

@@ -10,7 +10,7 @@ from steps.parse_and_validate_response import parse_and_validate_response, valid
 from steps.extract_metadata_and_citations import extract_metadata_and_citations, format_final_cli_output
 
 
-@pipeline
+# @pipeline(enable_cache=False)
 def clinical_generation_pipeline(
     query: str,
     retrieved_chunks: List[Dict[str, Any]],
@@ -73,7 +73,7 @@ def clinical_generation_pipeline(
     return cli_result
 
 
-@pipeline
+# @pipeline(enable_cache=False)
 def simple_clinical_generation_pipeline(
     query: str,
     model_name: str = "llama3.2:3b",
@@ -149,7 +149,7 @@ def simple_clinical_generation_pipeline(
     return cli_result
 
 
-@pipeline
+# @pipeline(enable_cache=False)
 def clinical_generation_with_validation_pipeline(
     query: str,
     retrieved_chunks: List[Dict[str, Any]],
@@ -216,39 +216,3 @@ def clinical_generation_with_validation_pipeline(
     )
     
     return cli_result
-
-
-@pipeline
-def verify_generation_setup() -> Dict[str, Any]:
-    """
-    Pipeline to verify that generation setup is working.
-    
-    Returns:
-        Setup verification results
-    """
-    model_verification = verify_ollama_model()
-    
-    if model_verification['success']:
-        # Test simple generation
-        test_result = simple_clinical_generation_pipeline(
-            query="What is physical therapy?",
-            temperature=0.1,
-            output_format="simple"
-        )
-        
-        setup_status = {
-            'model_available': model_verification['model_available'],
-            'model_details': model_verification.get('model_details', {}),
-            'generation_test': test_result['success'],
-            'overall_status': model_verification['success'] and test_result['success']
-        }
-    else:
-        setup_status = {
-            'model_available': False,
-            'model_details': {},
-            'generation_test': False,
-            'overall_status': False,
-            'error': model_verification['error']
-        }
-    
-    return setup_status

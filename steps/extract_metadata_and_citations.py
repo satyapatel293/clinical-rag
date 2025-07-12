@@ -4,7 +4,7 @@ from typing import Dict, Any, List
 from zenml import step
 
 
-@step
+#@step
 def extract_metadata_and_citations(
     parsing_result: Dict[str, Any],
     formatting_result: Dict[str, Any],
@@ -128,7 +128,7 @@ def extract_metadata_and_citations(
         }
 
 
-@step
+#@step
 def format_final_cli_output(
     final_result: Dict[str, Any],
     output_format: str = "detailed"

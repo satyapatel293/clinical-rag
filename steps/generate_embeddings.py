@@ -7,11 +7,10 @@ import numpy as np
 from zenml import step
 
 
-@step
+#@step
 def generate_embeddings(
     chunking_result: Dict[str, Any],
     model_name: str = "all-MiniLM-L6-v2",
-    save_temp: bool = True
 ) -> Dict[str, Any]:
     """
     Generate embeddings for text chunks using sentence transformers.
@@ -19,7 +18,6 @@ def generate_embeddings(
     Args:
         chunking_result: Output from chunk_text step
         model_name: Sentence transformer model to use
-        save_temp: Whether to save embeddings to temp directory
         
     Returns:
         Dictionary containing embeddings and metadata
@@ -65,23 +63,6 @@ def generate_embeddings(
                 'embedding_dim': len(embedding),
                 'source_file': chunk['source_file']
             })
-        
-        # Save embeddings to processed directory if requested
-        if save_temp:
-            from utils.config import PROCESSED_DATA_DIR
-            processed_dir = Path(PROCESSED_DATA_DIR)
-            processed_dir.mkdir(parents=True, exist_ok=True)
-            
-            embeddings_file = processed_dir / f"{Path(metadata['file_path']).stem}_embeddings.npz"
-            
-            # Save as compressed numpy arrays for efficiency
-            embeddings_dict = {
-                f"embedding_{i}": emb['embedding'] 
-                for i, emb in enumerate(chunk_embeddings)
-            }
-            np.savez_compressed(embeddings_file, **embeddings_dict)
-            
-            metadata['embeddings_temp_file'] = str(embeddings_file)
         
         return {
             'embeddings': chunk_embeddings,

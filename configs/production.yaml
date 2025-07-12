@@ -32,10 +32,10 @@ settings:
       - sentence-transformers==3.3.1
       - pdfplumber==0.10.3
       - psycopg2-binary==2.9.9
-  steps:
-    extract_text_from_pdf:
-      parameters:
-        save_temp: false
-    generate_embeddings:
-      parameters:
-        model_name: "all-MiniLM-L6-v2"
+steps:
+  extract_text_from_pdf:
+    parameters:
+      save_temp: false
+  generate_embeddings:
+    parameters:
+      model_name: "all-MiniLM-L6-v2"

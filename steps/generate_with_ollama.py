@@ -8,7 +8,7 @@ from zenml import step
 logger = logging.getLogger(__name__)
 
 
-@step
+#@step
 def generate_with_ollama(
     prompt_result: Dict[str, Any],
     model_name: str = "llama3.2:3b",
@@ -149,7 +149,7 @@ def generate_with_ollama(
         }
 
 
-@step
+#@step
 def verify_ollama_model(model_name: str = "llama3.2:3b") -> Dict[str, Any]:
     """
     Verify that Ollama model is available before generation.

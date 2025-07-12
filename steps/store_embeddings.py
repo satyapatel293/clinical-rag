@@ -7,17 +7,15 @@ from zenml import step
 from utils.database import DatabaseManager
 
 
-@step
+#@step
 def store_embeddings_in_database(
     embedding_result: Dict[str, Any],
-    database_url: str = "postgresql://postgres:password@localhost:5432/clinical_rag"
 ) -> Dict[str, Any]:
     """
     Store embeddings and chunks in PostgreSQL database.
     
     Args:
         embedding_result: Output from generate_embeddings step
-        database_url: Database connection URL (if None, uses environment variable)
         
     Returns:
         Dictionary containing storage results and metadata
@@ -32,7 +30,7 @@ def store_embeddings_in_database(
     
     try:
         # Initialize database manager
-        db_url = database_url or os.getenv('DATABASE_URL', 'postgresql://postgres:password@localhost:5432/clinical_rag')
+        db_url = os.getenv('DATABASE_URL', 'postgresql://postgres:password@localhost:5432/clinical_rag')
         db_manager = DatabaseManager(db_url)
         
         embeddings = embedding_result['embeddings']
@@ -60,7 +58,6 @@ def store_embeddings_in_database(
         
         # Insert chunks and embeddings one by one to track IDs properly
         stored_count = 0
-        chunk_embedding_pairs = []
         
         print(f"Inserting {len(embeddings)} chunks and embeddings...")
         
