@@ -5,7 +5,7 @@ from zenml import pipeline
 
 from steps.format_retrieval_context import format_retrieval_context
 from steps.build_clinical_prompt import build_clinical_prompt
-from steps.generate_with_ollama import generate_with_ollama, verify_ollama_model
+from steps.generate_with_ollama import generate_with_ollama
 from steps.parse_and_validate_response import parse_and_validate_response
 from steps.extract_metadata_and_citations import extract_metadata_and_citations, format_final_cli_output
 
