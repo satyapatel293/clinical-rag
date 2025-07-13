@@ -1,4 +1,4 @@
-"""Generate with Ollama LLM step for Clinical RAG generation pipeline."""
+"""Generate with LiteLLM step for Clinical RAG generation pipeline."""
 
 from typing import Dict, Any
 import time
@@ -9,22 +9,19 @@ logger = logging.getLogger(__name__)
 
 
 @step
-def generate_with_ollama(
+def generate_with_litellm(
     prompt_result: Dict[str, Any],
-    model_name: str = "llama3.2:3b",
+    model_name: str = "ollama/llama3.2:3b",
     temperature: float = 0.1,
-    top_p: float = 0.9,
-    top_k: int = 40
 ) -> Dict[str, Any]:
     """
-    Generate clinical response using Ollama LLM.
+    Generate clinical response using LiteLLM (supports multiple providers).
     
     Args:
         prompt_result: Output from build_clinical_prompt step
-        model_name: Ollama model name to use
+        model_name: LiteLLM model name (e.g., "openai/gpt-4", "ollama/llama3.2:3b")
         temperature: Generation temperature (0.0-1.0)
-        top_p: Nucleus sampling parameter
-        top_k: Top-k sampling parameter
+        **kwargs: Additional parameters passed to LiteLLM completion
         
     Returns:
         Dictionary containing generated response and metadata
@@ -37,71 +34,48 @@ def generate_with_ollama(
                 'error': f"Cannot generate - prompt building failed: {prompt_result['error']}"
             }
         
-        # Import ollama here to avoid unnecessary loading
+        # Import litellm
         try:
-            import ollama
+            from litellm import completion
         except ImportError:
             return {
                 'generated_response': "",
                 'success': False,
-                'error': "Ollama package not available. Run: pip install ollama"
+                'error': "LiteLLM package not available. Run: pip install litellm"
             }
         
         prompt = prompt_result['prompt']
         
-        # Verify model availability
-        try:
-            models_response = ollama.list()
-            available_models = [model.model for model in models_response.models]
-            
-            if model_name not in available_models:
-                return {
-                    'generated_response': "",
-                    'success': False,
-                    'error': f"Model {model_name} not available. Available: {available_models}"
-                }
-        except Exception as e:
-            return {
-                'generated_response': "",
-                'success': False,
-                'error': f"Failed to verify model availability: {str(e)}"
-            }
-        
         logger.info(f"Generating response using {model_name}")
         start_time = time.time()
         
-        # Generate response using Ollama
+        # Generate response using LiteLLM (following your test_model pattern)
         try:
-            response = ollama.chat(
+            # Import and configure LiteLLM to drop unsupported parameters
+            import litellm
+            litellm.drop_params = True  # Automatically drop unsupported parameters
+            
+            response = completion(
                 model=model_name,
-                messages=[{
-                    'role': 'user',
-                    'content': prompt
-                }],
-                options={
-                    'temperature': temperature,
-                    'top_p': top_p,
-                    'top_k': top_k
-                }
+                messages=[{"content": prompt, "role": "user"}],
+                temperature=temperature,
             )
             
             generation_time = time.time() - start_time
-            generated_text = response['message']['content']
+            generated_text = response.choices[0].message.content
             
-            # Extract generation metadata
-            usage_info = response.get('usage', {})
+            # Extract token usage if available
+            usage_info = getattr(response, 'usage', None)
             
             generation_metadata = {
                 'model_name': model_name,
                 'generation_time_seconds': generation_time,
                 'temperature': temperature,
-                'top_p': top_p,
-                'top_k': top_k,
                 'prompt_length': len(prompt),
                 'response_length': len(generated_text),
-                'prompt_tokens': usage_info.get('prompt_tokens', 0),
-                'completion_tokens': usage_info.get('completion_tokens', 0),
-                'total_tokens': usage_info.get('total_tokens', 0),
+                'prompt_tokens': getattr(usage_info, 'prompt_tokens', 0) if usage_info else 0,
+                'completion_tokens': getattr(usage_info, 'completion_tokens', 0) if usage_info else 0,
+                'total_tokens': getattr(usage_info, 'total_tokens', 0) if usage_info else 0,
                 'generation_timestamp': time.time()
             }
             
@@ -109,12 +83,7 @@ def generate_with_ollama(
                 'generated_response': generated_text,
                 'metadata': {
                     **generation_metadata,
-                    'prompt_metadata': prompt_result.get('metadata', {}),
-                    'ollama_response': {
-                        'model': response.get('model', model_name),
-                        'created_at': response.get('created_at'),
-                        'done': response.get('done', True)
-                    }
+                    'prompt_metadata': prompt_result.get('metadata', {})
                 },
                 'success': True,
                 'error': None
@@ -122,17 +91,17 @@ def generate_with_ollama(
             
         except Exception as e:
             generation_time = time.time() - start_time
-            logger.error(f"Ollama generation failed after {generation_time:.2f}s: {e}")
+            logger.error(f"LiteLLM generation failed after {generation_time:.2f}s: {e}")
             return {
                 'generated_response': "",
                 'metadata': {
                     'model_name': model_name,
                     'generation_time_seconds': generation_time,
                     'temperature': temperature,
-                    'failed_at': 'ollama_chat'
+                    'failed_at': 'litellm_completion'
                 },
                 'success': False,
-                'error': f"Ollama generation failed: {str(e)}"
+                'error': f"LiteLLM generation failed: {str(e)}"
             }
         
     except Exception as e:

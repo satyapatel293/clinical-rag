@@ -5,7 +5,7 @@ from zenml import pipeline
 
 from steps.format_retrieval_context import format_retrieval_context
 from steps.build_clinical_prompt import build_clinical_prompt
-from steps.generate_with_ollama import generate_with_ollama
+from steps.generate_with_litellm import generate_with_litellm
 from steps.parse_and_validate_response import parse_and_validate_response
 from steps.extract_metadata_and_citations import extract_metadata_and_citations, format_final_cli_output
 
@@ -45,7 +45,7 @@ def clinical_generation_pipeline(
     )
     
     # Step 3: Generate with Ollama LLM
-    generation_result = generate_with_ollama(
+    generation_result = generate_with_litellm(
         prompt_result=prompt_result,
         model_name=model_name,
         temperature=temperature

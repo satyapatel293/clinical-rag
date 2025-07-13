@@ -4,7 +4,7 @@ from typing import Dict, Any
 from zenml import pipeline
 
 from steps.build_clinical_prompt import build_simple_clinical_prompt
-from steps.generate_with_ollama import generate_with_ollama
+from steps.generate_with_litellm import generate_with_litellm
 from steps.parse_and_validate_response import parse_and_validate_response
 from steps.extract_metadata_and_citations import format_final_cli_output
 
@@ -34,7 +34,7 @@ def simple_clinical_generation_pipeline(
     )
     
     # Generate with Ollama
-    generation_result = generate_with_ollama(
+    generation_result = generate_with_litellm(
         prompt_result=prompt_result,
         model_name=model_name,
         temperature=temperature
