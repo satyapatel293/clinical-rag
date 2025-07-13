@@ -7,7 +7,7 @@ import numpy as np
 from zenml import step
 
 
-#@step
+@step
 def generate_embeddings(
     chunking_result: Dict[str, Any],
     model_name: str = "all-MiniLM-L6-v2",

@@ -5,7 +5,7 @@ import re
 from zenml import step
 
 
-#@step
+@step
 def parse_and_validate_response(
     generation_result: Dict[str, Any],
     min_length: int = 50,
@@ -169,7 +169,7 @@ def _extract_sections(text: str) -> Dict[str, str]:
     return sections
 
 
-#@step
+@step
 def validate_clinical_content(
     parsed_result: Dict[str, Any],
     required_elements: List[str] = None

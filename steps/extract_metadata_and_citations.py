@@ -4,7 +4,7 @@ from typing import Dict, Any, List
 from zenml import step
 
 
-#@step
+@step
 def extract_metadata_and_citations(
     parsing_result: Dict[str, Any],
     formatting_result: Dict[str, Any],
@@ -128,7 +128,7 @@ def extract_metadata_and_citations(
         }
 
 
-#@step
+@step
 def format_final_cli_output(
     final_result: Dict[str, Any],
     output_format: str = "detailed"
@@ -152,7 +152,28 @@ def format_final_cli_output(
                 'error': final_result['error']
             }
         
-        final_response = final_result['final_response']
+        # Handle both final_result format (from full pipeline) and parsing_result format (from simple pipeline)
+        if 'final_response' in final_result:
+            final_response = final_result['final_response']
+        else:
+            # This is a parsing_result from simple pipeline - create simple structure
+            parsed_response = final_result['parsed_response']
+            final_response = {
+                'response': parsed_response['text'],
+                'metadata': {
+                    'generation_info': {
+                        'model_used': 'simple_generation',
+                        'generation_time': 0.0,
+                        'temperature': 0.1
+                    },
+                    'content_info': {
+                        'word_count': parsed_response.get('word_count', 0),
+                        'quality_score': parsed_response.get('quality_score', 0.0)
+                    }
+                },
+                'query': 'simple_query',
+                'citations': []
+            }
         
         if output_format == "simple":
             cli_output = final_response['response']
@@ -180,7 +201,7 @@ def format_final_cli_output(
             cli_parts.append(f"   Model: {gen_info['model_used']}")
             cli_parts.append(f"   Quality Score: {final_response['metadata']['content_info']['quality_score']:.2f}")
             cli_parts.append(f"   Generation Time: {gen_info['generation_time']:.2f}s")
-            if gen_info['total_tokens'] > 0:
+            if gen_info.get('total_tokens', 0) > 0:
                 cli_parts.append(f"   Tokens: {gen_info['total_tokens']}")
             
             # Evidence sources

@@ -7,7 +7,7 @@ import re
 from zenml import step
 
 
-#@step
+@step
 def preprocess_text(extraction_result: Dict[str, Any]) -> Dict[str, Any]:
     """
     Clean and preprocess extracted text using basic cleaning.

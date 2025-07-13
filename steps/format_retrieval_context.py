@@ -4,7 +4,7 @@ from typing import Dict, Any, List
 from zenml import step
 
 
-#@step
+@step
 def format_retrieval_context(
     query: str,
     retrieved_chunks: List[Dict[str, Any]]

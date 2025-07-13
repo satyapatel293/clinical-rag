@@ -4,7 +4,7 @@ from typing import Dict, Any
 from zenml import step
 
 
-#@step
+@step
 def build_clinical_prompt(
     formatting_result: Dict[str, Any],
     prompt_template: str = "clinical_rag_default"
@@ -98,7 +98,7 @@ RESPONSE:"""
         }
 
 
-#@step 
+@step 
 def build_simple_clinical_prompt(
     query: str,
     prompt_template: str = "clinical_simple"

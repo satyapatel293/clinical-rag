@@ -7,7 +7,7 @@ from zenml import step
 import pdfplumber
 
 
-#@step
+@step
 def extract_text_from_pdf(pdf_path: str) -> Dict[str, Any]:
     """
     Extract text content from a PDF file using pdfplumber.

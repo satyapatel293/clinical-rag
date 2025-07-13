@@ -12,7 +12,8 @@ from pathlib import Path
 os.environ['OBJC_DISABLE_INITIALIZE_FORK_SAFETY'] = 'YES'
 
 from pipelines.document_ingestion_pipeline import pdf_processing_pipeline
-from pipelines.response_generation_pipeline import clinical_generation_pipeline, simple_clinical_generation_pipeline
+from pipelines.response_generation_pipeline import clinical_generation_pipeline
+from pipelines.simple_generation_pipeline import simple_clinical_generation_pipeline
 from utils.search import ClinicalRAGSearcher
 from utils.database import DatabaseManager
 from utils.config import DATA_DIR

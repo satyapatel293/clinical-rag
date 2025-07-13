@@ -7,7 +7,7 @@ from zenml import step
 from utils.database import DatabaseManager
 
 
-#@step
+@step
 def store_embeddings_in_database(
     embedding_result: Dict[str, Any],
 ) -> Dict[str, Any]:

@@ -73,7 +73,7 @@ def _identify_section_type(text: str) -> str:
         return 'general'
 
 
-#@step
+@step
 def chunk_text(
     processed_result: Dict[str, Any], 
     chunk_size: int = 1000, 
