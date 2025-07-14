@@ -25,9 +25,9 @@ This project exemplifies modern MLOps practices using ZenML:
 - **Modular Pipeline Architecture**: Separate steps for extraction, preprocessing, chunking, embedding, and storage
 - **Artifact Management**: Proper tracking and versioning of processed data and embeddings
 - **Configuration Management**: Environment-specific configs for dev/production
-- **Local Model Deployment**: Sentence transformers + Ollama LLM without API costs
+- **Multi-Provider LLM Support**: LiteLLM integration with 100+ model providers (OpenAI, Anthropic, Ollama, Azure)
 - **Database Integration**: PostgreSQL with pgvector for production-ready vector storage
-- **Dual CLI Interface**: Separate commands for retrieval (`search`) and RAG (`ask`)
+- **Dual Interface**: CLI commands (`search`/`ask`) + **Streamlit Web Interface**
 - **Complete RAG Pipeline**: End-to-end retrieval-augmented generation workflow
 
 ## 🏗️ Architecture
@@ -52,21 +52,21 @@ This project exemplifies modern MLOps practices using ZenML:
                       │   (Clinical Context)  │
                       └───────────┬───────────┘
                                   │
-                          ┌───────▼───────┐
-                          │ CLI Interface │
-                          │ (search/ask)  │
-                          └───┬───────┬───┘
-                              │       │
-                    ┌─────────▼───┐   │
-                    │   search    │   │
-                    │ (Raw Chunks)│   │
-                    └─────────────┘   │
-                                      │
-                              ┌───────▼───────┐
-                              │      ask      │
-                              │ (RAG: Chunks  │
-                              │ + Ollama LLM) │
-                              └───────────────┘
+                    ┌─────────────▼─────────────┐
+                    │     Dual Interface        │
+                    │ CLI + Streamlit Web UI    │
+                    └───┬───────────────────┬───┘
+                        │                   │
+              ┌─────────▼───┐       ┌───────▼───────┐
+              │   search    │       │      ask      │
+              │ (Raw Chunks)│       │ (RAG: Chunks  │
+              └─────────────┘       │ + Multi-LLM)  │
+                                    └───────────────┘
+                                            │
+                                    ┌───────▼───────┐
+                                    │   LiteLLM     │
+                                    │ (100+ Models) │
+                                    └───────────────┘
 ```
 
 ### Pipeline Flow
@@ -79,15 +79,16 @@ This project exemplifies modern MLOps practices using ZenML:
 4. **Embedding**: Local sentence transformers (all-MiniLM-L6-v2)
 5. **Storage**: PostgreSQL with pgvector for similarity search
 6. **Retrieval**: Semantic search with clinical context awareness
-7. **Generation**: Ollama Llama 3.2 3B creates clinical responses with retrieved context
+7. **Generation**: Multi-provider LLM (OpenAI, Anthropic, Ollama, Azure) creates clinical responses with retrieved context
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 - Python 3.8+
 - PostgreSQL with pgvector extension
-- Ollama (for local LLM inference)
-- 4GB+ RAM (for local embeddings and LLM)
+- **Optional**: Ollama (for local LLM inference)
+- **Optional**: API keys for cloud providers (OpenAI, Anthropic, Azure)
+- 4GB+ RAM (for local embeddings and optional local LLM)
 
 ### Installation
 
@@ -112,11 +113,30 @@ psql -d clinical_rag -c "CREATE EXTENSION vector;"
 psql -d clinical_rag -f schema.sql
 ```
 
-4. **Install and setup Ollama**:
+4. **Setup LLM Providers** (choose one or more):
+
+**Option A: Local Models (Ollama)**
 ```bash
 # Install Ollama (visit https://ollama.ai for platform-specific instructions)
-# Pull the Llama 3.2 3B model
+ollama serve
 ollama pull llama3.2:3b
+```
+
+**Option B: OpenAI Models**
+```bash
+export OPENAI_API_KEY="sk-your-openai-api-key"
+```
+
+**Option C: Anthropic Models**
+```bash
+export ANTHROPIC_API_KEY="sk-ant-your-anthropic-api-key"
+```
+
+**Option D: Azure OpenAI**
+```bash
+export AZURE_API_KEY="your-azure-key"
+export AZURE_API_BASE="https://your-resource.openai.azure.com/"
+export AZURE_API_VERSION="2023-07-01-preview"
 ```
 
 5. **Initialize ZenML**:
@@ -126,6 +146,20 @@ zenml init
 ```
 
 ### Usage
+
+#### Web Interface (Recommended)
+
+**Launch Streamlit Web Interface**:
+```bash
+streamlit run app.py
+```
+Then open your browser to `http://localhost:8501` for an intuitive web interface with:
+- Model selection dropdown (Ollama, OpenAI GPT-4, GPT-3.5)
+- Real-time search and generation
+- Professional medical-themed UI
+- Built-in troubleshooting guidance
+
+#### Command Line Interface
 
 **Process clinical documents**:
 ```bash
@@ -139,7 +173,14 @@ python run.py search "What exercises help with Achilles tendon pain?"
 
 **Ask clinical questions with AI response (full RAG)**:
 ```bash
+# Using local Ollama model
 python run.py ask "What exercises help with Achilles tendon pain?"
+
+# Using OpenAI GPT-4
+python run.py ask "What exercises help with Achilles tendon pain?" --model openai/gpt-4o
+
+# Using Anthropic Claude
+python run.py ask "What exercises help with Achilles tendon pain?" --model anthropic/claude-3-haiku
 ```
 
 **Check system status**:
@@ -161,9 +202,9 @@ python tests/test_database.py
 - [x] **Vector Database**: PostgreSQL + pgvector setup
 - [x] **Embedding Generation**: Local sentence transformers
 - [x] **Semantic Search**: Clinical context-aware retrieval (0.7+ similarity)
-- [x] **LLM Integration**: Local Ollama with Llama 3.2 3B model
+- [x] **Multi-Provider LLM Integration**: LiteLLM support for 100+ model providers
 - [x] **Augmented Generation**: Clinical response generation with context
-- [x] **Dual CLI Interface**: Separate `search` (retrieval) and `ask` (RAG) commands
+- [x] **Dual Interface**: CLI commands (`search`/`ask`) + **Streamlit Web UI**
 - [x] **Modular Architecture**: Professional Python package structure
 - [x] **Configuration Management**: Dev/production configs
 - [x] **Test Suite**: Comprehensive testing framework
@@ -176,6 +217,8 @@ python tests/test_database.py
 - 🎯 **0.7+ similarity scores** for clinical queries
 - 🏥 **Section filtering** (treatment, diagnosis, methods)
 - 💬 **Professional clinical responses** with evidence citations
+- 🌐 **Web Interface**: User-friendly Streamlit frontend
+- 🔗 **Multi-Provider**: Support for 100+ LLM providers via LiteLLM
 
 ### 🔄 Phase 1: Evaluation Framework (IN PROGRESS)
 - [ ] **Clinical Test Suite**: 20-30 expert-validated scenarios
@@ -254,7 +297,9 @@ export TOKENIZERS_PARALLELISM=false
 clinical-rag/
 ├── pipelines/           # ZenML pipeline definitions
 │   ├── document_ingestion_pipeline.py  # PDF ingestion pipeline
-│   └── response_generation_pipeline.py # RAG generation pipeline
+│   ├── response_generation_pipeline.py # RAG generation pipeline
+│   ├── simple_generation_pipeline.py   # Fallback generation pipeline
+│   └── clinical_validation_pipeline.py # Enhanced validation pipeline
 ├── steps/              # Individual modular pipeline steps
 │   ├── extract_text_from_pdf.py        # PDF text extraction
 │   ├── preprocess_text.py              # Text preprocessing
@@ -263,7 +308,7 @@ clinical-rag/
 │   ├── store_embeddings.py             # Database storage
 │   ├── format_retrieval_context.py     # Context formatting for LLM
 │   ├── build_clinical_prompt.py        # Clinical prompt construction
-│   ├── generate_with_ollama.py         # LLM generation with Ollama
+│   ├── generate_with_litellm.py        # Multi-provider LLM generation
 │   ├── parse_and_validate_response.py  # Response validation
 │   └── extract_metadata_and_citations.py # Citation extraction
 ├── utils/              # Core utilities
@@ -275,6 +320,7 @@ clinical-rag/
 ├── data/
 │   ├── raw/           # Original clinical PDFs
 │   └── processed/     # Pipeline outputs
+├── app.py             # Streamlit web interface
 ├── run.py             # Main CLI interface
 └── requirements.txt   # Dependencies
 ```
@@ -301,7 +347,9 @@ The system automatically identifies and classifies content:
 - ✅ **0.7+ similarity scores** for clinical relevance
 - ✅ **869 embeddings** successfully processed and stored
 - ✅ **Professional clinical responses** with evidence citations
-- ✅ **Local LLM inference** (no API costs, data privacy)
+- ✅ **Multi-Provider LLM Support** (local + cloud options)
+- ✅ **Web Interface** with intuitive Streamlit frontend
+- ✅ **Flexible Deployment** (CLI, web UI, or embedded)
 
 ### Clinical Validation (Phase 1 Target)
 - 🔄 **20-30 test scenarios** with ground truth
