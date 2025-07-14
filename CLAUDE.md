@@ -37,8 +37,13 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 # Process a PDF document
 python run.py ingest data/raw/Achilles_Pain.pdf
 
-# Search for clinical information
+# Search for clinical information (retrieval only)
 python run.py search "What exercises help with pain?"
+
+# Ask clinical questions with RAG generation (multiple providers supported)
+python run.py ask "What exercises help with pain?" --model ollama/llama3.2:3b
+python run.py ask "What exercises help with pain?" --model openai/gpt-4o
+python run.py ask "What exercises help with pain?" --model anthropic/claude-3-haiku
 
 # Check database status
 python run.py status
@@ -73,9 +78,15 @@ The system follows a linear ZenML pipeline: **PDF → Extract → Preprocess →
 
 - **DatabaseManager** (`utils/database.py`): Handles all PostgreSQL operations with connection pooling
 - **ClinicalRAGSearcher** (`utils/search.py`): Provides semantic search with cosine similarity using pgvector `<=>` operator
-- **Pipeline Definition** (`pipelines/clinical_rag_pipeline.py`): ZenML pipeline orchestrating all steps
-- **Individual Steps** (`steps/`): Modular ZenML pipeline steps (extract, preprocess, chunk, embed, store)
-- **Main CLI** (`run.py`): Command-line interface for ingesting PDFs and searching
+- **Pipeline Definitions**: 
+  - `pipelines/document_ingestion_pipeline.py`: PDF processing and storage pipeline
+  - `pipelines/response_generation_pipeline.py`: Main RAG generation pipeline
+  - `pipelines/simple_generation_pipeline.py`: Fallback generation without context
+  - `pipelines/clinical_validation_pipeline.py`: Enhanced clinical validation pipeline
+- **Individual Steps** (`steps/`): Modular ZenML pipeline steps
+  - Document processing: extract, preprocess, chunk, embed, store
+  - Generation: format context, build prompt, generate with LiteLLM, parse, validate
+- **Main CLI** (`run.py`): Command-line interface supporting search and ask commands
 
 ### Database Schema
 - **documents**: PDF metadata and processing status
@@ -88,11 +99,47 @@ The system follows a linear ZenML pipeline: **PDF → Extract → Preprocess →
 - Document filtering and similarity thresholds
 - Query enhancement for clinical context
 
+### Generation Capabilities
+- **Multi-Provider LLM Support**: Uses LiteLLM for unified access to multiple model providers
+- **Supported Providers**: Ollama (local), OpenAI, Anthropic, Azure OpenAI, and 100+ others
+- **Clinical Response Generation**: Professional medical responses with evidence citations
+- **Quality Validation**: Built-in scoring and clinical content validation (0.7+ quality scores)
+- **Fallback Mechanisms**: Graceful degradation when generation fails
+- **Model Flexibility**: Easy switching between providers using `--model` parameter
+
 ## Critical Environment Variables
 
 - `OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES`: Required for ZenML on macOS
 - `DATABASE_URL`: PostgreSQL connection (defaults to `postgresql://postgres:password@localhost:5432/clinical_rag`)
 - `TOKENIZERS_PARALLELISM`: Set to `false` to avoid tokenizer warnings
+
+### Multi-Provider LLM Setup
+
+The system uses LiteLLM for multi-provider language model support:
+
+#### Local Models (Ollama)
+```bash
+# No API key required - just ensure Ollama is running
+ollama serve
+ollama pull llama3.2:3b
+```
+
+#### OpenAI Models
+```bash
+export OPENAI_API_KEY="sk-your-openai-api-key"
+```
+
+#### Anthropic Models  
+```bash
+export ANTHROPIC_API_KEY="sk-ant-your-anthropic-api-key"
+```
+
+#### Azure OpenAI
+```bash
+export AZURE_API_KEY="your-azure-key"
+export AZURE_API_BASE="https://your-resource.openai.azure.com/"
+export AZURE_API_VERSION="2023-07-01-preview"
+```
 
 ## Data Flow
 
@@ -142,6 +189,9 @@ clinical-rag/
 - Organized test structure (`tests/` directory)
 - Command-line interface (`run.py`) for all operations
 - High-quality semantic search (0.7+ similarity scores)
+- **Multi-Provider LLM Integration**: LiteLLM support for 100+ model providers
+- **Clinical RAG Generation**: Complete retrieval-augmented generation with evidence citations
+- **Flexible Model Selection**: Easy switching between local and cloud providers
 
 ## Phase 1 Foundation Complete
 

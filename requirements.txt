@@ -5,4 +5,5 @@ psycopg2-binary==2.9.9
 sqlalchemy==2.0.41
 sentence-transformers==3.3.1
 torch==2.5.1
-ollama==0.5.1
+litellm
+streamlit
