@@ -1,0 +1,168 @@
+{
+  "metadata": {
+    "timestamp": "20250718_205529",
+    "evaluation_type": "retrieval",
+    "system": "clinical_rag",
+    "total_queries": 52,
+    "success_rate": 0.40384615384615385,
+    "hit_rate_at_1": 0.15384615384615385,
+    "hit_rate_at_3": 0.28846153846153844,
+    "hit_rate_at_5": 0.40384615384615385,
+    "hit_rate_at_10": 0.40384615384615385,
+    "precision_at_1": 0.15384615384615385,
+    "mean_reciprocal_rank": 0.23846153846153847,
+    "performance_category": "fair",
+    "total_failures": 31,
+    "failure_rate": 0.5961538461538461,
+    "average_rank": 2.4285714285714284,
+    "median_rank": 2.0,
+    "min_rank": 1,
+    "max_rank": 5,
+    "parameters": {
+      "top_k": 5,
+      "similarity_threshold": 0.3,
+      "enhance_query": true,
+      "total_queries": 52
+    },
+    "failure_analysis": {
+      "total_failures": 31,
+      "failure_rate": 0.5961538461538461,
+      "top_failing_sections": {
+        "treatment": 12,
+        "diagnosis": 8,
+        "methods": 6
+      },
+      "top_failing_documents": {
+        "Acute_Low_Back_Pain.pdf": 10,
+        "Concussion.pdf": 9,
+        "Carpal_Tunnel_Syndrome.pdf": 6
+      }
+    },
+    "recommendation": "needs_improvement",
+    "insights": "Review query enhancement and training data"
+  },
+  "detailed_metrics": {
+    "hit_rate_at_1": 0.15384615384615385,
+    "hit_rate_at_3": 0.28846153846153844,
+    "hit_rate_at_5": 0.40384615384615385,
+    "hit_rate_at_10": 0.40384615384615385,
+    "precision_at_1": 0.15384615384615385,
+    "mean_reciprocal_rank": 0.23846153846153847,
+    "average_rank": 2.4285714285714284,
+    "median_rank": 2.0,
+    "min_rank": 1,
+    "max_rank": 5,
+    "success_rate": 0.40384615384615385
+  },
+  "detailed_failure_analysis": {
+    "total_failures": 31,
+    "failure_rate": 0.5961538461538461,
+    "failures_by_section": {
+      "methods": 6,
+      "general": 4,
+      "treatment": 12,
+      "diagnosis": 8,
+      "conclusion": 1
+    },
+    "failures_by_document": {
+      "Acute_Low_Back_Pain.pdf": 10,
+      "Concussion.pdf": 9,
+      "Carpal_Tunnel_Syndrome.pdf": 6,
+      "Achilles_Pain.pdf": 4,
+      "Acl_Injury_Prevention.pdf": 2
+    },
+    "example_failures": [
+      {
+        "id": "eval_001",
+        "question": "Can you walk me through your assessment findings for this patient's low back pain - specifically, what movements or postures did they exhibit that led to a specific classification based on changes in symptoms?",
+        "expected_chunk_id": 1855,
+        "found_at_rank": null,
+        "num_results": 5,
+        "section_type": "methods",
+        "filename": "Acute_Low_Back_Pain.pdf",
+        "success": false,
+        "top_similarity": 0.655525584683585,
+        "retrieved_chunk_ids": [
+          1865,
+          1854,
+          1637,
+          1896,
+          1860
+        ]
+      },
+      {
+        "id": "eval_004",
+        "question": "Can you walk me through your patient's return to aerobic exercise routine after concussion - specifically how do you assess their readiness based on symptom level, and what's the general goal for intensity progression?",
+        "expected_chunk_id": 3001,
+        "found_at_rank": null,
+        "num_results": 5,
+        "section_type": "general",
+        "filename": "Concussion.pdf",
+        "success": false,
+        "top_similarity": 0.7559624459765897,
+        "retrieved_chunk_ids": [
+          3271,
+          3272,
+          3327,
+          2991,
+          3372
+        ]
+      },
+      {
+        "id": "eval_010",
+        "question": "Can you recommend specific vestibular rehabilitation strategies, such as canalith repositioning maneuvers, for patients who have experienced a concussive event, and how often we should incorporate them into our treatment plans?",
+        "expected_chunk_id": 3318,
+        "found_at_rank": null,
+        "num_results": 5,
+        "section_type": "treatment",
+        "filename": "Concussion.pdf",
+        "success": false,
+        "top_similarity": 0.7615676380138195,
+        "retrieved_chunk_ids": [
+          3319,
+          3320,
+          3321,
+          3323,
+          3050
+        ]
+      },
+      {
+        "id": "eval_011",
+        "question": "Can you walk me through your patient's history and what we've discussed regarding their understanding of low back pain, so I can tailor our education plan to focus on empowering them with a positive prognosis and coping strategies?",
+        "expected_chunk_id": 1901,
+        "found_at_rank": null,
+        "num_results": 5,
+        "section_type": "treatment",
+        "filename": "Acute_Low_Back_Pain.pdf",
+        "success": false,
+        "top_similarity": 0.6621223885453462,
+        "retrieved_chunk_ids": [
+          1948,
+          1637,
+          2112,
+          1999,
+          2033
+        ]
+      },
+      {
+        "id": "eval_013",
+        "question": "What are some treatment options for Carpal Tunnel Syndrome that have been shown to be effective in the short term, and how do they compare to each other in terms of their benefits and potential drawbacks?",
+        "expected_chunk_id": 2597,
+        "found_at_rank": null,
+        "num_results": 5,
+        "section_type": "treatment",
+        "filename": "Carpal_Tunnel_Syndrome.pdf",
+        "success": false,
+        "top_similarity": 0.7154456803468288,
+        "retrieved_chunk_ids": [
+          2763,
+          2768,
+          2928,
+          2933,
+          2761
+        ]
+      }
+    ]
+  },
+  "all_results": []
+}

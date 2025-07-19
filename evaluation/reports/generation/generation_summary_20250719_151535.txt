@@ -1,0 +1,18 @@
+📊 Clinical RAG Generation Evaluation Summary
+============================================================
+
+Timestamp: 20250719_151535
+Generation Model: ollama/llama3.2:3b
+Judge Model: openai/gpt-3.5-turbo
+
+Overall Score: 5.5/7 (78.3%)
+Pass Rate: 78.8%
+Performance Category: good
+
+Dimension Scores:
+  Clinical Accuracy: 2.3/3 (78.2%)
+  Relevance: 1.6/2 (77.9%)
+  Evidence Support: 1.6/2 (78.8%)
+
+Recommendation: good_with_minor_improvements
+Insights: Strong performance, consider fine-tuning for specific clinical domains
