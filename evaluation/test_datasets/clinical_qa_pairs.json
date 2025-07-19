@@ -1,0 +1,470 @@
+[
+  {
+    "id": "eval_001",
+    "question": "Can you walk me through your assessment findings for this patient's low back pain - specifically, what movements or postures did they exhibit that led to a specific classification based on changes in symptoms?",
+    "expected_chunk_id": 1855,
+    "chunk_text": "TABLE 6\nOperational Definitions for Classification Systems\nIntervention\nOperational Definition\nMechanical Diagnosis and Therapy\nClassification method based on changes in low back pain (and/or lower extremity) symptoms in response to direction-specific, repeated \nlumbar spine movements or sustained postures. Findings are used to classify patients into different syndromes (ie, derangement, \ndysfunction, or postural) that guide the treatment approach\nTreatment-based classification\nClassification method to guide initial treatment approach (manipulation, stabilization, specific exercise, or traction) based on specific \ninitial assessment findings, including but not limited to patient history, clinical presentation, and physical examination\nMovement system impairment\nClassification method based on impaired trunk movements and postures associated with low back pain symptoms observed during a \nstandardized examination. Test results are used to classify patients based on observed lumbar movement or alignment impairments \n(rotation, extension, flexion, rotation with extension, or rotation with flexion), with subgroup assignment guiding the initial treatment \napproach to match specific signs and symptoms\nCognitive functional therapy\nClassification method that uses an integrated behavioral approach for individualizing the management of low back pain Pathoanatomical\nphysical, psychological, social, lifestyle, and health-related risk factors are assessed, with nonmodifiable barriers and a modifiable \ntarget for change identified to guide treatment based on 3 components (\u201cmaking sense of pain,\u201d \u201cexposure with control,\u201d and \u201clifestyle\nchange\u201d).",
+    "section_type": "methods",
+    "filename": "Acute_Low_Back_Pain.pdf",
+    "char_length": 1656
+  },
+  {
+    "id": "eval_002",
+    "question": "Can you tell me if mobilization was found to be effective in combination with other interventions, such as neural mobilization or electrotherapy, and if so, what were the results of those studies?",
+    "expected_chunk_id": 1811,
+    "chunk_text": "Seven of these RCTs \nfound short-term improvement in pain and disability out\u00ad\ncomes for the group receiving mobilization.44,49,53,76,93,163,165 \nSample sizes for these 7 RCTs ranged from 25 to 75, with \nnone including long-term follow-up outcome measures. Some RCTs provided mobilization combined with other in\u00ad\nterventions, including neural mobilization49 or other physical \ntherapy interventions.93 One small pilot RCT found no differ\u00ad\nence in pain or function between mobilization and sham \ntreatment.25\nSeven RCTs compared thrust or nonthrust mobilization \nwith active treatment comparators in patients with chronic \nLBP.4,36,113,140,153,155,160 Two RCTs compared thrust or nonthrust \nmobilization with electrotherapy.4,160 Both RCTs favored the \ngroup receiving mobilization. Five RCTs36,113,140,153,155 com\u00ad\npared thrust or nonthrust mobilization with different types \nof exercise.",
+    "section_type": "treatment",
+    "filename": "Acute_Low_Back_Pain.pdf",
+    "char_length": 887
+  },
+  {
+    "id": "eval_003",
+    "question": "Can you walk me through the specifics of the ergonomic keyboard trial by O'Connor et al - what was the design of the studied keyboards and how did they compare to standard mice in terms of symptoms reduction?",
+    "expected_chunk_id": 2535,
+    "chunk_text": "Neither study reported ad\u00ad\nverse effects associated with the use of the keyboards. O\u2019Connor et al210 concluded there was insufficient evidence \nfor or against the short or long-term effectiveness of the stud\u00ad\nied ergonomic keyboards in patients with CTS. II\nIn a cohort study consisting of 21 individuals with \nmild or moderate CTS, Schmid et al253 compared \nthe effects of a\nertical mouse a standard mouse\n Journal of Orthopaedic & Sports Physical Therapy\u00ae \n Downloaded from www.jospt.org at on July 18, 2025. For personal use only. No other uses without permission. Copyright \u00a9 2019 Journal of Orthopaedic & Sports Physical Therapy\u00ae. All rights reserved.",
+    "section_type": "treatment",
+    "filename": "Carpal_Tunnel_Syndrome.pdf",
+    "char_length": 656
+  },
+  {
+    "id": "eval_004",
+    "question": "Can you walk me through your patient's return to aerobic exercise routine after concussion - specifically how do you assess their readiness based on symptom level, and what's the general goal for intensity progression?",
+    "expected_chunk_id": 3001,
+    "chunk_text": "Exertional Tolerance and Aerobic Exercise\nA\nPhysical therapists should implement a symptom-guid\u00ad\ned, progressive aerobic exercise training program for pa\u00ad\ntients who have experienced a concussive event and exhibit \nexertional intolerance and/or are planning to return to vigorous \nphysical activity levels. Selection of modality and protocol for \ntraining with a specific focus on the patie\nel, lifestyle, and access to equipment is e\nthe initiation of the aerobic exercise train\nby patient, but as soon as the patient\u2019s s\nlized to a moderate or lower level of irrita\nguiding criterion. E\nPhysical therapists may implemen\ntraining for all patients who have e\nsive event, including those who do not exh\nance and those who do not intend to enga\nactivity, in order to reduce risk for decond\ntional brain healing, and provide a nonpha\nimprove mental health.",
+    "section_type": "general",
+    "filename": "Concussion.pdf",
+    "char_length": 853
+  },
+  {
+    "id": "eval_005",
+    "question": "Can you walk me through how to assess and document a patient's sensitivity to light touch with the Semmes-Weinstein monofilament test for carpal tunnel syndrome, including which fingers to use and what thresholds are typically used?",
+    "expected_chunk_id": 2127,
+    "chunk_text": "Copyright \u00a9 2019 Journal of Orthopaedic & Sports Physical Therapy\u00ae. All rights reserved. COLUMN 2:\nCarpal Tunnel Syndrome: Clinical Practice Guidelines\ng a patient with suspected carpal tunnel \n), clinicians should use Semmes-Weinstein \nSWMT), using the 2.83 or 3.22 monofila\u00ad\nor normal light touch sensation and static \non the middle finger to aid in determining \nmage. In those with suspected moderate to \nhould assess any radial finger using the \nreshold for normal. Semmes-Weinstein \nhould be repeated by the same provider. spected CTS, clinicians should use the \nam, Phalen test, Tinel sign, and carpal \ntermine the likelihood of CTS and interpret \nhe context of all clinical exam findings. s and document patient age (older than \nking their hands relieves their symptoms, \nmb, the wrist ratio index (greater than \nthe Boston Carpal Tunnel Questionnaire-\ne (CTQ-SSS) (greater than 1.9). The \n3 of these clinical findings has shown ac\u00ad\ncuracy.",
+    "section_type": "treatment",
+    "filename": "Carpal_Tunnel_Syndrome.pdf",
+    "char_length": 947
+  },
+  {
+    "id": "eval_006",
+    "question": "Can you tell me when it's safe to conduct a symptom-guided, graded exertional tolerance test for a patient who is experiencing dizziness, headache, and exertional intolerance after a concussion, versus delaying the test until symptoms are more stable at rest?",
+    "expected_chunk_id": 3238,
+    "chunk_text": "B\nPhysical therapists should conduct a symp\u00ad\ntom-guided, graded exertional tolerance test for \npatients who have experienced a concussive event \nand report exertional intolerance, dizziness, headache, and/\nor a desire to return to high-level exertional activities (ie, \nsports, active military duty, jobs that entail manual labor). Timing, modality, and protocol should be tailored to opti\u00ad\nmize safety and individual appropriateness. For patients \nwho are highly symptomatic at rest, the symptom-guided, \ngraded exertional tolerance test should be delayed until \nsymptoms are stable and more tolerable at rest. Likewise, \nphysical therapists may decide to postpone graded exertion\u00ad\nal testing until later in the course of care if clinical judgment \ndeems that other symptoms and impairments are of higher \npriority.",
+    "section_type": "general",
+    "filename": "Concussion.pdf",
+    "char_length": 816
+  },
+  {
+    "id": "eval_007",
+    "question": "Can you walk me through the current evidence base for ACL injury prevention programs, specifically what's been shown regarding their effectiveness in reducing risk of adverse events versus just screening high-risk athletes?",
+    "expected_chunk_id": 1433,
+    "chunk_text": "Evidence Synthesis\nThere was very little new evidence, meeting the inclusion \ncriteria of this CPG, published since 2018 on implementa-\ntion. The new level III evidence continues to support the \nprevious Level I and II studies and 2018 recommendations \nthat there is no increase in risk of adverse events when all \nathletes perform prevention programs compared to only \nathletes screened as high risk, and there is no harm in per-\nforming prevention programs. Although cost may minimally \nincrease (depending on the program) as more athletes par-\nticipate, the small increase in program costs is likely out-\nweighed by long-term health care costs and by the reduction \nin ACL injuries.",
+    "section_type": "conclusion",
+    "filename": "Acl_Injury_Prevention.pdf",
+    "char_length": 685
+  },
+  {
+    "id": "eval_008",
+    "question": "Can you tell me about the results of the meta-analyses that compared computer use to Carpal Tunnel Syndrome (CTS) in different types of workers - specifically, whether there's a difference in association between computer use and CTS depending on who's being compared to?",
+    "expected_chunk_id": 2332,
+    "chunk_text": "t al15 performed a systematic review of \nreviews on the causal relationship be\u00ad\nand computer use. The authors con\u00ad\nological evidence for computer use and \nS is insufficient. ta-analysis of studies on computer use, \nalah-Hassani258 noted different results \nhether the control group used was com\u00ad\ners versus individuals from the general \nypes of workers. The meta-analysis of 6 \ners demonstrated a positive association \nquent computer or typewriter use (OR \n1.65), frequent mouse use (pooled OR \n2.8), and longer duration of computer \n% CI: 1.17, 3.17). In contrast, the meta-\nhat compared computer workers to the \nr other types of workers, showed an in\u00ad\netween computer use and CTS (OR = \n0.90). t al189 did not find a significant associa\u00ad\nn computer use and CTS in their meta-\n6 studies, however they did not provide \np composition. Mediouni et al\u2019s189 review \n4 that was also reviewed in the Shiri and \na-analysis.",
+    "section_type": "general",
+    "filename": "Carpal_Tunnel_Syndrome.pdf",
+    "char_length": 915
+  },
+  {
+    "id": "eval_009",
+    "question": "Can you tell me what we're currently advising our patients with midportion Achilles tendinopathy to do regarding their activity level?",
+    "expected_chunk_id": 1114,
+    "chunk_text": "Evidence Update\nNone. NEUROMUSCULAR RE-EDUCATION\n2018 Recommendation\nF\nClinicians may use neuromuscular exercises target-\ning lower extremity impairments that may lead to \nabnormal kinetics and/or kinematics, specifically \neccentric overload of the Achilles tendon during weight-bearing \nactivities. Evidence Update\nNone. --- Page 13 ---\nCOLUMN 1:\n2024 Recommendation\nUnchanged. PATIENT EDUCATION AND COUNSELING\n2018 Recommendation\nB\nFor patients with nonacute midportion Achilles \ntendinopathy, clinicians should advise that com-\nplete rest is not indicated and that they should con-\ntinue with their recreational activity within their pain \ntolerance while participating in rehabilitation. E\nClinicians may counsel patients with midportion \nAchilles tendinopathy.",
+    "section_type": "conclusion",
+    "filename": "Achilles_Pain.pdf",
+    "char_length": 765
+  },
+  {
+    "id": "eval_010",
+    "question": "Can you recommend specific vestibular rehabilitation strategies, such as canalith repositioning maneuvers, for patients who have experienced a concussive event, and how often we should incorporate them into our treatment plans?",
+    "expected_chunk_id": 3318,
+    "chunk_text": "determine, test, and optimize \nventions for individuals who \ne event and exhibit cervical \nhould implement interven\u00ad\nessing cervical and thoracic \nch as strength, range of mo\u00ad\nr sensorimotor function (eg, \nead position control, cervical \nnd manual therapy to the cer\u00ad\nicated, for patients who have \n. ERVENTIONS\nevel I evidence recommended \nified as a potential source of \nith repositioning maneuvers \nincluding 2 RCTs provided \nvidence that vestibulo-oculo\u00ad\nimproved outcomes.171 Evi\u00ad\nuality RCT indicates that \nng vestibulo-oculomotor im\u00ad\nd in combination with other \nmay be feasible even within \nive injury and can be effective \nng time to recovery, and im\u00ad\nindi iduals in the treatment\ngroup who received cervical and vestibular rehabilitation \nwere 3.91 times more likely to be medically cleared for return \nto sport by 8 weeks.194\nIV\nMultiple clinician survey studies, case series, and \nretrospective cohort studies without comparators \nindicate that vestibular rehabilitation, including \ncanalith repositioning maneuvers for BPPV, is commonly \nused by physical therapists to treat individuals who have ex\u00ad\nperienced a concussive event5 and may help reduce dizziness \nand improve gait and balance dysfunction for these \npatients.4,103,163,193,203\nEvidence Synthesis\nStudies suggest that physical therapists commonly integrate \nvestibular and oculomotor rehabilitation strategies when \nworking with patients who have experienced a concussive \nevent. Vestibulo-oculomotor rehabilitation, when prescribed \nin isolation or in conjunction with other rehabilitation in\u00ad\nterventions, is associated with reduced dizziness, improved \nbalance, and faster return to sport.",
+    "section_type": "treatment",
+    "filename": "Concussion.pdf",
+    "char_length": 1667
+  },
+  {
+    "id": "eval_011",
+    "question": "Can you walk me through your patient's history and what we've discussed regarding their understanding of low back pain, so I can tailor our education plan to focus on empowering them with a positive prognosis and coping strategies?",
+    "expected_chunk_id": 1901,
+    "chunk_text": "B\nPhysical therapists should not utilize patient educa\u00ad\ntion and counseling strategies that either directly or \nindirectly increase the perceived threat or fear asso\u00ad\nciated with LBP, such as education and counseling strategies \nthat (1) promote extended bed rest or (2) provide in-depth, \npathoanatomical explanations for the specific cause of the pa\u00ad\ntient\u2019s LBP. Patient education and counseling strategies for \npatients with LBP should emphasize (1) the promotion of the \nunderstanding of the anatomical/structural strength inherent \nin the human spine, (2) the neuroscience that explains pain \nperception, (3) the overall favorable prognosis of LBP, (4) the \nuse of active pain coping strategies that decrease fear and catas\u00ad\ntrophizing, (5) the early resumption of normal or vocational \nactivities, even when still experiencing pain, and (6) the impor\u00ad\ntance of improvement in activity levels, not just pain relief. 2021 Evidence Update\nBased on the results of our literature search, the 2021 update \nwill include some of the same, but also different, treatment \ncategories as did the 2012 CPG.",
+    "section_type": "treatment",
+    "filename": "Acute_Low_Back_Pain.pdf",
+    "char_length": 1100
+  },
+  {
+    "id": "eval_012",
+    "question": "Can you walk me through your approach when deciding whether to delay or postpone graded exertional tolerance tests in a highly symptomatic patient at rest?",
+    "expected_chunk_id": 2976,
+    "chunk_text": "Timing, modality, and protocol should be tailored to optimize \nsafety and individual appropriateness. For patients who are highly \nsymptomatic at rest, the symptom-guided, graded exertional toler\u00ad\nance test should be delayed until symptoms are stable and more \ntolerable at rest. Likewise, physical therapists may decide to post\u00ad\npone graded exertional testing until later in the course of care if the \nclinical judgment is that other symptoms and impairments are of \nhigher priority. Testing modality (eg, treadmill versus stationary bi\u00ad\ncycle) and protocol selection should be based on clinical judgment, \npatient comfort, and the availability of necessary equipment. Heart \nrate and blood pressure should be monitored periodically through\u00ad\nout the test and afterward to identify any significant concerns for \natypical responses to exercise testing.",
+    "section_type": "general",
+    "filename": "Concussion.pdf",
+    "char_length": 851
+  },
+  {
+    "id": "eval_013",
+    "question": "What are some treatment options for Carpal Tunnel Syndrome that have been shown to be effective in the short term, and how do they compare to each other in terms of their benefits and potential drawbacks?",
+    "expected_chunk_id": 2597,
+    "chunk_text": "Including the MP \njoints has shown positive effects in clinical and bench studies, \nalthough the evidence on the desired angle is conflicting (0\u00b0-\n10\u00b0 versus 45\u00b0) and MP joint inclusion further limits func\u00ad\ntional use during wear. There are conflicting results comparing an orthosis to oral \nsteroid use in the short term; however, when an orthosis was \ncompared to steroid injection, results favored the injection in \nthe short term.63,264 However, the effects of the 2 treatments \nwhen implemented separately, were equal at 6 months post \ntreatment.63 When an orthosis was combined with a steroid \ninjection, the effects were superior to the injection alone.277,285 \nDrawing conclusions is difficult in these studies due to the \nlack of a control group. Adverse reactions for the steroid in\u00ad\njection include thinning skin, pigment changes, hot flushes, \nand increased pain.63\nWhen comparing an orthosis to surgery, the orthosis dem\u00ad\nonstrated improvement over surgery in the short term, but \nlong-term results favored surgery.109,277 Surgery is associated \nwith increased cost and may have a higher rate of compli\u00ad\ncation as reported in these studies.",
+    "section_type": "treatment",
+    "filename": "Carpal_Tunnel_Syndrome.pdf",
+    "char_length": 1153
+  },
+  {
+    "id": "eval_014",
+    "question": "Can you walk me through how we assess and identify potential psychological and sociological factors in our patients with concussions, and what specific measures or tools do we use to evaluate these factors?",
+    "expected_chunk_id": 3269,
+    "chunk_text": "These studies \nare further supported by a number of theoretical and concep\u00ad\ntual expert opinion documents highlighting the likelihood of \npsychological and sociological factors as important consider\u00ad\nations for prognosis and intervention selection.107,176 Specific \nassessments and evaluative decisions based on these factors \nhave not been thoroughly tested. Gaps in Knowledge\nMore research is needed to help apply available measures \nand/or develop specific evaluation measures for identifying \npotential psychological and sociological factors that may \ninfluence optimal physical therapy intervention and dosing \nselection. Recommendations\nE\nPhysical therapists should elicit, evaluate, and doc\u00ad\nument factors related to self-efficacy and self-man\u00ad\nagement abilities, potential psychological and \nsociological factors that may significantly influence recovery \nprocesses and outcomes for physical therapy interventions.",
+    "section_type": "diagnosis",
+    "filename": "Concussion.pdf",
+    "char_length": 922
+  },
+  {
+    "id": "eval_015",
+    "question": "Can you walk me through your approach to manual therapy for a patient with acute low back pain - specifically how do you determine whether to use thrust or non-thrust mobilization techniques?",
+    "expected_chunk_id": 1790,
+    "chunk_text": "TABLE 5\nOperational Definitions for Manual and Other Directed Therapies\nIntervention\nOperational Definition\nThrust or nonthrust joint mobilization\nA continuum of skilled passive movement applied at varying speeds and amplitudes within or at the end range of motion of \na joint. Thrust procedures are those provided with low amplitude and high velocity\nSoft tissue mobilization\nSkilled passive movement of soft tissue, including fascia, muscles, and ligaments, to reduce pain or improve range of \nmotion. Techniques include myofascial release, trigger point therapy, strain/counterstrain, etc\nNeural tissue mobilization\nManual therapy techniques intended to enhance the dynamic balance between the relative movement of neural tissues and\nsurrounding mechanical interfaces\nMassage\nA general term referring to techniques using the hands to promote relaxation of underlying muscles\nDry needling\nAn intervention that uses a thin filiform needle to penetrate the skin and stimulate underlying myofascial trigger points and \nmuscular and connective tissues for the management of pain and movement impairments\nTraction\nAn intervention that uses manually or mechanically applied forces with the intention of stretching and distracting the spine\n Journal of Orthopaedic & Sports Physical Therapy\u00ae \n Downloaded from www.jospt.org at on November 1, 2021.",
+    "section_type": "methods",
+    "filename": "Acute_Low_Back_Pain.pdf",
+    "char_length": 1342
+  },
+  {
+    "id": "eval_016",
+    "question": "Can you walk me through how sensitivity and specificity are calculated for a specific diagnostic test, like the tuning fork at 256 Hz, in patients with Carpal Tunnel Syndrome?",
+    "expected_chunk_id": 2378,
+    "chunk_text": "There were differences \nat 8 and 63 Hz, but in another level I study, Checkosky et al59 \nfound a difference in CTS cases and controls at 10 Hz but no \ndifferences at 1 or 300 Hz. III\nIn a systematic review, MacDermid and Wessel173 \nfound the sensitivity and specificity for the 256 Hz \ntuning fork were 55% and 81%, respectively, for \nconfirming the CTS diagnosis. Combining Individual Tests Into Test Batteries\nII\nWainner et al283 showed a balance between sensitiv\u00ad\nity (0.98) and specificity (0.54) with more than 3 \npositive tests from the following: shaking hands \nrelieves symptoms, wrist-ratio index greater than 0.67, CTQ-\nSSS greater than 1.9, diminished sensation in median nerve \ndistribution, and age greater than 45 years. Requiring all 5 to \nbe positive decreased sensitivity to 0.18 and increased speci\u00ad\nficity to 0.99. The greatest +LR (4.60; 95% CI: 2.5, 8.7) oc\u00ad\ncurred when 4 or more of these tests were positive (TABLE 4).",
+    "section_type": "diagnosis",
+    "filename": "Carpal_Tunnel_Syndrome.pdf",
+    "char_length": 941
+  },
+  {
+    "id": "eval_017",
+    "question": "Can you tell me more about the different clinical profiles identified in this study - specifically which ones involve Achilles tendon impairments and what factors are most influential on recovery for those patients?",
+    "expected_chunk_id": 1051,
+    "chunk_text": "A prospective study by Hanlon \net al identified 4 clinical profiles based on identified impair-\nments, including Activity-dominant, Function-dominant, \nPsychosocial-dominant, and Structure-dominant, that had dif-\nerent trajectories of recovery with rehabilitation over 6 months. The subgroups were defined based on 5 factors: (1) lower extremity \nunction (eg, heel rise endurance), (2) patient-related factors (eg, \nbody mass index [BMI]), (3) symptom severity (eg, VISA-A), \n4) psychosocial factors (ie, Tampa Scale of Kinesiophobia), and \n5) tendon morphology (eg, tendon thickness). Activity- and \nFunction-dominant groups had greater functional recovery than \nthe Psychosocial- and Structure-dominant groups.25 \n2024 SUMMARY\nWhile most individuals will improve, the extent of recovery \nand time to recover can vary between individuals.",
+    "section_type": "conclusion",
+    "filename": "Achilles_Pain.pdf",
+    "char_length": 839
+  },
+  {
+    "id": "eval_018",
+    "question": "Can you tell me more about how autonomic dysfunction is thought to contribute to exertional intolerance in individuals with concussion, and what kind of assessments we can use to identify this dysregulation?",
+    "expected_chunk_id": 3119,
+    "chunk_text": "Regardless, it is important for physical ther\u00ad\napists to consider the interplay and overlap between cervical \nand vestibular causes of dizziness, oculomotor dysfunction, \nand imbalance. Autonomic Dysfunction and Exertional Intolerance\nMounting evidence indicates that reduced tolerance of phys\u00ad\nical exertion is common after concussion, with many individ\u00ad\nuals reporting an increase in a variety of concussion-related \nsymptoms with physical exertion.47,53,54,66,85,104,123,126,133,152,159,192 \nPoor tolerance of physical exertion may also be associated with \nhigher reports of fatigue, as the effects of physical exertion may \nnot occur during actual exercise but may emerge later.47,118 The \nextent to which physical exertion intolerance is present among \nindividuals with concussion has not been systematically stud\u00ad\nied, nor are the specific mechanisms that drive exertion in\u00ad\ntolerance fully understood. However, autonomic dysfunction \nresulting from the brain injury itself may be a contributing \nfactor.9,15,33,123,133 It has been hypothesized that concussions \ncan lead to an uncoupling of the central autonomic nervous \nsystem and the heart, leading to a reduced ability to maintain \nand adjust cerebral blood flow, blood pressure, and/or heart \nrate in response to increases and decreases in physical exer\u00ad\ntion.15,53,66,85,133 While confirmatory studies for these hypoth\u00ad\neses are needed, preliminary work in this area suggests that \nconcussions may be associated with altered autonomic regu\u00ad\nlation.17,65,66,85 This autonomic dysregulation has been linked \nto higher perceived rates of exertion after concussion in com\u00ad\nparison to individuals who have not recently sustained a con\u00ad\ncussion,85 and may be captured by assessments for orthostatic \nhypotension.187 Another potential source of poor tolerance of \nphysical exertion is general deconditioning or secondary phys\u00ad\nical inactivity/lifestyle changes that may be recommended or \noccur as a result of the concussive injury.191,192,204\nMotor Function Impairments\nA variety of studies have reported that individuals who have \nexperienced a concussive event may present with altered mo\u00ad\ntor function abilities, including static and dynamic balance/\n Journal of Orthopaedic & Sports Physical Therapy\u00ae \nDownloaded from www.jospt.org at on July 2, 2025.",
+    "section_type": "diagnosis",
+    "filename": "Concussion.pdf",
+    "char_length": 2312
+  },
+  {
+    "id": "eval_019",
+    "question": "Can you tell me if any of the studies included in that systematic review specifically looked at how different components of an ACL injury prevention program, such as exercises or training methods, affected noncontact ACL injuries in women?",
+    "expected_chunk_id": 1384,
+    "chunk_text": "There was a 67% \non in risk for noncontact ACL injuries among women \n. The findings of this meta-analysis were also sup-\nn a systematic review by Olivares-Jabalera et al.24\nA systematic review with meta-analysis was per-\nformed to determine how protective ACL injury \nprevention programs are and what the important \nnents of a prevention program are when accounting \ny quality (randomized and cluster-randomized con-\nd studies that included incidence rate).13 Eight stud-\nh a total of 13 562 participants were included and \nstrated a significant, 53% reduction in ACL injury \nthose participating in an injury prevention program. ecific components for injury prevention programs \nt identified; however, all but 2 studies provided feed-\nexercises and included at least 3 types of exercise. Two papers reported on men and women in the \nsame RCT examining secondary ACL injury pre-\nvention.",
+    "section_type": "general",
+    "filename": "Acl_Injury_Prevention.pdf",
+    "char_length": 886
+  },
+  {
+    "id": "eval_020",
+    "question": "Can you tell me if incorporating adjunct treatments like prolotherapy or platelet-rich plasma into our exercise program for Achilles pain has shown to be more effective in the long term compared to just eccentric exercises alone?",
+    "expected_chunk_id": 1182,
+    "chunk_text": "Challoumas \net al10 completed a systematic review and network meta-analysis \ncomparing the effectiveness of exercise interventions with or \nwithout adjunct treatments to other treatments or no treatments \n(31 RCTs, N = 1792 individuals, mean age = 46 years). Similarly, \nexercise plus adjunct treatments (injections, low-level laser \ntherapy, orthoses) were all ranked higher than eccentric exercise \nalone on improvements in the VISA-A at short-term follow-up.10 \nAt long-term follow-up, exercise plus an injection (prolotherapy, \nhigh-volume injection with corticosteroid, platelet rich plasma) \nwere also ranked higher than eccentric exercise alone.10\nEvidence Synthesis\nThe new systematic reviews and network meta-analyses include \na wide variety of treatments and comparisons; therefore, it is \ndifficult to assess an optimal set of treatments. However, eccen-\ntric exercise alone was ranked in the bottom half of treatments \nbased on effect sizes of existing studies, suggesting that although \nexercise is a first line treatment with positive outcomes, combin-\ning exercise with a variety of other treatments may have greater \neffectiveness.10,70 In contrast, a systematic review that did not \ninclude injections found no additional benefit from using mo-\ndalities.",
+    "section_type": "treatment",
+    "filename": "Achilles_Pain.pdf",
+    "char_length": 1271
+  },
+  {
+    "id": "eval_021",
+    "question": "So you're assessing a patient who's been seen in our clinic for a suspected concussion - how do we determine if they need to have a CT scan or other imaging, and what are some specific signs that would indicate further evaluation is needed?",
+    "expected_chunk_id": 3151,
+    "chunk_text": "The use of the Glasgow Coma Scale and the Canadian com\u00ad\nputed tomography (CT) head rule may be useful to support \nscreening of individuals for brain injury of greater severi\u00ad\nty than concussion.149,153 If patients demonstrate relative\u00ad\nly normal mental status (alertness/behavior/cognition) at \nleast 4 hours post injury, do not report severe headache, \ndo not have signs of focal neurological deficit, and do not \ndemonstrate high-risk factors for further imaging/scans (eg, \nGlasgow Coma Scale score of less than 13 two hours after \ninjury, suspected open skull fracture or sign of base skull \nfracture, vomiting more than twice, and younger than 65 \nyears of age), then concern for more severe brain injury re\u00ad\nquiring neurosurgical intervention is low. For patients aged \n8 to 18 years presenting within the first 24 hours of head \ninjury, the Pediatric Emergency Care Applied Research \nNetwork (PECARN) has developed a validated prediction \nrule to help identify children at very low risk of needing \nacute-care intervention, versus those who are showing signs \nof more moderate or severe brain injury.116 Signs that CT \nimaging and other acute monitoring are not likely needed \ninclude normal mental status, no loss of consciousness, no \nvomiting, nonsevere injury mechanism, no signs of basilar \nskull fracture, and no severe headache.116\n\n\n--- Page 19 ---\nCOLUMN 1:\nStudy criteria) warrant further assessment and referral for \nconsultation with physicians or other members of the health \ncare team (FIGURE 1).10,16,201,202\nRecommendation\nA\nPhysical therapists must screen patients who have \nexperienced a recent potential concussive event for \nsigns of medical emergency or severe pathology (eg, \nmore serious brain injury, medical conditions, or cervical \nspine injury) that warrant further evaluation by other health \ncare providers. Referral for further evaluation should be \nmade as indicated (FIGURE 1).",
+    "section_type": "diagnosis",
+    "filename": "Concussion.pdf",
+    "char_length": 1916
+  },
+  {
+    "id": "eval_022",
+    "question": "Can you walk me through how we currently use or don't use classification systems to group patients with acute low back pain in our clinic, and what factors do we consider when deciding on interventions for these groups?",
+    "expected_chunk_id": 1861,
+    "chunk_text": "lassification systems represent decision-making strategies \nhat are designed to help physical therapists identify import\u00ad\nnt subgroups of patients with LBP and match the subgroups \no the interventions most likely to be beneficial to them.87 The \n012 CPG noted that a few RCTs were available that exam\u00ad\nned specific classification systems, but the CPG did not pro\u00ad\nde recommendations about these systems.38 The following \nndorsements were made regarding classification in general \nn the 2012 CPG. Emphasis in the development of subgrouping methods \nhas been placed on patterns of signs and symptoms from \nthe clinical examination. The development of classification systems has been iden\u00ad\ntified as a priority among researchers in the primary care \nmanagement of patients with LBP. The best available evidence supports a classification ap\u00ad\nproach that de-emphasizes identifying specific anatomical \nlesions after red flag screening is completed.",
+    "section_type": "methods",
+    "filename": "Acute_Low_Back_Pain.pdf",
+    "char_length": 943
+  },
+  {
+    "id": "eval_023",
+    "question": "Can you tell me what irritability levels are being referred to in the GDG's conclusion - specifically how they relate to identifying priorities and sequencing for examination procedures?",
+    "expected_chunk_id": 3032,
+    "chunk_text": "Irritabil\u00ad\nity is a term used by rehabilitation practitioners to reflect the \ntissue or body system\u2019s ability to handle physical or physiolog\u00ad\nical stress,170 and is presumably related to physical status and \nthe extent of injury and inflammatory activity. The GDG con\u00ad\ncluded that information gleaned during the intake interview \ncan be used to help determine probable levels of irritability for \nthe affected systems, which in turn can be used to help identify \npriorities and sequencing for examination procedures to al\u00ad\nlow for a greater number and accuracy of assessments. Deter\u00ad\nmining probable levels of irritability may also help clinicians \nplan for modifications to examination procedures that would \naddress safety concerns, patient comfort, and/or patient and \nfamily goals and preferences. Likewise, irritability levels for \nspecific impairments can guide prioritization and selection of \nphysical therapy interventions.",
+    "section_type": "methods",
+    "filename": "Concussion.pdf",
+    "char_length": 933
+  },
+  {
+    "id": "eval_024",
+    "question": "How do we balance the need to implement concussion protocols with the potential challenges of training staff, accessing equipment, and managing our existing caseload?",
+    "expected_chunk_id": 3058,
+    "chunk_text": "Additional barriers to implementation may include costs as\u00ad\nsociated with training clinicians, lack of equipment, cultur\u00ad\nal barriers with local practice coordination or patterns that \ncontrast with recommendations, and the additional time \nneeded to examine, evaluate, and treat patients who have ex\u00ad\nperienced a concussive event and have multiple impairments. Physical therapists are encouraged to use this CPG to sup\u00ad\nport collaboration with the other care providers managing \npatients with concussion in their local practice settings. The \ncontents of this CPG may also be useful to inform discussions \nwith clinic managers and administrators on how to set up \ninfrastructure to ensure adequate time and resources, and to \nensure that referral sources are dedicated to provide optimal \ncare for patients who have experienced a concussive event.",
+    "section_type": "conclusion",
+    "filename": "Concussion.pdf",
+    "char_length": 848
+  },
+  {
+    "id": "eval_025",
+    "question": "When assessing a patient with Carpal Tunnel Syndrome, what additional manual therapy technique can I consider adding to an orthosis program that targets the metacarpophalangeal joints?",
+    "expected_chunk_id": 2410,
+    "chunk_text": "Duration of orthosis use may be increased \nto include daytime wear, or the metacarpophalangeal joints may be included if nighttime wrist-neutral positioning alone does not provide su\ufb03cient relief\nSecondary Interventions (C)\nAssistive technology\n\u2022 May counsel patients/clients on limiting mouse use and \ufb01nding a keyboard that limits key-strike force\nThermotherapy\n\u2022 May consider a trial of super\ufb01cial heat when patients/clients are able to understand the possibility of negative e\ufb00ects of super\ufb01cial heat on \nsensory-impaired tissue and on acute in\ufb02ammation\nElectrotherapy\n\u2022 May consider a trial of interferential current during supervised therapy sessions for short-term pain relief\nPhonophoresis\n\u2022 May consider a trial of phonophoresis during supervised therapy sessions\nManual therapy\n\u2022 May implement based on patient data from the examination\nStretching\n\u2022 May add lumbrical or general stretching to a program that includes an orthosis\n\n\n--- Page 25 ---\nCOLUMN 1:\nAbbreviations: ICC, intraclass correlation coefficient; ULNT, upper-limb neurodynamic test. *No reliability data were available for the wrist flexion with compression (Phalen test with compression), Gilliatt pneumatic compression (tourniquet), and hand elevation tests. \u2020Values in parentheses are 95% confidence interval.",
+    "section_type": "treatment",
+    "filename": "Carpal_Tunnel_Syndrome.pdf",
+    "char_length": 1287
+  },
+  {
+    "id": "eval_026",
+    "question": "Can you tell me what are some specific criteria we can use to assess whether a patient with concussion is at low risk for needing further imaging or acute-care intervention, and how do we determine if they're stable enough for physical therapy treatment?",
+    "expected_chunk_id": 3150,
+    "chunk_text": "Clinical practice guidelines for concussion/mTBI provide \nspecific guidance on this type of screening.141,153\nFIGURE 1 provides a synthesis of key signs and symptoms in \nscreening to determine the need for emergency evaluation. The use of the Glasgow Coma Scale and the Canadian com\u00ad\nputed tomography (CT) head rule may be useful to support \nscreening of individuals for brain injury of greater severi\u00ad\nty than concussion.149,153 If patients demonstrate relative\u00ad\nly normal mental status (alertness/behavior/cognition) at \nleast 4 hours post injury, do not report severe headache, \ndo not have signs of focal neurological deficit, and do not \ndemonstrate high-risk factors for further imaging/scans (eg, \nGlasgow Coma Scale score of less than 13 two hours after \ninjury, suspected open skull fracture or sign of base skull \nfracture, vomiting more than twice, and younger than 65 \nyears of age), then concern for more severe brain injury re\u00ad\nquiring neurosurgical intervention is low. For patients aged \n8 to 18 years presenting within the first 24 hours of head \ninjury, the Pediatric Emergency Care Applied Research \nNetwork (PECARN) has developed a validated prediction \nrule to help identify children at very low risk of needing \nacute-care intervention, versus those who are showing signs \nof more moderate or severe brain injury.116 Signs that CT \nimaging and other acute monitoring are not likely needed \ninclude normal mental status, no loss of consciousness, no \nvomiting, nonsevere injury mechanism, no signs of basilar \nskull fracture, and no severe headache.116\n\n\n--- Page 19 ---\nCOLUMN 1:\nStudy criteria) warrant further assessment and referral for \nconsultation with physicians or other members of the health \ncare team (FIGURE 1).10,16,201,202\nRecommendation\nA\nPhysical therapists must screen patients who have \nexperienced a recent potential concussive event for \nsigns of medical emergency or severe pathology (eg, \nmore serious brain injury, medical conditions, or cervical \nspine injury) that warrant further evaluation by other health \ncare providers.",
+    "section_type": "diagnosis",
+    "filename": "Concussion.pdf",
+    "char_length": 2071
+  },
+  {
+    "id": "eval_027",
+    "question": "Can you help me identify the specific ICD-10 codes and related activities for knee injuries that are targeted by exercise-based prevention programs, such as those recommended in this CPG?",
+    "expected_chunk_id": 1366,
+    "chunk_text": "orthopt.org and AOPT\u2019s vendor part-\nners, and standardized skill-building \nseminar available from AOPT\u2019s CPG \nseminar cosponsors, worldwide\n\n\n--- Page 7 ---\nCOLUMN 1:\nCLASSIFICATION\nThe primary International Classification of Diseases, Tenth \nRevision (ICD-10), codes and conditions associated with ex-\nercise-based knee injury prevention are as follows: \u201cS83.2 Tear \nof the (medial) (lateral) meniscus of the knee,\u201d \u201cS83.4 Sprain \nand strain involving (fibular) (tibial) collateral ligament of \nknee,\u201d \u201cS83.5 Sprain and strain involving (anterior) (posterior) \ncruciate ligament of knee,\u201d \u201cS83.7 Injury to multiple structures \nof knee,\u201d \u201cS83.6 Sprain and strain of other unspecified parts of \nthe knee,\u201d and \u201cM22.2 Patellofemoral disorders.\u201d\nThe primary ICF activities and participation codes associ-\nated with exercise-based knee injury prevention are as fol-\nlows: \u201cd410 Changing basic body positions,\u201d \u201cd450 Walking,\u201d \n\u201cd4552 Running,\u201d \u201cd4553 Jumping,\u201d \u201cd4559 Moving around,\u201d \n\u201cspecified as direction changes while walking or running,\u201d \n\u201cd9200 Play,\u201d \u201cd9201 Sports,\u201d and \u201cd9202 Arts and culture.\u201d\nORGANIZATION OF THE GUIDELINE\nThis CPG is arranged in relation to the following CPG \nobjectives:\n Journal of Orthopaedic & Sports Physical Therapy\u00ae \nDownloaded from www.jospt.org at on January 26, 2023. For personal use only. No other uses without permission.",
+    "section_type": "treatment",
+    "filename": "Acl_Injury_Prevention.pdf",
+    "char_length": 1360
+  },
+  {
+    "id": "eval_028",
+    "question": "Can you walk me through the results of that study on proprioceptive neuromuscular facilitation training for patients with chronic low back pain and clinical lumbar instability - specifically what changes were seen in trunk muscle activity after this type of intervention?",
+    "expected_chunk_id": 1989,
+    "chunk_text": "/mjms2019.26.6.8\nong P, Buttagat V. Proprioceptive neuromuscular facilitation \noves pain-related and balance outcomes in working-age \nchronic low back pain: a randomized controlled trial. Core \nexercise improves pain intensity, functional disability and \ntrunk muscle activity of patients with clinical lumbar instability: a pilot \nrandomized controlled study. J Phys Ther Sci. Areeudomwong P, Wongrat W, Neammesri N, Thongsakul T. A randomized \ncontrolled trial on the long-term effects of proprioceptive neuromuscular \nfacilitation training, on pain-related outcomes and back muscle activity, \nin patients with chronic low back pain. Arguisuelas MD, Lis\u00f3n JF, Dom\u00e9nech-Fern\u00e1ndez J, Mart\u00ednez-Hurtado \nI, Salvador Coloma P, S\u00e1nchez-Zuriaga D. Effects of myofascial release \nin erector spinae myoelectric activity and lumbar spine kinematics in \nnon-specific chronic low back pain: randomized controlled trial. Clin \nBiomech (Bristol, Avon).",
+    "section_type": "general",
+    "filename": "Acute_Low_Back_Pain.pdf",
+    "char_length": 940
+  },
+  {
+    "id": "eval_029",
+    "question": "Can you tell me more about the specific trunk muscle activation exercises used in that randomized controlled trial by Macedo et al, and what kind of assessments were done to evaluate their effectiveness?",
+    "expected_chunk_id": 1720,
+    "chunk_text": "The group receiving \nmuscle strengthening and endurance exercise had greater \nimprovement in pain compared to the self-care group after 3 \nand 6 months (pain visual analog scale [VAS] between-group \nmean difference, \u201310 mm for both follow-up occasions; ODI \nbetween-group mean difference, \u20134 and \u20135, respectively). There were no differences among the groups after 24 months. Specific Trunk Muscle Activation\nI\nAn RCT by Macedo et al104 compared specific trunk \nmuscle activation exercise to a general exercise pro\u00ad\ngram with cognitive behavioral principles in 172 \npatients with chronic LBP. Assessments at 2, 6, and 12 \nmonths found no difference in pain or disability between \ngroups.",
+    "section_type": "diagnosis",
+    "filename": "Acute_Low_Back_Pain.pdf",
+    "char_length": 686
+  },
+  {
+    "id": "eval_030",
+    "question": "Can you walk me through your assessment process for a patient with acute low back pain, specifically how you determine if they are likely to have a musculoskeletal origin versus another cause?",
+    "expected_chunk_id": 1641,
+    "chunk_text": "For example, a 2020 review of \ny musculoskeletal pain CPGs (including 4 \ntified consistent best-practice recommenda\u00ad\nsure care is patient centered, (2) screen for \ntions, (3) assess psychosocial factors, (4) use \nively, (5) undertake a physical examination to \nments, (6) monitor patient progress, (7) pro\u00ad\nvide education and evidence-based information as a treat\u00ad\nment supplement, (8) incorporate physical activity/exercise, \n(9) use manual therapy only as an adjunct to other active \ntreatments, (10) offer high-quality, nonsurgical care prior \nto surgery, and (11) try to keep patients at work.100 An in-\npress review of 5 high-quality CPGs for LBP produced a \nsynthesis of 13 very similar recommendations for screening, \nassessment, and treatment approaches.101 This consistency \nof recommendations for LBP across diagnosis, differential \ndiagnosis, and examination was helpful in supporting the \ndecision to de-emphasize these topic areas for the updated \nAOPT CPG for LBP. That is, a decision to focus the 2021 \nupdate on treatments was made because diagnosis, differen\u00ad\ntial diagnosis, and examination recommendations are well \ncovered in other guidelines. The importance of nonpharmacologic treatments is another \ndevelopment directly relevant to the 2021 update\u2019s focus \non treatments.",
+    "section_type": "diagnosis",
+    "filename": "Acute_Low_Back_Pain.pdf",
+    "char_length": 1294
+  },
+  {
+    "id": "eval_031",
+    "question": "Can you tell me what's the recommended time frame for using grip strength assessments after a carpal tunnel release surgery?",
+    "expected_chunk_id": 2529,
+    "chunk_text": "bMeasures validated to assess change over time following CTR surgery. cGrip strength should not be used to assess change following surgery until the 12th \npostoperative week. esearch examining the use of 2PD and \ns in individuals undergoing nonsurgical \ne of the Phalen test to assess change in \nlidation. should not use threshold or vibration \nassess change in individuals with CTS \nnonsurgical management until more \nailable. Clinicians may use the Phalen \nin those with CTR surgery at long-term \nnflicting evidence on the use of sensory \nncluding 2PD and threshold testing, to \nge over time in patients with surgically \nOINT\nnts\nexamination and episode of care, clini\u00ad\nent results of the following questions, \nUpon collection of the initial patient/\ns should differentiate CTS from other \nen assess the CTS severity to determine \nical referral is warranted.",
+    "section_type": "general",
+    "filename": "Carpal_Tunnel_Syndrome.pdf",
+    "char_length": 860
+  },
+  {
+    "id": "eval_032",
+    "question": "Can you tell me about the types of aerobic exercise that I should be incorporating into my treatment plan to support functional brain healing in patients with concussion, and what specific goals we're aiming for in terms of intensity and duration?",
+    "expected_chunk_id": 3011,
+    "chunk_text": "E\nPhysical therapists may implement progressive aerobic \ntraining for all patients who have experienced a concus\u00ad\nsive event, including those who do not exhibit exertional intoler\u00ad\nance and those who do not intend to engage in vigorous physical \nactivity, in order to reduce risk for deconditioning, promote func\u00ad\ntional brain healing, and provide a nonpharmaceutical option to \nimprove mental health. Motor Function\nC\nPhysical therapists should implement motor function in\u00ad\nterventions that address identified or suspected motor \nfunction impairments and help progress the patient toward high\u00ad\ner-level functional performance goals. Motor function interven\u00ad\ntions that target the following impairments are strongly \nencouraged: static balance, dynamic balance, motor coordination \nand control, and dual/multitasking. Additionally, interventions \nthat directly help improve motor function for work/recreation/ac\u00ad\ntivity-specific tasks are strongly encouraged.",
+    "section_type": "treatment",
+    "filename": "Concussion.pdf",
+    "char_length": 959
+  },
+  {
+    "id": "eval_033",
+    "question": "Can you tell me what treatment categories are included in the latest evidence update on acute low back pain, and how they compare to previous recommendations?",
+    "expected_chunk_id": 1902,
+    "chunk_text": "Patient education and counseling strategies for \npatients with LBP should emphasize (1) the promotion of the \nunderstanding of the anatomical/structural strength inherent \nin the human spine, (2) the neuroscience that explains pain \nperception, (3) the overall favorable prognosis of LBP, (4) the \nuse of active pain coping strategies that decrease fear and catas\u00ad\ntrophizing, (5) the early resumption of normal or vocational \nactivities, even when still experiencing pain, and (6) the impor\u00ad\ntance of improvement in activity levels, not just pain relief. 2021 Evidence Update\nBased on the results of our literature search, the 2021 update \nwill include some of the same, but also different, treatment \ncategories as did the 2012 CPG. EDUCATION FOR PATIENTS WITH ACUTE LBP\nEducation and Advice\nI\nTraeger et al157 performed a large (n = 202) place\u00ad\nbo-controlled RCT of adults with acute LBP.",
+    "section_type": "treatment",
+    "filename": "Acute_Low_Back_Pain.pdf",
+    "char_length": 891
+  },
+  {
+    "id": "eval_034",
+    "question": "So you're looking at guidelines for managing acute low back pain. Can you tell me if dry needing is a recommended treatment intervention in the short term for patients with chronic LBP, and if so, what's the current evidence on its effectiveness?",
+    "expected_chunk_id": 1843,
+    "chunk_text": "B\nPhysical therapists may use thrust or nonthrust \njoint mobilization to reduce pain and disability in \npatients with chronic LBP with leg pain. B\nPhysical therapists may use soft tissue mobilization \nor massage in conjunction with other treatments to \nreduce pain and disability in the short term in pa\u00ad\ntients with chronic LBP. C\nPhysical therapists can consider the use of dry nee\u00ad\ndling in conjunction with other treatments to re\u00ad\nduce pain and disability in the short term in \npatients with chronic LBP. Journal of Orthopaedic & Sports Physical Therapy\u00ae \n Downloaded from www.jospt.org at on November 1, 2021. For personal use only. No other uses without permission. Copyright \u00a9 2021 Journal of Orthopaedic & Sports Physical Therapy\u00ae. All rights reserved. COLUMN 2:\nAcute and Chronic Low Back Pain: Clinical Practice Guidelines\nAcute and Chronic Low Back Pain: Clinical Practice Guidelines\nicularly for short-term outcomes, although \nailed to find benefit.",
+    "section_type": "treatment",
+    "filename": "Acute_Low_Back_Pain.pdf",
+    "char_length": 961
+  },
+  {
+    "id": "eval_035",
+    "question": "Can you tell me what evidence supports the use of exercise-based neuromuscular training programs in the late phase of ACL reconstruction rehabilitation for secondary prevention of ACL injuries in specific subgroups of athletes?",
+    "expected_chunk_id": 1396,
+    "chunk_text": "Programs for \nreducing all knee injuries include 11+ and FIFA 11, HarmoKnee, \nand Kn\u00e4kontroll, and those used by Emery and Meeuwisse,5 \nGoodall et al,7 Junge et al,15 LaBella et al,18 Malliou et al,20 Olsen \net al,25 Pasanen et al,27 Petersen et al,28 and Wedderkopp et al.37 \nPrograms for reducing ACL injuries include HarmoKnee, \nKn\u00e4kontroll, PEP, and Sportsmetrics\u2122, and those used by \nCaraffa et al,4 Heidt et al,10 LaBella et al,18 Myklebust et al,23 \nOlsen et al,25 and Petersen et al.28\nC\nClinicians may recommend the use of an exer-\ncise-based neuromuscular training (NMT) pro-\ngram in the late phase of ACL reconstruction \nrehabilitation for the secondary prevention of ACL injuries. OBJECTIVES\nIdentify exercise-based knee injury prevention programs \nthat are effective for specific subgroups of athletes. Evidence \nincludes systematic reviews, meta-analyses, and cohort stud-\nies that specifically delineate populations (TABLE 2).",
+    "section_type": "general",
+    "filename": "Acl_Injury_Prevention.pdf",
+    "char_length": 941
+  },
+  {
+    "id": "eval_036",
+    "question": "Can you walk me through how we would choose a classification system for this patient's acute low back pain - would we be looking at symptom location or response to examination procedures as a way to guide our treatment approach?",
+    "expected_chunk_id": 1870,
+    "chunk_text": "Examples include the STarT Back Tool\nPathoanatomic-based classification\nClassification method based on pathoanatomic-based findings from examination that could cause low back pain Subgroups are defined \nby symptom location and response to examination procedures and used to guide the treatment approach\n\n\n--- Page 22 ---\nCOLUMN 1:\nEvidence Synthesis and Rationale\nWe identified 1 systematic review published since the last \nCPG comparing the effectiveness of MDT to other interven\u00ad\ntions for patients with acute LBP. There was no evidence that \nMDT was superior to other common interventions for acute \nLBP. Our search failed to identify any additional RCTs com\u00ad\nparing the effectiveness of MDT to other classification sys\u00ad\ntems or examining the effectiveness of classification systems \nother than MDT for patients with acute LBP. 2021 Recommendations\nB\nPhysical therapists may use TBC to reduce pain and \ndisability in patients with acute LBP. This recom\u00ad\nmendation is unchanged from the 2012 CPG.",
+    "section_type": "methods",
+    "filename": "Acute_Low_Back_Pain.pdf",
+    "char_length": 998
+  },
+  {
+    "id": "eval_037",
+    "question": "Can you walk me through how we're going to assess our patient's movement-related impairments after a concussion, considering the limitations of existing outcome measures like the HiMAT?",
+    "expected_chunk_id": 3275,
+    "chunk_text": "Many outcome measures have been \nproposed for use with patients who have experienced a con\u00ad\ncussive event. However, the utility and appropriateness of \nthese measures for physical therapy purposes are unclear. Many comparative studies related to postconcussion out\u00ad\ncome measurement had insufficient quality and uncertain \nrelevance for use in physical therapy contexts. Moderate-level \nevidence was available to support the ongoing use of symp\u00ad\ntom checklists or scales; however, there was no consensus on \nthe most appropriate symptom assessment method for out\u00ad\ncome measurement. There is weak evidence to support the \nuse of the HiMAT; however, there is a large ceiling effect, and \nit may not be useful for detecting outcomes related to more \nsubtle movement-related impairments. Expert consensus \nrecommendations have proposed a variety of data elements \nthat would be worth collecting, but the clinical utility and im\u00ad\nplementability for physical therapy purposes have not been \ntested.",
+    "section_type": "methods",
+    "filename": "Concussion.pdf",
+    "char_length": 992
+  },
+  {
+    "id": "eval_038",
+    "question": "What are some key considerations when determining probable movement-related impairments in a concussion patient, and how do you sequence examination procedures based on symptom types and levels of irritability?",
+    "expected_chunk_id": 3383,
+    "chunk_text": "Provide education \nabout concussion \nand refer for \nadditional \nevaluation and \nservices as \nindicated\nNo\n\n\n--- Page 39 ---\nCOLUMN 1:\n\u2022 Determine probable movement-related \nimpairments (sidebar 1) and levels of \nirritability (sidebar 2)\n\u2022 Strategically plan and sequence \nexamination procedures based on \nsymptom types and levels of irritability\nSidebar 1\nImpairment domains\n\u2022 Cervical musculoskeletal \nimpairments\n\u2022 Vestibulo-oculomotor impairments\n\u2022 Autonomic dysfunction/exertional \ntolerance impairments\n\u2022 Motor function impairments\nSidebar 2\nIrritability considerations\n\u2022 Frequency of symptom provocation\n\u2022 Vigor of movement required to \nreproduce symptom(s)\n\u2022 Severity of symptoms once \nprovoked\n\u2022 How quickly and easily symptoms \nare provoked\n\u2022 Which factors ease the symptoms\n\u2022 How much, how quickly, and how \neasily the symptoms resolve\nReports \nneck pain at \nrest or with \nmovement? \u2022 Examine for cervical musculoskeletal \nimpairments*\n\u2022 Provide basic interventions as \nindicated for pain relief to support \nadditional testing\n\u2022 Proceed with additional tests as \nindicated and tolerated\nYes\nNo\nReports \ndizziness and/or \nheadache at rest or \nwith movement? Ye\nPatient \nappropriate for \nphysical therapy \nexamination\nExamine any movement-related \nimpairment domains* (sidebar 1) and \nadminister selected outcome measures \nnot yet examined or administered and \nsequence based on\n\u2022 Levels of irritability and disability \n(sidebar 2)\n\u2022 Patient\u2019s needs and preferences\n\u2022 Patient\u2019s ability to tolerate tests\nNo\n Journal of Orthopaedic & Sports Physical Therapy\u00ae \n Downloaded from www.jospt.org at on July 2, 2025.",
+    "section_type": "methods",
+    "filename": "Concussion.pdf",
+    "char_length": 1617
+  },
+  {
+    "id": "eval_039",
+    "question": "Can you tell me what kind of orthotic or bracing interventions have been found to be most effective in managing mild to moderate Carpal Tunnel Syndrome, and are they typically used in conjunction with any specific manual therapy techniques?",
+    "expected_chunk_id": 2708,
+    "chunk_text": "may perform manual therapy, directed at \nl spine and upper extremity, for indi\u00ad\nh mild to moderate CTS in the short \nnflicting evidence on the use of neurody\u00ad\nilizations in the management of mild or \nTS. CISE\n9 examined 4 different orthosis-stretch\u00ad\nations and progression to surgery in 103 \ns with mild to moderate CTS without \normal 2PD. Participants were random\u00ad\ntreatment protocols that combined or\u00ad\n\n\n--- Page 51 ---\nCOLUMN 1:\nAUTHORS\nMia Erickson, PT, EdD\nProfessor\nCollege of Health Sciences\nPhysical Therapy Program\nMidwestern University\nGlendale, AZ\nmerick@midwestern.edu\nMarsha Lawrence, PT, DPT\nSenior Physical Therapist\nUniversity of Iowa Hospitals & Clinics\nIowa City, IA\nmarsha-lawrence@uiowa.edu\nCaroline W.",
+    "section_type": "treatment",
+    "filename": "Carpal_Tunnel_Syndrome.pdf",
+    "char_length": 722
+  },
+  {
+    "id": "eval_040",
+    "question": "Can you tell me more about the results of studies that have looked at the relationship between computer mouse use and Carpal Tunnel Syndrome in terms of specific metrics, like the median nerve's terminal latency index?",
+    "expected_chunk_id": 2326,
+    "chunk_text": "In contrast, the meta-\nanalysis of 6 studies that compared computer workers to the \ngeneral population or other types of workers, showed an in\u00ad\nverse relationship between computer use and CTS (OR = \n0.72; 95% CI: 0.58, 0.90). III\nMediouni et al189 did not find a significant associa\u00ad\ntion between computer use and CTS in their meta-\nanalysis of 6 studies, however they did not provide \ndetail of control group composition. Mediouni et al\u2019s189 review \nincluded only 1 study24 that was also reviewed in the Shiri and \nFalah-Hassani258 meta-analysis. III\nAl-Hashem and Khalid 5 found a significant negative \ncorrelation (r = 0.48) between the terminal latency \nindex of the median nerve and hours of weekly \nmouse use. No significant association was noted between \nweekly keyboard use and terminal latency index (r = 0.05).",
+    "section_type": "general",
+    "filename": "Carpal_Tunnel_Syndrome.pdf",
+    "char_length": 820
+  },
+  {
+    "id": "eval_041",
+    "question": "Can you walk me through your approach when assessing a patient who has experienced a concussive event, specifically what kind of clinical judgment do you use to determine if they would benefit from a comprehensive physical therapy evaluation versus just some education and referral for other healthcare providers?",
+    "expected_chunk_id": 3165,
+    "chunk_text": "F\nFor patients who have experienced a concussive \nevent and report or demonstrate signs and symp\u00ad\ntoms consistent with a concussion diagnosis, phys\u00ad\nical therapists should determine whether a comprehensive \nphysical therapy evaluation is appropriate using information \nfrom a comprehensive intake interview and clinical judgment \n(see FIGURE 1 for potential considerations). A\nPhysical therapists should screen patients who \nhave experienced a concussive event for mental \nhealth, cognitive impairment, and other potential \ncoinciding diagnoses and refer for additional evaluation and \nservices as indicated. F\nFor patients not deemed appropriate for a compre\u00ad\nhensive physical therapy examination (ie, they \npresent with severe mental health concerns or \nhealth conditions that require medical clearance prior to \ncomprehensive physical examination), physical therapists \nshould provide education regarding concussion symptoms, \nprognosis, and self-management strategies and refer for con\u00ad\nsultation with other health care providers as indicated.",
+    "section_type": "diagnosis",
+    "filename": "Concussion.pdf",
+    "char_length": 1047
+  },
+  {
+    "id": "eval_042",
+    "question": "Can you walk me through how this classification system (O'Sullivan's or STarT Back Tool) would influence our treatment approach for a patient with acute low back pain who exhibits signs of \"rotation with extension\" movement impairment?",
+    "expected_chunk_id": 1857,
+    "chunk_text": "Test results are used to classify patients based on observed lumbar movement or alignment impairments \n(rotation, extension, flexion, rotation with extension, or rotation with flexion), with subgroup assignment guiding the initial treatment \napproach to match specific signs and symptoms\nCognitive functional therapy\nClassification method that uses an integrated behavioral approach for individualizing the management of low back pain Pathoanatomical\nphysical, psychological, social, lifestyle, and health-related risk factors are assessed, with nonmodifiable barriers and a modifiable \ntarget for change identified to guide treatment based on 3 components (\u201cmaking sense of pain,\u201d \u201cexposure with control,\u201d and \u201clifestyle\nchange\u201d). Formerly called O\u2019Sullivan\u2019s classification system\nPrognostic risk stratification\nClassification method that identifies patients at different levels of risk for persistent pain (low, medium, high) using a multidimensional \nscreening tool, with each risk category associated with different treatment pathways. Examples include the STarT Back Tool\nPathoanatomic-based classification\nClassification method based on pathoanatomic-based findings from examination that could cause low back pain Subgroups are defined \n Journal of Orthopaedic & Sports Physical Therapy\u00ae \n Downloaded from www.jospt.org at on November 1, 2021.",
+    "section_type": "methods",
+    "filename": "Acute_Low_Back_Pain.pdf",
+    "char_length": 1350
+  },
+  {
+    "id": "eval_043",
+    "question": "Can you tell me what type of exercise intervention was most effective in reducing pain and improving function for adults with acute low back pain, according to the studies mentioned?",
+    "expected_chunk_id": 1774,
+    "chunk_text": "The group \nvidualized general exercise with manual ther\u00ad\ner improvement in disability after 2 months \ne usual medical care or group-based general \np (adjusted mean differences: medical care, \n: \u20133.6, \u20130.4; group exercise, \u20132.4; 95% CI: \nere were no differences between groups after \ns et al75 compared a muscle strengthening and \nrance exercise intervention augmented with \nomuscular electrical stimulation to passive \n64 older adults (age, 60-85 years). The muscle \nand endurance exercise group had greater im\u00ad\npain and function 12 weeks and 6 months post \nadjusted mean difference at immediate fol\u00ad\nat 6 months, \u20135.1 on the ODI). e RCTs with small sample sizes and short-term \nw-ups examined general exercise programs in \nadults with chronic LBP. Vincent et al166 ex\u00ad\ner adults with abdominal obesity (age, 60-85 \nring 3 groups: (1) a general exercise program \notal body progressive resistance exercises, (2) \nunk extensor muscle strengthening exercise \n3) a control group.",
+    "section_type": "treatment",
+    "filename": "Acute_Low_Back_Pain.pdf",
+    "char_length": 975
+  },
+  {
+    "id": "eval_044",
+    "question": "Can you walk me through your manual therapy approach for acute low back pain patients - specifically, what type of joint mobilization (thrust vs. non-thrust) do you tend to use and why?",
+    "expected_chunk_id": 1796,
+    "chunk_text": "There is mod\u00ad\nerate evidence that physical therapists should not utilize \nintermittent or static lumbar traction for reducing symp\u00ad\ntoms in patients with acute or subacute, nonradicular LBP \nor in patients with chronic LBP. 2021 UPDATE\nManual and other directed therapies were categorized using \nthe operational definitions displayed in TABLE 5. EVIDENCE UPDATE\nBased on the results of our literature search, the 2021 update \nwill include some of the same treatment categories  included \nin the 2012 CPG and also some different ones. MANUAL AND OTHER DIRECTED \nTHERAPIES FOR ACUTE LBP\nThrust or Nonthrust Joint Mobilization\nI\nFritz et al57 conducted a high-quality RCT of 220 \npatients with acute LBP and compared treatment \nwith thrust mobilization combined with exercise \nand education to usual care. The group receiving mobiliza\u00ad\ntion with exercise and education had greater improvement in \ndisability after 4 weeks and 3 months, although effect sizes \nwere small.",
+    "section_type": "treatment",
+    "filename": "Acute_Low_Back_Pain.pdf",
+    "char_length": 967
+  },
+  {
+    "id": "eval_045",
+    "question": "Can you tell me what grip strength measures should we use when assessing patients with Carpal Tunnel Syndrome who have undergone surgery, and how often we can compare scores to established norms?",
+    "expected_chunk_id": 2505,
+    "chunk_text": "Recommendations\nA\nClinicians should not use lateral pinch strength as \nan outcome measure for patients with nonsurgi\u00ad\ncally or surgically managed CTS. B\nClinicians should not use grip strength when assess\u00ad\ning short-term (less than 3 months) change in indi\u00ad\nviduals following CTR surgery. C\nClinicians may assess grip strength and 3-point or \ntip pinch strength in individuals presenting with \nsigns and symptoms of CTS and compare scores with \nestablished norms. D\nThere is conflicting evidence on the use of tip and \n3-point pinch strength and abductor pollicis brevis \nmuscle strength testing in individuals following \nCTR surgery. Sensory and Provocative Measures\nReliability for provocative and sensory measures have been \nreported in the Diagnosis section of this guideline and are \nshown in TABLES 2 and 5, respectively. Here, these instruments \nwill be discussed with regards to their ability to detect change \nover time.",
+    "section_type": "diagnosis",
+    "filename": "Carpal_Tunnel_Syndrome.pdf",
+    "char_length": 929
+  },
+  {
+    "id": "eval_046",
+    "question": "Can you walk me through your typical treatment protocol for midportion Achilles tendinopathy, specifically what types of modalities or exercises do you typically recommend to help alleviate pain and promote healing?",
+    "expected_chunk_id": 992,
+    "chunk_text": "A review \nof midportion Achilles tendinopathy as it relates to the topics \naddressed in the 2018 CPG revision are included, while fo-\ncusing on new or updated research related to interventions. This 2024 CPG update will answer the question, \u201cWhat is \nthe evidence to support physical therapy interventions for \nindividuals with midportion Achilles tendinopathy?\u201d. The \nresearch related to the interventions for midportion Achilles \ntendinopathy continues to grow with 30 new articles ulti-\nmately contributing to this topic. Prevalence and pathoanatomical features were reviewed \nin detail in both the original CPG and 2018 CPG revisions \nand therefore are briefly reviewed in this 2024 update. Mid-\nportion Achilles tendinopathy remains a relatively com-\nmon overuse lower extremity tissue injury for individuals \nwho participate in sports and/or have an increase in their \nactivity level.",
+    "section_type": "treatment",
+    "filename": "Achilles_Pain.pdf",
+    "char_length": 890
+  },
+  {
+    "id": "eval_047",
+    "question": "Can you tell me more about how we should be approaching the treatment of concussions in patients who report headache symptoms, considering the different headache phenotypes and how that might impact our rehabilitation planning?",
+    "expected_chunk_id": 3258,
+    "chunk_text": "CLASSIFICATION OF EXAMINATION FINDINGS INTO \nIMPAIRMENT PROFILES\nIII\nRecommendations from 2 CPGs for patients who \nhave experienced a concussion and report headache \nencourage clinicians to align evaluation and treat\u00ad\nment planning based on headache phenotype (International \nClassification of Headache Disorders).149,153\nIV\nA cross-sectional study of athletes between the ages \nof 10 and 23 years with a diagnosis of concussion \nfound that many of the patients with a complaint of \ndizziness post concussion demonstrated deficits in a variety \nof tests that indicate that dizziness was not attributable to \none main type of dysfunction, but rather was multifactorial \nin nature.187\nIV\nAn expert consensus document indicated that there \nwas strong agreement among participating experts \nthat \u201cmatching targeted and active treatments to \nclinical profiles may improve recovery trajectories after con\u00ad\ncussion,\u201d and that \u201c[t]here is growing empirical support for \nthe heterogeneity of this injury and clinical profiles, but ad\u00ad\nditional research in these areas is warranted.34\nV\nSeveral conceptual schemas promote the idea that \nalthough patients who experience concussions have \nvariable clinical presentations and recovery trajec\u00ad\ntories, it may be possible to identify specific clinical profiles \nof diagnoses associated with concussion that can be targeted \nwith specific rehabilitation techniques.35,53,54,143\n\n\n--- Page 28 ---\nCOLUMN 1:\nrather exhibit a profile that incorporates patterns consistent \nwith multiple classifications. Gaps in Knowledge\nAlthough clinically important and conceptually compelling, \ncurrent classification models have not been thoroughly vali\u00ad\ndated and tested. At this time, there is insufficient evidence \nto support the endorsement of one classification system over \nothers.",
+    "section_type": "methods",
+    "filename": "Concussion.pdf",
+    "char_length": 1808
+  },
+  {
+    "id": "eval_048",
+    "question": "Can you tell me more about how we can identify patients with mild movement-related impairments that may be able to manage their symptoms on their own through education and a home exercise program?",
+    "expected_chunk_id": 3300,
+    "chunk_text": "Gaps in Knowledge\nDespite evidence of safety and positive outcomes for physical \ntherapy interventions targeting postconcussion symptoms, \nimpairments, functional limitations, and participation re\u00ad\nstrictions, there are limited data regarding specific patient \nand injury characteristics impacting responsiveness to phys\u00ad\nical therapy interventions. Given the large volume of patients \nwho recover naturally or with general education about activ\u00ad\nity progression, there are presumably some individuals who \nmay be able to self-manage mild movement-related impair\u00ad\nments with education and a home exercise program. We pro\u00ad\npose a triaging plan in FIGURE 3 to help differentiate patients \nwho may be able to self-manage their symptoms and impair\u00ad\nments from those who would benefit from skilled physical \ntherapy care. Research investigating the proposed triaging \nsystem would be beneficial.",
+    "section_type": "treatment",
+    "filename": "Concussion.pdf",
+    "char_length": 890
+  },
+  {
+    "id": "eval_049",
+    "question": "So I've been working with a patient who has Achilles pain, and we're looking at our treatment options. Have you found that combining exercise with adjunct treatments like injections or orthotics is more effective than just doing eccentric exercises for improving symptoms in the short-term?",
+    "expected_chunk_id": 1183,
+    "chunk_text": "Similarly, \nexercise plus adjunct treatments (injections, low-level laser \ntherapy, orthoses) were all ranked higher than eccentric exercise \nalone on improvements in the VISA-A at short-term follow-up.10 \nAt long-term follow-up, exercise plus an injection (prolotherapy, \nhigh-volume injection with corticosteroid, platelet rich plasma) \nwere also ranked higher than eccentric exercise alone.10\nEvidence Synthesis\nThe new systematic reviews and network meta-analyses include \na wide variety of treatments and comparisons; therefore, it is \ndifficult to assess an optimal set of treatments. However, eccen-\ntric exercise alone was ranked in the bottom half of treatments \nbased on effect sizes of existing studies, suggesting that although \nexercise is a first line treatment with positive outcomes, combin-\ning exercise with a variety of other treatments may have greater \neffectiveness.10,70 In contrast, a systematic review that did not \ninclude injections found no additional benefit from using mo-\ndalities. There was considerable uncertainty around the ranks \nand analysis because of limited available data (small samples and \nfew studies) and risk of bias among included studies.",
+    "section_type": "treatment",
+    "filename": "Achilles_Pain.pdf",
+    "char_length": 1186
+  },
+  {
+    "id": "eval_050",
+    "question": "Can you tell me which exercise-based knee injury prevention programs have been shown to be particularly effective in reducing ACL injuries specifically for women athletes between the ages of 15-17?",
+    "expected_chunk_id": 1404,
+    "chunk_text": "Pro-\ngrams that could be beneficial for specifically preventing ACL \ninjuries include the 11+, Sportsmetrics\u2122, and the program \nused by Caraffa et al.4\n\u200b\nB\nMen and women team handball players, particu-\nlarly those 15 to 17 years of age, should imple-\nment exercise-based knee injury prevention \nprograms. Programs that could be beneficial for prevent-\ning knee injuries include those used by Olsen et al25 and \nAchenbach et al.1\nEvidence Update\nMen\nNo new information. Women\nI\nIn a meta-analysis of studies looking at interven-\ntions aiming to reduce incidence of ACL injuries in \nwomen athletes, Petushek et al29 found injury pre-\nvention programs that included NMT reduced ACL injury \nrisk from 1 in 54 to 1 in 111 (odds ratio (OR), 0.51: 95% CI, \n0.37, 0.69). Reduction in injury risk was greater for middle \nschool\u2013 and high school\u2013aged athletes (OR = 0.38; 95% CI, \n0.24, 0.60) than for college and professional athletes (OR = \n0.65; 95% CI, 0.48, 0.89).",
+    "section_type": "general",
+    "filename": "Acl_Injury_Prevention.pdf",
+    "char_length": 959
+  },
+  {
+    "id": "eval_051",
+    "question": "Can you tell me if you've had any success with using manual therapy or dry needling for midportion Achilles tendinopathy, specifically targeting the areas that are tender to palpation?",
+    "expected_chunk_id": 977,
+    "chunk_text": "B\nClinicians should advise that complete rest is not indicat-\ned for individuals with midportion Achilles tendinopathy \nand that they should continue with their activities within their \npain tolerance. INTERVENTIONS \u2013 MANUAL THERAPY\nF\nClinicians may use manual therapy directed at manipulat-\ning and/or mobilizing muscles, joints, and/or connective \ntissues in those with midportion Achilles tendinopathy and mo-\nbility deficits. INTERVENTIONS \u2013 DRY NEEDLING\nF\nClinicians may use intramuscular dry needling to treat \ncalf-related muscle pain and stiffness, particularly in \nthose with more acute symptoms and/or in those who do not tol-\nerate a progressive loading program. Journal of Orthopaedic & Sports Physical Therapy\u00ae \nDownloaded from www.jospt.org at on January 28, 2025. For personal use only. No other uses without permission. Copyright \u00a9 2024 Journal of Orthopaedic & Sports Physical Therapy\u00ae. All rights reserved.",
+    "section_type": "treatment",
+    "filename": "Achilles_Pain.pdf",
+    "char_length": 924
+  },
+  {
+    "id": "eval_052",
+    "question": "Can you walk me through the diagnostic criteria for identifying ACL injuries in young female athletes, and what specific assessment methods or clinical findings are used to differentiate them from other types of knee injuries?",
+    "expected_chunk_id": 1588,
+    "chunk_text": "org/10.4085/1062-6050-47.6.10\nSugimoto D, Myer GD, McKeon JM, Hewett TE. Evaluation of the effectiveness of neuromuscular training to reduce anterior cruciate \nligament injury in female athletes: a critical review of relative risk reduction and numbers-needed-to-treat analyses. Prevention and screening programs for anterior cruciate ligament \ninjuries in young athletes: a cost-effectiveness analysis. J Bone Joint Surg Am. Evaluation of the effectiveness of anterior cruciate ligament injury prevention pro-\ngramme training components: a systematic review and meta-analysis. Effectiveness and cost-effectiveness of an injury prevention programme for adult male \namateur soccer players: design of a cluster-randomised controlled trial. Prevention of acute knee injuries in adolescent female football players: clus-\nter randomised controlled trial. A meta-analysis of the effect of neuromuscular training on the prevention of the anterior cruciate ligament \ninjury in female athletes.",
+    "section_type": "diagnosis",
+    "filename": "Acl_Injury_Prevention.pdf",
+    "char_length": 985
+  }
+]
