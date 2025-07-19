@@ -10,7 +10,6 @@ venv/
 .DS_Store
 *.log
 .zenml/
-data/
 models/
 .ipynb_checkpoints/
 
