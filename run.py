@@ -14,6 +14,7 @@ os.environ['OBJC_DISABLE_INITIALIZE_FORK_SAFETY'] = 'YES'
 from pipelines.document_ingestion_pipeline import pdf_processing_pipeline
 from pipelines.response_generation_pipeline import clinical_generation_pipeline
 from pipelines.simple_generation_pipeline import simple_clinical_generation_pipeline
+from pipelines.evaluation_pipeline import retrieval_evaluation_pipeline
 from utils.search import ClinicalRAGSearcher
 from utils.database import DatabaseManager
 from utils.config import DATA_DIR
@@ -228,6 +229,117 @@ def cmd_status(args):
         sys.exit(1)
 
 
+def cmd_eval(args):
+    """Run retrieval evaluation pipeline."""
+    try:
+        print("🧪 Clinical RAG - Automated Retrieval Evaluation")
+        print("=" * 50)
+        
+        if args.comparative:
+            print("🔄 Running comparative evaluation across multiple configurations...")
+            print("⚠️  Note: Running separate evaluations for each configuration")
+            
+            # Define configurations to compare
+            configurations = [
+                {"top_k": 5, "similarity_threshold": 0.3, "enhance_query": True, "name": "baseline"},
+                {"top_k": 10, "similarity_threshold": 0.3, "enhance_query": True, "name": "top10"},
+                {"top_k": 5, "similarity_threshold": 0.2, "enhance_query": True, "name": "lower_threshold"},
+                {"top_k": 5, "similarity_threshold": 0.3, "enhance_query": False, "name": "no_enhancement"}
+            ]
+            
+            comparison_results = []
+            
+            # Run separate pipeline for each configuration
+            for i, config in enumerate(configurations, 1):
+                print(f"\n[{i}/{len(configurations)}] Testing configuration: {config['name']}")
+                print(f"  Parameters: top_k={config['top_k']}, threshold={config['similarity_threshold']}, enhance={config['enhance_query']}")
+                
+                pipeline_run = retrieval_evaluation_pipeline(
+                    dataset_path=args.dataset,
+                    top_k=config["top_k"],
+                    similarity_threshold=config["similarity_threshold"],
+                    enhance_query=config["enhance_query"],
+                    k_values=[1, 3, 5, 10],
+                    save_detailed_report=False,  # Don't save individual reports for comparison
+                    report_output_dir="evaluation/reports"
+                )
+                
+                # Get the final report
+                final_report = pipeline_run.steps["generate_evaluation_report"].output.load()
+                
+                if final_report['success']:
+                    summary = final_report['report_summary']
+                    summary['config_name'] = config['name']
+                    summary['config'] = config
+                    comparison_results.append(summary)
+                    print(f"  ✅ Hit Rate@5: {summary['hit_rate_at_5']:.3f}")
+                else:
+                    print(f"  ❌ Failed: {final_report['error']}")
+            
+            # Show comparison results
+            if comparison_results:
+                print(f"\n✅ Comparative evaluation completed!")
+                print(f"📊 Tested {len(comparison_results)} configurations")
+                
+                # Find best configuration
+                best_config = max(comparison_results, key=lambda x: x['hit_rate_at_5'])
+                print(f"\n🏆 Best configuration: {best_config['config_name']}")
+                print(f"   Hit Rate@5: {best_config['hit_rate_at_5']:.3f}")
+                print(f"   Parameters: {best_config['config']}")
+                
+                # Show all results
+                print(f"\n📈 All Results:")
+                print(f"{'Configuration':<15} {'Hit@5':<8} {'MRR':<8} {'Success%':<10}")
+                print("-" * 45)
+                for result in comparison_results:
+                    print(f"{result['config_name']:<15} {result['hit_rate_at_5']:<8.3f} {result['mean_reciprocal_rank']:<8.3f} {result['success_rate']*100:<10.1f}")
+            else:
+                print(f"❌ All comparative evaluations failed")
+                
+        else:
+            print(f"🔍 Running single evaluation with parameters:")
+            print(f"  Dataset: {args.dataset}")
+            print(f"  Top K: {args.top_k}")
+            print(f"  Threshold: {args.threshold}")
+            print(f"  Query enhancement: {not args.no_enhance}")
+            
+            pipeline_run = retrieval_evaluation_pipeline(
+                dataset_path=args.dataset,
+                top_k=args.top_k,
+                similarity_threshold=args.threshold,
+                enhance_query=not args.no_enhance,
+                k_values=[1, 3, 5, 10],
+                save_detailed_report=not args.no_save,
+                report_output_dir="evaluation/reports"
+            )
+            
+            # Get the final report
+            final_report = pipeline_run.steps["generate_evaluation_report"].output.load()
+            
+            if final_report['success']:
+                summary = final_report['report_summary']
+                print(f"\n✅ Evaluation completed successfully!")
+                print(f"📊 Results saved as ZenML metadata")
+                print(f"\n🎯 Key Metrics:")
+                print(f"  Success Rate: {summary['success_rate']:.3f} ({summary['success_rate']*100:.1f}%)")
+                print(f"  Hit Rate@5: {summary['hit_rate_at_5']:.3f} ({summary['hit_rate_at_5']*100:.1f}%)")
+                print(f"  Mean Reciprocal Rank: {summary['mean_reciprocal_rank']:.3f}")
+                print(f"  Performance: {summary['performance_category'].upper()}")
+                print(f"  Recommendation: {summary['recommendation']}")
+                
+                if final_report.get('file_paths'):
+                    print(f"\n📄 Detailed reports saved:")
+                    for report_type, path in final_report['file_paths'].items():
+                        print(f"  {report_type}: {path}")
+            else:
+                print(f"❌ Evaluation failed: {final_report['error']}")
+                sys.exit(1)
+                
+    except Exception as e:
+        print(f"❌ Evaluation pipeline error: {e}")
+        sys.exit(1)
+
+
 def main():
     """Main CLI function."""
     parser = argparse.ArgumentParser(
@@ -282,6 +394,22 @@ Examples:
     # Status command
     status_parser = subparsers.add_parser('status', help='Check database status')
     status_parser.set_defaults(func=cmd_status)
+    
+    # Eval command
+    eval_parser = subparsers.add_parser('eval', help='Run automated retrieval evaluation')
+    eval_parser.add_argument('--dataset', default='evaluation/test_datasets/clinical_qa_pairs.json', 
+                            help='Path to evaluation dataset (default: evaluation/test_datasets/clinical_qa_pairs.json)')
+    eval_parser.add_argument('--top-k', type=int, default=10, 
+                            help='Number of top results to retrieve (default: 10)')
+    eval_parser.add_argument('--threshold', type=float, default=0.3, 
+                            help='Similarity threshold (default: 0.3)')
+    eval_parser.add_argument('--no-enhance', action='store_true', 
+                            help='Disable query enhancement')
+    eval_parser.add_argument('--comparative', action='store_true', 
+                            help='Run comparative evaluation across multiple configurations')
+    eval_parser.add_argument('--no-save', action='store_true', 
+                            help='Do not save detailed reports to disk')
+    eval_parser.set_defaults(func=cmd_eval)
     
     # Parse and execute
     args = parser.parse_args()
