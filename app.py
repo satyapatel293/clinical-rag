@@ -31,6 +31,9 @@ st.set_page_config(
 st.title("🏥 Clinical RAG Assistant")
 st.markdown("Ask clinical questions and get evidence-based responses from multiple LLM providers.")
 
+# Navigation info
+st.info("💡 **New!** Check out the [Evaluation Results](/evaluation_results) page to view system performance metrics and analysis.")
+
 # Model configuration (no Anthropic as requested)
 models = {
     "Ollama Llama 3.2 3B": "ollama/llama3.2:3b",
@@ -97,7 +100,6 @@ if st.button("🔍 Ask Question", type="primary"):
                     st.success("✅ Response generated successfully!")
                     
                     # Display the response
-                    st.markdown("### 📋 Clinical Response:")
                     st.markdown(result['cli_output'])
                     
                 else:
@@ -116,6 +118,12 @@ if st.button("🔍 Ask Question", type="primary"):
 
 # Sidebar with information
 with st.sidebar:
+    st.markdown("### 🧭 Navigation")
+    st.markdown("""
+    - **🏥 [Clinical Q&A](/)**: Ask clinical questions (current page)
+    - **📊 [Evaluation Results](/evaluation_results)**: View system performance metrics
+    """)
+    
     st.markdown("### 🔧 System Information")
     
     st.markdown("**Supported Models:**")
@@ -149,6 +157,15 @@ with st.sidebar:
     - Ask specific clinical questions for best results
     - Include condition names, symptoms, or treatments
     - Be clear and concise in your queries
+    """)
+    
+    st.markdown("### 📊 Evaluation")
+    st.markdown("""
+    **Performance Tracking:**
+    - Retrieval accuracy (Hit Rate@K)
+    - Generation quality (LLM-as-Judge)
+    - Clinical accuracy assessment
+    - Failure analysis by document/section
     """)
 
 # Footer

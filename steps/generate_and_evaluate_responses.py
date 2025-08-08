@@ -65,7 +65,7 @@ def generate_and_evaluate_responses(
         
         # Process each question
         results = []
-        for i, eval_pair in enumerate(evaluation_pairs, 1):
+        for i, eval_pair in enumerate(evaluation_pairs[:5], 1):
             question = eval_pair['question']
             
             logger.info(f"[{i}/{len(evaluation_pairs)}] Processing: {question[:60]}...")

@@ -190,10 +190,9 @@ def format_final_cli_output(
         else:  # detailed format
             # Build detailed CLI output
             cli_parts = []
-            cli_parts.append("📋 CLINICAL RESPONSE:")
-            cli_parts.append("=" * 60)
+            cli_parts.append("## 📋 CLINICAL RESPONSE:")
             cli_parts.append(final_response['response'])
-            cli_parts.append("=" * 60)
+           
             
             # Generation details
             gen_info = final_response['metadata']['generation_info']
