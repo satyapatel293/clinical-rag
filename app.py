@@ -97,7 +97,6 @@ if st.button("🔍 Ask Question", type="primary"):
                     st.success("✅ Response generated successfully!")
                     
                     # Display the response
-                    st.markdown("### 📋 Clinical Response:")
                     st.markdown(result['cli_output'])
                     
                 else:
