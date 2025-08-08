@@ -1,0 +1,300 @@
+{
+  "metadata": {
+    "timestamp": "20250807_212206",
+    "evaluation_type": "generation_llm_judge",
+    "system": "clinical_rag",
+    "total_responses": 5,
+    "successful_evaluations": 5,
+    "overall_score": "4.0/7",
+    "overall_percentage": "57.1%",
+    "pass_rate": "40.0%",
+    "performance_category": "needs_improvement",
+    "generation_model": "ollama/llama3.2:3b",
+    "judge_model": "ollama/llama3.2:3b",
+    "clinical_accuracy_score": "2.2/3",
+    "clinical_accuracy_percentage": "73.3%",
+    "relevance_score": "0.8/2",
+    "relevance_percentage": "40.0%",
+    "evidence_support_score": "1.0/2",
+    "evidence_support_percentage": "50.0%",
+    "parameters": {
+      "generation_model": "ollama/llama3.2:3b",
+      "judge_model": "ollama/llama3.2:3b",
+      "top_k": 5,
+      "similarity_threshold": 0.3,
+      "enhance_query": true,
+      "temperature": 0.1,
+      "total_queries": 52
+    },
+    "failure_analysis": {
+      "total_failures": 3,
+      "failure_rate": "60.0%",
+      "top_failing_sections": {
+        "treatment": 2,
+        "methods": 1
+      },
+      "top_failing_documents": {
+        "Carpal_Tunnel_Syndrome.pdf": 2,
+        "Acute_Low_Back_Pain.pdf": 1
+      }
+    },
+    "recommendation": "needs_significant_improvement",
+    "insights": "Poor performance, consider different models or major prompt revisions"
+  },
+  "detailed_metrics": {
+    "total_responses": 5,
+    "successful_evaluations": 5,
+    "evaluation_success_rate": 1.0,
+    "overall_score": 4.0,
+    "overall_percentage": 57.14285714285713,
+    "pass_rate": 0.4,
+    "pass_threshold": 5,
+    "dimension_metrics": {
+      "clinical_accuracy": {
+        "average_score": 2.2,
+        "max_possible": 3,
+        "percentage": 73.33333333333334
+      },
+      "relevance": {
+        "average_score": 0.8,
+        "max_possible": 2,
+        "percentage": 40.0
+      },
+      "evidence_support": {
+        "average_score": 1.0,
+        "max_possible": 2,
+        "percentage": 50.0
+      }
+    },
+    "performance_category": "needs_improvement",
+    "score_distribution": {
+      "min_score": 0,
+      "max_score": 6,
+      "median_score": 4
+    }
+  },
+  "detailed_failure_analysis": {
+    "total_failures": 3,
+    "failure_rate": 0.6,
+    "failures_by_section": {
+      "methods": 1,
+      "treatment": 2
+    },
+    "failures_by_document": {
+      "Acute_Low_Back_Pain.pdf": 1,
+      "Carpal_Tunnel_Syndrome.pdf": 2
+    },
+    "low_scoring_examples": [
+      {
+        "id": "eval_001",
+        "question": "Can you walk me through your assessment findings for this patient's low back pain - specifically, what movements or postures did they exhibit that led to a specific classification based on changes in symptoms?",
+        "section_type": "methods",
+        "filename": "Acute_Low_Back_Pain.pdf",
+        "generated_response": "**Assessment**\n\nBased on the provided clinical context, I will guide you through a hypothetical assessment of a patient with low back pain. Please note that this response is based solely on the provided information and may not fully address all aspects of the query.\n\nThe patient presents with low back pain, and we need to determine the classification system to guide treatment approach. To do so, we must first identify the specific movements or postures exhibited by the patient that led to changes in symptoms.\n\n**Movement System Impairment Classification**\n\nDuring the standardized examination, the patient exhibits impaired trunk movements and postures associated with low back pain symptoms. Specifically, they display:\n\n* Limited range of motion in the lumbar spine (L3-L5) during extension and flexion\n* Abnormal posture, with a forward head position and rounded shoulders\n* Muscle tension in the paraspinal muscles\n\nThese findings suggest that the patient's movement system impairment classification is likely related to impaired trunk movements and postures.\n\n**Recommendations**\n\nBased on the assessment findings, I recommend the following:\n\n1. **Treatment-based Classification**: Given the patient's specific symptoms and examination findings, a treatment-based classification approach may be most appropriate. This would involve guiding initial treatment approach (manipulation, stabilization, specific exercise, or traction) based on specific initial assessment findings.\n2. **Movement System Impairment**: The impaired trunk movements and postures observed during the standardized examination suggest that movement system impairment classification may be a suitable option.\n\n**Considerations**\n\nWhen applying these classifications, it is essential to consider the following:\n\n* Contraindications: Patients with certain medical conditions (e.g., osteoporosis, spinal fractures) may require modified treatment approaches.\n* Clinical considerations: The patient's symptoms and examination findings should be carefully evaluated to determine the most effective treatment approach.\n\n**Missing Information**\n\nThe provided clinical context does not fully address the query regarding specific classification systems. Additional information on the patient's history, clinical presentation, and physical examination findings would be necessary to accurately determine the most suitable classification system.\n\nPlease note that this response is based solely on the provided clinical context and may not reflect the actual assessment findings for a real patient.",
+        "retrieved_chunks_count": 5,
+        "success": true,
+        "judge_score": 0,
+        "judge_percentage": 0.0,
+        "individual_scores": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "dimension_scores": {
+          "clinical_accuracy": 0,
+          "relevance": 0,
+          "evidence_support": 0
+        },
+        "parse_success": true
+      },
+      {
+        "id": "eval_003",
+        "question": "Can you walk me through the specifics of the ergonomic keyboard trial by O'Connor et al - what was the design of the studied keyboards and how did they compare to standard mice in terms of symptoms reduction?",
+        "section_type": "treatment",
+        "filename": "Carpal_Tunnel_Syndrome.pdf",
+        "generated_response": "**Assessment**\n\nThe clinical query regarding the specifics of the ergonomic keyboard trial by O'Connor et al requires a review of the provided clinical context. According to Source 1, O'Connor et al conducted a study evaluating the short-term effectiveness of two ergonomically designed keyboards in patients with Carpal Tunnel Syndrome (CTS). The studied keyboards differed in their layout but not in terms of conventional layout.\n\n**Design of the Studied Keyboards**\n\nThe exact design of the studied keyboards is not explicitly stated in the provided clinical context. However, it can be inferred that they were ergonomically designed to reduce carpal tunnel pressure and promote wrist alignment.\n\n**Comparison to Standard Mice**\n\nAccording to Source 1, Schmid et al compared the effects of a vertical mouse, a standard mouse, and two ergonomic keyboards on patients with mild or moderate CTS. The study found that the vertical mouse showed the largest extension angle (P<.001) but the smallest ulnar deviation angle (P<.006). There was no significant difference in patient-reported comfort across the four devices (P = .71).\n\n**Symptoms Reduction**\n\nThe provided clinical context does not provide explicit information on symptoms reduction with the use of the studied ergonomic keyboards. However, it is mentioned that Rempel et al found improvement in pain levels between 6 and 12 weeks for those in the reduced key-strike force group (weighted MD [WMD], \u20132.40; 95% CI: \u20134.45, \u20130.35).\n\n**Recommendations**\n\nBased on the provided clinical context, it is unclear whether the studied ergonomic keyboards are effective in reducing symptoms of CTS. Further research is needed to determine their efficacy and potential benefits.\n\n**Considerations**\n\nWhen considering the use of ergonomic keyboards for patients with CTS, healthcare professionals should be aware that increased carpal tunnel pressure above 30 mmHg and forceful hand exertions are strongly associated with CTS. The provided clinical context suggests that mouse use may further increase carpal tunnel pressure, regardless of the design.\n\n**Contraindications**\n\nThere is no information in the provided clinical context regarding contraindications for the use of ergonomic keyboards in patients with CTS. However, healthcare professionals should consider individual patient factors and potential interactions with other treatments when making decisions about keyboard use.\n\n**Acknowledgment of Discrepancy**\n\nThe provided clinical context does not provide explicit information on the design of the studied keyboards, which may limit the interpretation of the results. Further research is needed to determine the specific design features of the studied keyboards and their effects on CTS symptoms.",
+        "retrieved_chunks_count": 5,
+        "success": true,
+        "judge_score": 4,
+        "judge_percentage": 57.14285714285714,
+        "individual_scores": [
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          true
+        ],
+        "dimension_scores": {
+          "clinical_accuracy": 2,
+          "relevance": 1,
+          "evidence_support": 1
+        },
+        "parse_success": true
+      },
+      {
+        "id": "eval_005",
+        "question": "Can you walk me through how to assess and document a patient's sensitivity to light touch with the Semmes-Weinstein monofilament test for carpal tunnel syndrome, including which fingers to use and what thresholds are typically used?",
+        "section_type": "treatment",
+        "filename": "Carpal_Tunnel_Syndrome.pdf",
+        "generated_response": "**Assessment**\n\nThe Semmes-Weinstein monofilament test is a widely used method to assess sensitivity to light touch in patients with suspected carpal tunnel syndrome (CTS). The test involves using a series of monofilaments of varying thicknesses to determine the patient's threshold for normal light touch sensation.\n\n**Recommendations**\n\nFor assessing and documenting a patient's sensitivity to light touch with the Semmes-Weinstein monofilament test, follow these steps:\n\n1. Use the 2.83 or 3.22 monofilament as the initial threshold for normal light touch sensation on the middle finger.\n2. If the patient cannot feel the 2.83 monofilament, use the 3.22 monofilament as the new threshold.\n3. Assess any radial finger using the 3.22 filament as the threshold for normal in patients with suspected moderate to severe CTS.\n4. Repeat the test by the same provider to ensure consistency and accuracy.\n\n**Considerations**\n\n* It is essential to use a standardized testing protocol to minimize variability and ensure accurate results.\n* The patient's hand dominance should be considered when selecting the monofilament threshold.\n* Clinicians should document the patient's age, wrist ratio index (greater than 0.67), and scores from the Boston Carpal Tunnel Questionnaire-symptom severity scale (CTQ-SSS) (greater than 1.9) to provide a comprehensive clinical picture.\n\n**Acknowledgment of Discrepancy**\n\nWhile both the 2.83 and 3.22 monofilaments are commonly used, there is no clear consensus on which one should be used as the initial threshold for normal light touch sensation. Clinicians may need to consult with colleagues or refer to additional guidelines for specific recommendations.\n\n**Contraindications**\n\nThe Semmes-Weinstein monofilament test is generally contraindicated in patients with severe sensory loss, neuropathy, or other conditions that may affect the accuracy of the test results. Clinicians should exercise caution when using this test in patients with these conditions and consider alternative assessment methods if necessary.\n\n**Important Note**\n\nThis response is based solely on the provided clinical context and does not provide direct patient care advice. Healthcare professionals should consult with colleagues and refer to additional guidelines as needed to ensure accurate and comprehensive patient care.",
+        "retrieved_chunks_count": 5,
+        "success": true,
+        "judge_score": 4,
+        "judge_percentage": 57.14285714285714,
+        "individual_scores": [
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false
+        ],
+        "dimension_scores": {
+          "clinical_accuracy": 3,
+          "relevance": 1,
+          "evidence_support": 0
+        },
+        "parse_success": true
+      }
+    ]
+  },
+  "all_results": [
+    {
+      "id": "eval_001",
+      "question": "Can you walk me through your assessment findings for this patient's low back pain - specifically, what movements or postures did they exhibit that led to a specific classification based on changes in symptoms?",
+      "section_type": "methods",
+      "filename": "Acute_Low_Back_Pain.pdf",
+      "generated_response": "**Assessment**\n\nBased on the provided clinical context, I will guide you through a hypothetical assessment of a patient with low back pain. Please note that this response is based solely on the provided information and may not fully address all aspects of the query.\n\nThe patient presents with low back pain, and we need to determine the classification system to guide treatment approach. To do so, we must first identify the specific movements or postures exhibited by the patient that led to changes in symptoms.\n\n**Movement System Impairment Classification**\n\nDuring the standardized examination, the patient exhibits impaired trunk movements and postures associated with low back pain symptoms. Specifically, they display:\n\n* Limited range of motion in the lumbar spine (L3-L5) during extension and flexion\n* Abnormal posture, with a forward head position and rounded shoulders\n* Muscle tension in the paraspinal muscles\n\nThese findings suggest that the patient's movement system impairment classification is likely related to impaired trunk movements and postures.\n\n**Recommendations**\n\nBased on the assessment findings, I recommend the following:\n\n1. **Treatment-based Classification**: Given the patient's specific symptoms and examination findings, a treatment-based classification approach may be most appropriate. This would involve guiding initial treatment approach (manipulation, stabilization, specific exercise, or traction) based on specific initial assessment findings.\n2. **Movement System Impairment**: The impaired trunk movements and postures observed during the standardized examination suggest that movement system impairment classification may be a suitable option.\n\n**Considerations**\n\nWhen applying these classifications, it is essential to consider the following:\n\n* Contraindications: Patients with certain medical conditions (e.g., osteoporosis, spinal fractures) may require modified treatment approaches.\n* Clinical considerations: The patient's symptoms and examination findings should be carefully evaluated to determine the most effective treatment approach.\n\n**Missing Information**\n\nThe provided clinical context does not fully address the query regarding specific classification systems. Additional information on the patient's history, clinical presentation, and physical examination findings would be necessary to accurately determine the most suitable classification system.\n\nPlease note that this response is based solely on the provided clinical context and may not reflect the actual assessment findings for a real patient.",
+      "retrieved_chunks_count": 5,
+      "success": true,
+      "judge_score": 0,
+      "judge_percentage": 0.0,
+      "individual_scores": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "dimension_scores": {
+        "clinical_accuracy": 0,
+        "relevance": 0,
+        "evidence_support": 0
+      },
+      "parse_success": true
+    },
+    {
+      "id": "eval_002",
+      "question": "Can you tell me if mobilization was found to be effective in combination with other interventions, such as neural mobilization or electrotherapy, and if so, what were the results of those studies?",
+      "section_type": "treatment",
+      "filename": "Acute_Low_Back_Pain.pdf",
+      "generated_response": "**Assessment**\n\nBased on the provided clinical context, mobilization was found to be effective in combination with other interventions, such as neural mobilization and electrotherapy. The evidence suggests that when mobilization is added to standard physical therapy, laser therapy plus exercise, or exercise plus electrotherapy, there are significant short-term improvements in pain and disability.\n\n**Recommendations**\n\n1. For patients with chronic low back pain (LBP), consider adding mobilization to their treatment plan as part of a comprehensive physical therapy program.\n2. Neural mobilization may be beneficial when added to an exercise program, but more research is needed to confirm its effectiveness.\n3. Electrotherapy may also be effective when combined with mobilization and exercise, but further studies are required to establish the optimal combination.\n\n**Considerations**\n\n1. The current evidence base suggests that mobilization can be an effective adjunctive treatment for chronic LBP, but more research is needed to fully understand its benefits and limitations.\n2. Contraindications for mobilization include acute fractures, osteoporosis, and certain joint conditions (e.g., ligament sprains). Healthcare professionals should carefully assess each patient's individual needs before implementing mobilization therapy.\n3. The optimal dosing and frequency of mobilization are not well established, and further research is needed to determine the most effective treatment protocols.\n\n**Missing Information**\n\nThe clinical context does not provide information on the long-term effects of combining mobilization with other interventions or the specific neural mobilization techniques used in the studies mentioned. Further research is necessary to address these knowledge gaps.",
+      "retrieved_chunks_count": 5,
+      "success": true,
+      "judge_score": 6,
+      "judge_percentage": 85.71428571428571,
+      "individual_scores": [
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true
+      ],
+      "dimension_scores": {
+        "clinical_accuracy": 3,
+        "relevance": 1,
+        "evidence_support": 2
+      },
+      "parse_success": true
+    },
+    {
+      "id": "eval_003",
+      "question": "Can you walk me through the specifics of the ergonomic keyboard trial by O'Connor et al - what was the design of the studied keyboards and how did they compare to standard mice in terms of symptoms reduction?",
+      "section_type": "treatment",
+      "filename": "Carpal_Tunnel_Syndrome.pdf",
+      "generated_response": "**Assessment**\n\nThe clinical query regarding the specifics of the ergonomic keyboard trial by O'Connor et al requires a review of the provided clinical context. According to Source 1, O'Connor et al conducted a study evaluating the short-term effectiveness of two ergonomically designed keyboards in patients with Carpal Tunnel Syndrome (CTS). The studied keyboards differed in their layout but not in terms of conventional layout.\n\n**Design of the Studied Keyboards**\n\nThe exact design of the studied keyboards is not explicitly stated in the provided clinical context. However, it can be inferred that they were ergonomically designed to reduce carpal tunnel pressure and promote wrist alignment.\n\n**Comparison to Standard Mice**\n\nAccording to Source 1, Schmid et al compared the effects of a vertical mouse, a standard mouse, and two ergonomic keyboards on patients with mild or moderate CTS. The study found that the vertical mouse showed the largest extension angle (P<.001) but the smallest ulnar deviation angle (P<.006). There was no significant difference in patient-reported comfort across the four devices (P = .71).\n\n**Symptoms Reduction**\n\nThe provided clinical context does not provide explicit information on symptoms reduction with the use of the studied ergonomic keyboards. However, it is mentioned that Rempel et al found improvement in pain levels between 6 and 12 weeks for those in the reduced key-strike force group (weighted MD [WMD], \u20132.40; 95% CI: \u20134.45, \u20130.35).\n\n**Recommendations**\n\nBased on the provided clinical context, it is unclear whether the studied ergonomic keyboards are effective in reducing symptoms of CTS. Further research is needed to determine their efficacy and potential benefits.\n\n**Considerations**\n\nWhen considering the use of ergonomic keyboards for patients with CTS, healthcare professionals should be aware that increased carpal tunnel pressure above 30 mmHg and forceful hand exertions are strongly associated with CTS. The provided clinical context suggests that mouse use may further increase carpal tunnel pressure, regardless of the design.\n\n**Contraindications**\n\nThere is no information in the provided clinical context regarding contraindications for the use of ergonomic keyboards in patients with CTS. However, healthcare professionals should consider individual patient factors and potential interactions with other treatments when making decisions about keyboard use.\n\n**Acknowledgment of Discrepancy**\n\nThe provided clinical context does not provide explicit information on the design of the studied keyboards, which may limit the interpretation of the results. Further research is needed to determine the specific design features of the studied keyboards and their effects on CTS symptoms.",
+      "retrieved_chunks_count": 5,
+      "success": true,
+      "judge_score": 4,
+      "judge_percentage": 57.14285714285714,
+      "individual_scores": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "dimension_scores": {
+        "clinical_accuracy": 2,
+        "relevance": 1,
+        "evidence_support": 1
+      },
+      "parse_success": true
+    },
+    {
+      "id": "eval_004",
+      "question": "Can you walk me through your patient's return to aerobic exercise routine after concussion - specifically how do you assess their readiness based on symptom level, and what's the general goal for intensity progression?",
+      "section_type": "general",
+      "filename": "Concussion.pdf",
+      "generated_response": "**Assessment**\n\nWhen assessing a patient's readiness to return to an aerobic exercise routine after concussion, it is essential to consider their symptom level and progress. The American College of Sports Medicine (ACSM) recommends that patients with concussion should be asymptomatic for at least 7-10 days before resuming physical activity (1). However, the provided clinical context does not provide specific guidance on how to assess readiness based solely on symptom level.\n\n**Recommendations**\n\nBased on the evidence-based guidelines provided in the clinical context, it is recommended that physical therapists use post-concussion symptom assessments/checklists to monitor recovery and evaluate certain symptoms such as dizziness, headache, fatigue, and neck pain (II). The High-level Mobility Assessment Tool (HiMAT) has been shown to be a useful tool for evaluating balance problems in individuals who have experienced a concussive event (III).\n\nWhen assessing readiness to return to aerobic exercise, physical therapists should consider the following:\n\n* Symptom level: Patients should be asymptomatic for at least 7-10 days before resuming physical activity.\n* Progress: Patients should demonstrate progressive improvement in symptoms and functional abilities.\n\n**Considerations**\n\nThe intensity progression of an aerobic exercise routine after concussion is crucial to avoid exacerbating symptoms. The provided clinical context does not provide specific guidance on the general goal for intensity progression.\n\nHowever, based on the evidence-based guidelines provided in the clinical context, it is recommended that physical therapists aim to gradually increase the intensity and duration of aerobic exercise over time, while monitoring the patient's response and adjusting the intensity accordingly (II).\n\n**Contraindications**\n\nPatients with concussion should avoid high-intensity exercise, especially if they have a history of mental health or substance use disorders. Physical therapists should educate patients about the potential risks of exacerbating symptoms and the importance of gradual progression in aerobic exercise.\n\n**References**\n\n(1) American College of Sports Medicine. (2018). ACSM's Guidelines for Exercise Testing and Prescription. Philadelphia, PA: Wolters Kluwer.\n\nNote: The provided clinical context does not fully address the query regarding intensity progression. Further information on this topic would be necessary to provide a more comprehensive response.",
+      "retrieved_chunks_count": 5,
+      "success": true,
+      "judge_score": 6,
+      "judge_percentage": 85.71428571428571,
+      "individual_scores": [
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true
+      ],
+      "dimension_scores": {
+        "clinical_accuracy": 3,
+        "relevance": 1,
+        "evidence_support": 2
+      },
+      "parse_success": true
+    },
+    {
+      "id": "eval_005",
+      "question": "Can you walk me through how to assess and document a patient's sensitivity to light touch with the Semmes-Weinstein monofilament test for carpal tunnel syndrome, including which fingers to use and what thresholds are typically used?",
+      "section_type": "treatment",
+      "filename": "Carpal_Tunnel_Syndrome.pdf",
+      "generated_response": "**Assessment**\n\nThe Semmes-Weinstein monofilament test is a widely used method to assess sensitivity to light touch in patients with suspected carpal tunnel syndrome (CTS). The test involves using a series of monofilaments of varying thicknesses to determine the patient's threshold for normal light touch sensation.\n\n**Recommendations**\n\nFor assessing and documenting a patient's sensitivity to light touch with the Semmes-Weinstein monofilament test, follow these steps:\n\n1. Use the 2.83 or 3.22 monofilament as the initial threshold for normal light touch sensation on the middle finger.\n2. If the patient cannot feel the 2.83 monofilament, use the 3.22 monofilament as the new threshold.\n3. Assess any radial finger using the 3.22 filament as the threshold for normal in patients with suspected moderate to severe CTS.\n4. Repeat the test by the same provider to ensure consistency and accuracy.\n\n**Considerations**\n\n* It is essential to use a standardized testing protocol to minimize variability and ensure accurate results.\n* The patient's hand dominance should be considered when selecting the monofilament threshold.\n* Clinicians should document the patient's age, wrist ratio index (greater than 0.67), and scores from the Boston Carpal Tunnel Questionnaire-symptom severity scale (CTQ-SSS) (greater than 1.9) to provide a comprehensive clinical picture.\n\n**Acknowledgment of Discrepancy**\n\nWhile both the 2.83 and 3.22 monofilaments are commonly used, there is no clear consensus on which one should be used as the initial threshold for normal light touch sensation. Clinicians may need to consult with colleagues or refer to additional guidelines for specific recommendations.\n\n**Contraindications**\n\nThe Semmes-Weinstein monofilament test is generally contraindicated in patients with severe sensory loss, neuropathy, or other conditions that may affect the accuracy of the test results. Clinicians should exercise caution when using this test in patients with these conditions and consider alternative assessment methods if necessary.\n\n**Important Note**\n\nThis response is based solely on the provided clinical context and does not provide direct patient care advice. Healthcare professionals should consult with colleagues and refer to additional guidelines as needed to ensure accurate and comprehensive patient care.",
+      "retrieved_chunks_count": 5,
+      "success": true,
+      "judge_score": 4,
+      "judge_percentage": 57.14285714285714,
+      "individual_scores": [
+        true,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "dimension_scores": {
+        "clinical_accuracy": 3,
+        "relevance": 1,
+        "evidence_support": 0
+      },
+      "parse_success": true
+    }
+  ]
+}

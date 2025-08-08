@@ -1,0 +1,304 @@
+{
+  "metadata": {
+    "timestamp": "20250807_222615",
+    "evaluation_type": "generation_llm_judge",
+    "system": "clinical_rag",
+    "total_responses": 5,
+    "successful_evaluations": 5,
+    "overall_score": "2.8/7",
+    "overall_percentage": "40.0%",
+    "pass_rate": "40.0%",
+    "performance_category": "needs_improvement",
+    "generation_model": "openai/gpt-3.5-turbo",
+    "judge_model": "ollama/llama3.2:3b",
+    "clinical_accuracy_score": "1.6/3",
+    "clinical_accuracy_percentage": "53.3%",
+    "relevance_score": "0.6/2",
+    "relevance_percentage": "30.0%",
+    "evidence_support_score": "0.6/2",
+    "evidence_support_percentage": "30.0%",
+    "parameters": {
+      "generation_model": "openai/gpt-3.5-turbo",
+      "judge_model": "ollama/llama3.2:3b",
+      "top_k": 5,
+      "similarity_threshold": 0.3,
+      "enhance_query": true,
+      "temperature": 0.1,
+      "total_queries": 52
+    },
+    "failure_analysis": {
+      "total_failures": 3,
+      "failure_rate": "60.0%",
+      "top_failing_sections": {
+        "methods": 1,
+        "treatment": 1,
+        "general": 1
+      },
+      "top_failing_documents": {
+        "Acute_Low_Back_Pain.pdf": 1,
+        "Carpal_Tunnel_Syndrome.pdf": 1,
+        "Concussion.pdf": 1
+      }
+    },
+    "recommendation": "needs_significant_improvement",
+    "insights": "Poor performance, consider different models or major prompt revisions"
+  },
+  "detailed_metrics": {
+    "total_responses": 5,
+    "successful_evaluations": 5,
+    "evaluation_success_rate": 1.0,
+    "overall_score": 2.8,
+    "overall_percentage": 40.0,
+    "pass_rate": 0.4,
+    "pass_threshold": 5,
+    "dimension_metrics": {
+      "clinical_accuracy": {
+        "average_score": 1.6,
+        "max_possible": 3,
+        "percentage": 53.333333333333336
+      },
+      "relevance": {
+        "average_score": 0.6,
+        "max_possible": 2,
+        "percentage": 30.0
+      },
+      "evidence_support": {
+        "average_score": 0.6,
+        "max_possible": 2,
+        "percentage": 30.0
+      }
+    },
+    "performance_category": "needs_improvement",
+    "score_distribution": {
+      "min_score": 0,
+      "max_score": 6,
+      "median_score": 3
+    }
+  },
+  "detailed_failure_analysis": {
+    "total_failures": 3,
+    "failure_rate": 0.6,
+    "failures_by_section": {
+      "methods": 1,
+      "treatment": 1,
+      "general": 1
+    },
+    "failures_by_document": {
+      "Acute_Low_Back_Pain.pdf": 1,
+      "Carpal_Tunnel_Syndrome.pdf": 1,
+      "Concussion.pdf": 1
+    },
+    "low_scoring_examples": [
+      {
+        "id": "eval_001",
+        "question": "Can you walk me through your assessment findings for this patient's low back pain - specifically, what movements or postures did they exhibit that led to a specific classification based on changes in symptoms?",
+        "section_type": "methods",
+        "filename": "Acute_Low_Back_Pain.pdf",
+        "generated_response": "Assessment:\nBased on the provided clinical context, the assessment findings for this patient's low back pain would involve observing their response to direction-specific, repeated lumbar spine movements or sustained postures. The patient would be classified into different syndromes (derangement, dysfunction, or postural) based on changes in symptoms during these movements or postures. Additionally, the initial treatment approach would be guided by specific assessment findings, including patient history, clinical presentation, and physical examination.\n\nRecommendations:\nFor this patient with low back pain, it is recommended to utilize a classification system such as Mechanical Diagnosis and Therapy (MDT) or Treatment-based classification (TBC) to guide the treatment approach. These classification methods can help identify specific subgroups of patients with low back pain and match them to interventions that are most likely to be beneficial. It is important to consider the findings from the assessment to determine the most appropriate classification and treatment plan for the patient.\n\nConsiderations:\nIt is important to note that there is a lack of randomized controlled trials (RCTs) comparing different classification systems for patients with chronic low back pain. Therefore, the generalizability of findings from studies on classification systems should be investigated further. Additionally, healthcare professionals should consider the individual patient's characteristics, preferences, and response to treatment when determining the most suitable classification and treatment approach for low back pain.",
+        "retrieved_chunks_count": 5,
+        "success": true,
+        "judge_score": 0,
+        "judge_percentage": 0.0,
+        "individual_scores": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "dimension_scores": {
+          "clinical_accuracy": 0,
+          "relevance": 0,
+          "evidence_support": 0
+        },
+        "parse_success": true
+      },
+      {
+        "id": "eval_004",
+        "question": "Can you walk me through your patient's return to aerobic exercise routine after concussion - specifically how do you assess their readiness based on symptom level, and what's the general goal for intensity progression?",
+        "section_type": "general",
+        "filename": "Concussion.pdf",
+        "generated_response": "ASSESSMENT:\nWhen assessing a patient's readiness to return to aerobic exercise after a concussion, it is essential to consider their symptom level and overall recovery progress. Factors to evaluate include the patient's expression of coping strategies, support system, potential risk factors, attitude towards recovery, and access to resources that may facilitate recovery. Additionally, monitoring post-concussion symptoms using outcome measures such as the Post-Concussion Symptom Scale and specific assessments like the Dizziness Handicap Inventory can help track progress and guide decision-making.\n\nRECOMMENDATIONS:\nBased on the evidence provided, a monitored, progressive, symptom-guided aerobic exercise training program is recommended for individuals recovering from a concussion. This type of exercise has been shown to be feasible, safe, and may accelerate symptom resolution and neurologic recovery. It is important to tailor the exercise program to the individual's needs, adjusting the mode, exertion protocols, and dosage of training as necessary. Early initiation of aerobic exercise, within the first 10 days post-concussion, has also been shown to potentially speed up recovery.\n\nCONSIDERATIONS:\nWhen progressing the intensity of aerobic exercise, it is crucial to closely monitor the patient's symptoms and response to the training. Gradual progression based on symptom level and tolerance is key to preventing exacerbation of symptoms or setbacks in recovery. It is important to educate patients and their families/caregivers about the potential symptoms, impairments, and limitations associated with concussion, while also emphasizing the likelihood of a relatively quick recovery. Continual monitoring and re-evaluation throughout the patient's episode of care are essential for optimal matching of interventions and ensuring a safe return to aerobic exercise.",
+        "retrieved_chunks_count": 5,
+        "success": true,
+        "judge_score": 0,
+        "judge_percentage": 0.0,
+        "individual_scores": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "dimension_scores": {
+          "clinical_accuracy": 0,
+          "relevance": 0,
+          "evidence_support": 0
+        },
+        "parse_success": true
+      },
+      {
+        "id": "eval_003",
+        "question": "Can you walk me through the specifics of the ergonomic keyboard trial by O'Connor et al - what was the design of the studied keyboards and how did they compare to standard mice in terms of symptoms reduction?",
+        "section_type": "treatment",
+        "filename": "Carpal_Tunnel_Syndrome.pdf",
+        "generated_response": "ASSESSMENT:\nThe study by O'Connor et al analyzed the effectiveness of ergonomic keyboards in patients with Carpal Tunnel Syndrome (CTS). The study included two randomized controlled trials comparing self-reported pain levels, symptom severity, and nerve conduction studies in individuals with CTS using ergonomic keyboards versus standard keyboards.\n\nRECOMMENDATIONS:\nThe studied ergonomic keyboards had a conventional layout but differed in the required force needed for key displacement. Rempel et al found that individuals using the ergonomic keyboard with reduced key-strike force experienced improvement in pain levels between 6 and 12 weeks compared to those using a standard keyboard. However, Tittiranonda et al did not find a significant difference in pain severity at 6 months compared to baseline in individuals with CTS using different ergonomic keyboards.\n\nCONSIDERATIONS:\nIt is important to note that there was insufficient evidence to support the short or long-term effectiveness of the studied ergonomic keyboards in patients with CTS. Additionally, the use of ergonomic devices may be more expensive than standard devices, and there is evidence suggesting that mouse use can further increase carpal tunnel pressure, which is strongly associated with CTS. Therefore, healthcare professionals should consider the cost-effectiveness and potential risks associated with using ergonomic devices in patients with CTS.",
+        "retrieved_chunks_count": 5,
+        "success": true,
+        "judge_score": 3,
+        "judge_percentage": 42.857142857142854,
+        "individual_scores": [
+          true,
+          false,
+          true,
+          false,
+          true,
+          false,
+          false
+        ],
+        "dimension_scores": {
+          "clinical_accuracy": 2,
+          "relevance": 1,
+          "evidence_support": 0
+        },
+        "parse_success": true
+      }
+    ]
+  },
+  "all_results": [
+    {
+      "id": "eval_001",
+      "question": "Can you walk me through your assessment findings for this patient's low back pain - specifically, what movements or postures did they exhibit that led to a specific classification based on changes in symptoms?",
+      "section_type": "methods",
+      "filename": "Acute_Low_Back_Pain.pdf",
+      "generated_response": "Assessment:\nBased on the provided clinical context, the assessment findings for this patient's low back pain would involve observing their response to direction-specific, repeated lumbar spine movements or sustained postures. The patient would be classified into different syndromes (derangement, dysfunction, or postural) based on changes in symptoms during these movements or postures. Additionally, the initial treatment approach would be guided by specific assessment findings, including patient history, clinical presentation, and physical examination.\n\nRecommendations:\nFor this patient with low back pain, it is recommended to utilize a classification system such as Mechanical Diagnosis and Therapy (MDT) or Treatment-based classification (TBC) to guide the treatment approach. These classification methods can help identify specific subgroups of patients with low back pain and match them to interventions that are most likely to be beneficial. It is important to consider the findings from the assessment to determine the most appropriate classification and treatment plan for the patient.\n\nConsiderations:\nIt is important to note that there is a lack of randomized controlled trials (RCTs) comparing different classification systems for patients with chronic low back pain. Therefore, the generalizability of findings from studies on classification systems should be investigated further. Additionally, healthcare professionals should consider the individual patient's characteristics, preferences, and response to treatment when determining the most suitable classification and treatment approach for low back pain.",
+      "retrieved_chunks_count": 5,
+      "success": true,
+      "judge_score": 0,
+      "judge_percentage": 0.0,
+      "individual_scores": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "dimension_scores": {
+        "clinical_accuracy": 0,
+        "relevance": 0,
+        "evidence_support": 0
+      },
+      "parse_success": true
+    },
+    {
+      "id": "eval_002",
+      "question": "Can you tell me if mobilization was found to be effective in combination with other interventions, such as neural mobilization or electrotherapy, and if so, what were the results of those studies?",
+      "section_type": "treatment",
+      "filename": "Acute_Low_Back_Pain.pdf",
+      "generated_response": "ASSESSMENT:\nBased on the provided sources, mobilization combined with other interventions such as neural mobilization or electrotherapy has shown varying effectiveness in patients with chronic low back pain (LBP). Some studies have reported short-term improvements in pain and disability outcomes for patients receiving mobilization in combination with neural mobilization or other physical therapy interventions. However, there are conflicting results from different studies, with some showing no significant difference in pain or function between mobilization and sham treatment.\n\nRECOMMENDATIONS:\n1. When considering the use of mobilization in combination with other interventions for patients with chronic LBP, healthcare professionals should carefully assess the individual patient's condition and response to treatment.\n2. It may be beneficial to incorporate mobilization as part of a comprehensive treatment plan that includes neural mobilization, physical therapy interventions, or electrotherapy, based on the patient's specific needs and response to treatment.\n3. Regular monitoring of the patient's progress and adjustment of the treatment plan as needed is essential to optimize outcomes.\n\nCONSIDERATIONS:\n1. The effectiveness of mobilization in combination with other interventions may vary among individuals, and a personalized approach to treatment is recommended.\n2. It is important to consider the patient's preferences, tolerance to treatment, and any contraindications to mobilization or other interventions when designing a treatment plan.\n3. Further research may be needed to clarify the optimal combination of interventions for patients with chronic LBP and to determine the long-term effects of mobilization in these populations.\n\nPlease note that while some studies have reported positive outcomes with mobilization combined with other interventions, there are conflicting results and the overall effectiveness may depend on individual patient factors.",
+      "retrieved_chunks_count": 5,
+      "success": true,
+      "judge_score": 6,
+      "judge_percentage": 85.71428571428571,
+      "individual_scores": [
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true
+      ],
+      "dimension_scores": {
+        "clinical_accuracy": 3,
+        "relevance": 1,
+        "evidence_support": 2
+      },
+      "parse_success": true
+    },
+    {
+      "id": "eval_003",
+      "question": "Can you walk me through the specifics of the ergonomic keyboard trial by O'Connor et al - what was the design of the studied keyboards and how did they compare to standard mice in terms of symptoms reduction?",
+      "section_type": "treatment",
+      "filename": "Carpal_Tunnel_Syndrome.pdf",
+      "generated_response": "ASSESSMENT:\nThe study by O'Connor et al analyzed the effectiveness of ergonomic keyboards in patients with Carpal Tunnel Syndrome (CTS). The study included two randomized controlled trials comparing self-reported pain levels, symptom severity, and nerve conduction studies in individuals with CTS using ergonomic keyboards versus standard keyboards.\n\nRECOMMENDATIONS:\nThe studied ergonomic keyboards had a conventional layout but differed in the required force needed for key displacement. Rempel et al found that individuals using the ergonomic keyboard with reduced key-strike force experienced improvement in pain levels between 6 and 12 weeks compared to those using a standard keyboard. However, Tittiranonda et al did not find a significant difference in pain severity at 6 months compared to baseline in individuals with CTS using different ergonomic keyboards.\n\nCONSIDERATIONS:\nIt is important to note that there was insufficient evidence to support the short or long-term effectiveness of the studied ergonomic keyboards in patients with CTS. Additionally, the use of ergonomic devices may be more expensive than standard devices, and there is evidence suggesting that mouse use can further increase carpal tunnel pressure, which is strongly associated with CTS. Therefore, healthcare professionals should consider the cost-effectiveness and potential risks associated with using ergonomic devices in patients with CTS.",
+      "retrieved_chunks_count": 5,
+      "success": true,
+      "judge_score": 3,
+      "judge_percentage": 42.857142857142854,
+      "individual_scores": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "dimension_scores": {
+        "clinical_accuracy": 2,
+        "relevance": 1,
+        "evidence_support": 0
+      },
+      "parse_success": true
+    },
+    {
+      "id": "eval_004",
+      "question": "Can you walk me through your patient's return to aerobic exercise routine after concussion - specifically how do you assess their readiness based on symptom level, and what's the general goal for intensity progression?",
+      "section_type": "general",
+      "filename": "Concussion.pdf",
+      "generated_response": "ASSESSMENT:\nWhen assessing a patient's readiness to return to aerobic exercise after a concussion, it is essential to consider their symptom level and overall recovery progress. Factors to evaluate include the patient's expression of coping strategies, support system, potential risk factors, attitude towards recovery, and access to resources that may facilitate recovery. Additionally, monitoring post-concussion symptoms using outcome measures such as the Post-Concussion Symptom Scale and specific assessments like the Dizziness Handicap Inventory can help track progress and guide decision-making.\n\nRECOMMENDATIONS:\nBased on the evidence provided, a monitored, progressive, symptom-guided aerobic exercise training program is recommended for individuals recovering from a concussion. This type of exercise has been shown to be feasible, safe, and may accelerate symptom resolution and neurologic recovery. It is important to tailor the exercise program to the individual's needs, adjusting the mode, exertion protocols, and dosage of training as necessary. Early initiation of aerobic exercise, within the first 10 days post-concussion, has also been shown to potentially speed up recovery.\n\nCONSIDERATIONS:\nWhen progressing the intensity of aerobic exercise, it is crucial to closely monitor the patient's symptoms and response to the training. Gradual progression based on symptom level and tolerance is key to preventing exacerbation of symptoms or setbacks in recovery. It is important to educate patients and their families/caregivers about the potential symptoms, impairments, and limitations associated with concussion, while also emphasizing the likelihood of a relatively quick recovery. Continual monitoring and re-evaluation throughout the patient's episode of care are essential for optimal matching of interventions and ensuring a safe return to aerobic exercise.",
+      "retrieved_chunks_count": 5,
+      "success": true,
+      "judge_score": 0,
+      "judge_percentage": 0.0,
+      "individual_scores": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "dimension_scores": {
+        "clinical_accuracy": 0,
+        "relevance": 0,
+        "evidence_support": 0
+      },
+      "parse_success": true
+    },
+    {
+      "id": "eval_005",
+      "question": "Can you walk me through how to assess and document a patient's sensitivity to light touch with the Semmes-Weinstein monofilament test for carpal tunnel syndrome, including which fingers to use and what thresholds are typically used?",
+      "section_type": "treatment",
+      "filename": "Carpal_Tunnel_Syndrome.pdf",
+      "generated_response": "ASSESSMENT:\nWhen assessing a patient's sensitivity to light touch with the Semmes-Weinstein monofilament test for carpal tunnel syndrome, clinicians should use the 2.83 or 3.22 monofilament as the threshold for normal light touch sensation. The test should be performed on the middle finger to aid in determining the extent of nerve damage. In those with suspected moderate to severe carpal tunnel syndrome, clinicians should also assess any radial finger using the 3.22 filament as the threshold for normal.\n\nRECOMMENDATIONS:\n1. Use the Semmes-Weinstein monofilament test with the appropriate thresholds for normal light touch sensation.\n2. Perform the test on the middle finger and any radial finger in patients with suspected moderate to severe carpal tunnel syndrome.\n3. Repeat the test using the same monofilament by the same provider for consistency and accuracy.\n\nCONSIDERATIONS:\n- Ensure proper technique and calibration of the monofilament to obtain accurate results.\n- Consider patient comfort and cooperation during the test to minimize variability in results.\n- Document the findings of the test, including the fingers tested, thresholds used, and any abnormalities observed.\n- Consider other clinical findings and diagnostic tests in conjunction with the Semmes-Weinstein monofilament test for a comprehensive assessment of carpal tunnel syndrome.\n\nIt is important to note that the provided clinical context does not specify the specific fingers to be tested with the Semmes-Weinstein monofilament or the exact thresholds for normal sensation. Additional information on these aspects may be necessary for a more detailed assessment.",
+      "retrieved_chunks_count": 5,
+      "success": true,
+      "judge_score": 5,
+      "judge_percentage": 71.42857142857143,
+      "individual_scores": [
+        true,
+        true,
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "dimension_scores": {
+        "clinical_accuracy": 3,
+        "relevance": 1,
+        "evidence_support": 1
+      },
+      "parse_success": true
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+📊 Clinical RAG Generation Evaluation Summary
+============================================================
+
+Timestamp: 20250807_212206
+Generation Model: ollama/llama3.2:3b
+Judge Model: ollama/llama3.2:3b
+
+Overall Score: 4.0/7 (57.1%)
+Pass Rate: 40.0%
+Performance Category: needs_improvement
+
+Dimension Scores:
+  Clinical Accuracy: 2.2/3 (73.3%)
+  Relevance: 0.8/2 (40.0%)
+  Evidence Support: 1.0/2 (50.0%)
+
+Recommendation: needs_significant_improvement
+Insights: Poor performance, consider different models or major prompt revisions
