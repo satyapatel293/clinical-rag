@@ -63,6 +63,18 @@ OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES zenml up
 zenml down
 ```
 
+### Web UI
+```bash
+# Start Streamlit web interface
+source venv/bin/activate
+streamlit run app.py
+
+# Access the interface at http://localhost:8501
+# Navigate between:
+# - Clinical Q&A (main page): Ask questions and get RAG responses
+# - Evaluation Results: View comprehensive performance metrics and analysis
+```
+
 ## Architecture Overview
 
 ### Core Pipeline Flow
@@ -192,6 +204,10 @@ clinical-rag/
 - **Multi-Provider LLM Integration**: LiteLLM support for 100+ model providers
 - **Clinical RAG Generation**: Complete retrieval-augmented generation with evidence citations
 - **Flexible Model Selection**: Easy switching between local and cloud providers
+- **Web UI with Evaluation Dashboard**: Streamlit interface with comprehensive evaluation results visualization
+  - Multi-page navigation between Clinical Q&A and Evaluation Results
+  - Interactive performance metrics with charts and failure analysis
+  - Support for both retrieval and generation evaluation reports
 
 ## Phase 1 Foundation Complete
 
